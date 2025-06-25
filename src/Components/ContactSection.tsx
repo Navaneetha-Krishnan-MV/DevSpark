@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Mail, Phone, User } from 'lucide-react';
@@ -10,20 +9,20 @@ const ContactSection = () => {
       role: "Chair",
       email: "22cs000@kpriet.ac.in",
       phone: "+91 9385405744",
-      avatar: "AR"
+      avatar: "AS"
     },
     {
       name: "Kanimozhi BV",
       role: "Vice Chair",
-      email: "22cs001@kpriet.ac.in", 
+      email: "22cs001@kpriet.ac.in",
       phone: "+91 9384945040",
-      avatar: "KM"
+      avatar: "KB"
     },
     {
       name: "Navaneethakrishnan M V",
       role: "Secretary",
       email: "23cs113@kpriet.ac.in",
-      phone: "+91 9787825610", 
+      phone: "+91 9787825610",
       avatar: "NK"
     },
     {
@@ -52,7 +51,7 @@ const ContactSection = () => {
   return (
     <section className="relative py-20 bg-black overflow-hidden">
 
-        {/* Animated Grid Background */}
+      {/* Background Grid */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -63,9 +62,9 @@ const ContactSection = () => {
         }} />
       </div>
 
-      {/* Glowing Particles */}
+      {/* Glowing Dots */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
@@ -78,9 +77,10 @@ const ContactSection = () => {
           />
         ))}
       </div>
-      {/* Circuit Board Background Pattern */}
+
+      {/* Circuit Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%">
           <defs>
             <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
               <path d="M 10 10 L 90 10 L 90 90 L 10 90 Z" stroke="currentColor" strokeWidth="1" fill="none" className="text-cyan-400/20"/>
@@ -92,9 +92,9 @@ const ContactSection = () => {
         </svg>
       </div>
 
-      {/* Floating Elements */}
+      {/* Floating Squares */}
       <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
             className="absolute w-2 h-2 border border-cyan-400/30 rotate-45 animate-ping"
@@ -108,9 +108,8 @@ const ContactSection = () => {
         ))}
       </div>
 
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section Header */}
+        {/* Section Title */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <div className="px-6 py-2 border border-cyan-400/30 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm">
@@ -132,105 +131,98 @@ const ContactSection = () => {
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto"></div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Spline Section (30%) */}
-          <div className="lg:col-span-3 h-[400px] lg:h-[600px] w-full">
-            <Spline
-              scene="https://prod.spline.design/t4Q61z2kVxGthT-u/scene.splinecode"
-              className="w-full h-full"
-              style={{
-                transform: 'scale(1.2)',
-                transformOrigin: 'center center'
-              }}
-            />
+          <div className="lg:col-span-4 flex justify-center items-start">
+            <div className="w-full h-[800px] lg:h-[900px]">
+              <Spline
+                scene="https://prod.spline.design/t4Q61z2kVxGthT-u/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
           </div>
           
-          {/* Coordinators Grid (70%) */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <div className="grid md:grid-cols-2 gap-6">
-          {coordinators.map((coordinator, index) => (
-            <div
-              key={coordinator.name}
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-              style={{
-                animationDelay: `${index * 0.1}s`
-              }}
-            >
-              {/* Holographic Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              
-              {/* Glowing Border Animation */}
-              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/20 via-transparent to-cyan-400/20 animate-pulse"></div>
-              </div>
-              
-              <div className="relative p-6">
-                {/* Avatar */}
-                <div className="flex justify-center mb-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                      {coordinator.avatar}
-                    </div>
-                    <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 scale-110 group-hover:scale-125 transition-transform duration-300"></div>
-                    <div className="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping opacity-0 group-hover:opacity-100"></div>
-                  </div>
-                </div>
-
-                {/* Name & Role */}
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors duration-300">
-                    {coordinator.name}
-                  </h3>
-                  <p className="text-cyan-400 text-sm font-mono uppercase tracking-wider">
-                    {coordinator.role}
-                  </p>
-                </div>
-
-                {/* Contact Info */}
-                <div className="space-y-3">
-                  {/* Email */}
-                  <div className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 transition-colors duration-300 group/item hover:bg-cyan-400/10">
-                    <div className="flex-shrink-0">
-                      <Mail className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
-                    </div>
-                    <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-cyan-200 transition-colors duration-200">
-                      {coordinator.email}
-                    </span>
+              {coordinators.map((coordinator, index) => (
+                <div
+                  key={coordinator.name}
+                  className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+                >
+                  {/* Glow Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/20 via-transparent to-cyan-400/20 animate-pulse"></div>
                   </div>
 
-                  {/* Phone */}
-                  <div className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 transition-colors duration-300 group/item hover:bg-cyan-400/10">
-                    <div className="flex-shrink-0">
-                      <Phone className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
+                  <div className="relative p-6">
+                    {/* Avatar */}
+                    <div className="flex justify-center mb-4">
+                      <div className="relative">
+                        <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                          {coordinator.avatar}
+                        </div>
+                        <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 scale-110 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div className="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping opacity-0 group-hover:opacity-100"></div>
+                      </div>
                     </div>
-                    <span className="text-gray-300 text-sm font-mono group-hover/item:text-cyan-200 transition-colors duration-200">
-                      {coordinator.phone}
-                    </span>
+
+                    {/* Name & Role */}
+                    <div className="text-center mb-4">
+                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors duration-300">
+                        {coordinator.name}
+                      </h3>
+                      <p className="text-cyan-400 text-sm font-mono uppercase tracking-wider">
+                        {coordinator.role}
+                      </p>
+                    </div>
+
+                    {/* Email & Phone */}
+                    <div className="space-y-3">
+                      <a
+                        href={`mailto:${coordinator.email}`}
+                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
+                      >
+                        <Mail className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
+                        <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-cyan-200 break-all">
+                          {coordinator.email}
+                        </span>
+                      </a>
+
+                      <a
+                        href={`tel:${coordinator.phone.replace(/\s/g, '')}`}
+                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
+                      >
+                        <Phone className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
+                        <span className="text-gray-300 text-sm font-mono group-hover/item:text-cyan-200 break-all">
+                          {coordinator.phone}
+                        </span>
+                      </a>
+                    </div>
+
+                    {/* Online Indicator */}
+                    <div className="flex items-center justify-center mt-4 space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-green-400 text-xs font-mono">ONLINE</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Status Indicator */}
-                <div className="flex items-center justify-center mt-4 space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 text-xs font-mono">ONLINE</span>
+                  {/* Bottom Glow */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-              </div>
-
-              {/* Bottom Glow */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Bottom Message */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm">
-            <span className="text-cyan-300 font-mono text-lg">Ready to Spark Innovation?</span>
-            <div className="flex space-x-1">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+            {/* Bottom Message */}
+            <div className="text-center mt-16">
+              <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm">
+                <span className="text-cyan-300 font-mono text-lg">Ready to Spark Innovation?</span>
+                <div className="flex space-x-1">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

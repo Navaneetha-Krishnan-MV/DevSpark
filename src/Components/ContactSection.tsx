@@ -1,6 +1,5 @@
-import React from 'react';
-import Spline from '@splinetool/react-spline';
-import { Mail, Phone, User } from 'lucide-react';
+import Spline from "@splinetool/react-spline"
+import { Mail, Phone, User } from "lucide-react"
 
 const ContactSection = () => {
   const coordinators = [
@@ -9,61 +8,63 @@ const ContactSection = () => {
       role: "Chair",
       email: "22cs000@kpriet.ac.in",
       phone: "+91 9385405744",
-      avatar: "AS"
+      avatar: "AS",
     },
     {
       name: "Kanimozhi BV",
       role: "Vice Chair",
       email: "22cs001@kpriet.ac.in",
       phone: "+91 9384945040",
-      avatar: "KB"
+      avatar: "KB",
     },
     {
       name: "Navaneethakrishnan M V",
       role: "Secretary",
       email: "23cs113@kpriet.ac.in",
       phone: "+91 9787825610",
-      avatar: "NK"
+      avatar: "NK",
     },
     {
       name: "Harini L",
       role: "Joint Secretary",
       email: "22cs002@kpriet.ac.in",
       phone: "+91 8667877621",
-      avatar: "HL"
+      avatar: "HL",
     },
     {
       name: "Kanimuthu AR M",
       role: "Treasurer",
       email: "22cs003@kpriet.ac.in",
       phone: "+91 9600477801",
-      avatar: "KM"
+      avatar: "KM",
     },
     {
       name: "Nitish P K",
       role: "Head Designer",
       email: "22cs004@kpriet.ac.in",
       phone: "+91 9677491055",
-      avatar: "NP"
-    }
-  ];
+      avatar: "NP",
+    },
+  ]
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
-
+    <section className="relative py-20 bg-black" style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
       {/* Background Grid */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
+      <div className="absolute inset-0 opacity-20 -z-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
             linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px'
-        }} />
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
       {/* Glowing Dots */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
@@ -72,28 +73,34 @@ const ContactSection = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDuration: `${2 + Math.random() * 2}s`,
             }}
           />
         ))}
       </div>
 
       {/* Circuit Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 -z-10">
         <svg width="100%" height="100%">
           <defs>
             <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M 10 10 L 90 10 L 90 90 L 10 90 Z" stroke="currentColor" strokeWidth="1" fill="none" className="text-cyan-400/20"/>
-              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-cyan-400/30"/>
-              <circle cx="90" cy="90" r="2" fill="currentColor" className="text-cyan-400/30"/>
+              <path
+                d="M 10 10 L 90 10 L 90 90 L 10 90 Z"
+                stroke="currentColor"
+                strokeWidth="1"
+                fill="none"
+                className="text-cyan-400/20"
+              />
+              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-cyan-400/30" />
+              <circle cx="90" cy="90" r="2" fill="currentColor" className="text-cyan-400/30" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)"/>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
         </svg>
       </div>
 
       {/* Floating Squares */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         {[...Array(10)].map((_, i) => (
           <div
             key={i}
@@ -102,13 +109,13 @@ const ContactSection = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
+              animationDuration: `${3 + Math.random() * 2}s`,
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6" style={{ overflow: "visible" }}>
         {/* Section Title */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
@@ -119,7 +126,7 @@ const ContactSection = () => {
               </span>
             </div>
           </div>
-          
+
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
             CONTACT TEAM
           </h2>
@@ -131,19 +138,9 @@ const ContactSection = () => {
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Spline Section (30%) */}
-          <div className="lg:col-span-4 flex justify-center items-start">
-            <div className="w-full h-[800px] lg:h-[900px]">
-              <Spline
-                scene="https://prod.spline.design/t4Q61z2kVxGthT-u/scene.splinecode"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-          
-          <div className="lg:col-span-8">
-            <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-6 relative z-20">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               {coordinators.map((coordinator, index) => (
                 <div
                   key={coordinator.name}
@@ -155,11 +152,11 @@ const ContactSection = () => {
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/20 via-transparent to-cyan-400/20 animate-pulse"></div>
                   </div>
 
-                  <div className="relative p-6">
+                  <div className="relative p-4">
                     {/* Avatar */}
                     <div className="flex justify-center mb-4">
                       <div className="relative">
-                        <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                           {coordinator.avatar}
                         </div>
                         <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 scale-110 group-hover:scale-125 transition-transform duration-300"></div>
@@ -169,12 +166,10 @@ const ContactSection = () => {
 
                     {/* Name & Role */}
                     <div className="text-center mb-4">
-                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors duration-300">
                         {coordinator.name}
                       </h3>
-                      <p className="text-cyan-400 text-sm font-mono uppercase tracking-wider">
-                        {coordinator.role}
-                      </p>
+                      <p className="text-cyan-400 text-sm font-mono uppercase tracking-wider">{coordinator.role}</p>
                     </div>
 
                     {/* Email & Phone */}
@@ -190,7 +185,7 @@ const ContactSection = () => {
                       </a>
 
                       <a
-                        href={`tel:${coordinator.phone.replace(/\s/g, '')}`}
+                        href={`tel:${coordinator.phone.replace(/\s/g, "")}`}
                         className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
                       >
                         <Phone className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
@@ -212,23 +207,47 @@ const ContactSection = () => {
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Bottom Message */}
-            <div className="text-center mt-16">
-              <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm">
-                <span className="text-cyan-300 font-mono text-lg">Ready to Spark Innovation?</span>
-                <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                </div>
+          <div className="lg:col-span-6 w-full h-full flex justify-end items-start relative" style={{ overflow: "visible", zIndex: 30 }}>
+            <Spline
+              scene="https://prod.spline.design/t4Q61z2kVxGthT-u/scene.splinecode"
+              style={{
+                width: "100%",
+                height: "100%",
+                minHeight: "1000px", // Increased to ensure full visibility
+                position: "relative",
+                zIndex: 100,
+                overflow: "visible",
+                transform: "translateZ(0)", // Removed translateX for proper alignment
+              }}
+            />
+          </div>
+
+          {/* Bottom Message - Centered */}
+          <div className="col-span-full flex justify-center mt-16 mb-8 w-full">
+            <div className="inline-flex items-center space-x-4 px-6 py-3 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
+              <span className="text-cyan-300 font-mono text-lg md:text-xl">Ready to Spark Innovation?</span>
+              <div className="flex space-x-1">
+                <div
+                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0s" }}
+                ></div>
+                <div
+                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.1s" }}
+                ></div>
+                <div
+                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.2s" }}
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactSection;
+export default ContactSection

@@ -3,15 +3,30 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Custom scrollbar for WebKit browsers (Chrome, Safari, etc) */
 *::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+  height: 10px;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+*::-webkit-scrollbar-track {
+  background: #000000; /* Black background */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* White indicator */
+  border-radius: 5px;
+  border: 2px solid #000000; /* Black border to match track */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #f0f0f0; /* Slightly off-white on hover */
+}
+
+/* Custom scrollbar for Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #000000; /* White thumb on black track */
 }
 
 @custom-variant dark (&:is(.dark *));

@@ -214,25 +214,28 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="lg:col-span-5 relative">
-  {/* Fixed-size box aligned to the top, no flexbox pushing */}
-  <div className="w-[230px] h-[230px] relative overflow-visible">
-    <div className="absolute inset-0 top-5 w-[730px] h-[730px] overflow-visible">
-      <Spline
-        scene="https://prod.spline.design/PIxrPkEbntcNli9G/scene.splinecode" 
-        style={{
-          width: '100%',
-          height: '100%',
-          transform: 'translateZ(0)'
-        }}
-      />
+          <div className="relative w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[900px] mx-auto lg:col-span-5">
+  {/* Responsive container box */}
+  <div className="relative w-full aspect-[1/1] sm:aspect-[4/3] md:aspect-[1] overflow-visible">
+    <div
+      className="absolute inset-0 w-full h-full overflow-visible"
+      style={{
+        width: '100%',
+        height: '100%',
+        transform: 'translateZ(0)',
+      }}
+    >
+      <div className="w-full h-full relative">
+        <div className="absolute inset-0 lg:scale-[1.3] lg:translate-x-20 transition-transform duration-300 ease-in-out">
+          <Spline
+            scene="https://prod.spline.design/PIxrPkEbntcNli9G/scene.splinecode"
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
 
         {/* Bottom Message - Centered */}
         <div className="col-span-full flex justify-center mt-12 mb-4 w-full relative z-30">

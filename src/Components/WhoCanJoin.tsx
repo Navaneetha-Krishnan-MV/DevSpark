@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Users,Zap ,Star, Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, Coffee, CheckCircle, XCircle } from 'lucide-react';
+import { Users,Zap , Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, CheckCircle, XCircle } from 'lucide-react';
 
 
 const WhoCanJoin: React.FC = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const [visibleRules, setVisibleRules] = useState<number[]>([]);
+  const [, setVisibleRules] = useState<number[]>([]);
   const [visiblePermitted, setVisiblePermitted] = useState<number[]>([]);
   const [visibleProhibited, setVisibleProhibited] = useState<number[]>([]);
 

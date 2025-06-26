@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProfileCard from "../UI/ProfileCard";
-import { toast } from "sonner"; // or replace with your custom useToast if needed
+import { toast } from "sonner";
 
 interface JuryMember {
   id: number;
@@ -67,8 +67,7 @@ const Jury: React.FC = () => {
     
     // Show toast when expanding
     if (expandedCard !== member.id) {
-      toast({
-        title: `Viewing ${member.name}'s Profile`,
+      toast.success(`Viewing ${member.name}'s Profile`, {
         description: `Learn more about ${member.title}`,
         duration: 2000,
       });
@@ -77,8 +76,7 @@ const Jury: React.FC = () => {
 
   const handleContactClick = (member: JuryMember) => {
     // Handle contact button click - this is separate from card expansion
-    toast({
-      title: `Contacting ${member.name}`,
+    toast.info(`Contacting ${member.name}`, {
       description: `Opening connection with ${member.title}...`,
       duration: 3000,
     });

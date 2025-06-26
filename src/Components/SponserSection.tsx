@@ -1,4 +1,3 @@
-import React from 'react';
 import IEEE from '/IEEE_logo.png';
 import IEEECS from '/IEEE.png';
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Code, Users, Trophy, Clock, Globe, Brain, DollarSign } from 'lucide-react';
+import { Users, Trophy, Clock, Globe, Brain, DollarSign } from 'lucide-react';
 import "../UI/AboutEvent.css"
 
 const AboutEvent: React.FC = () => {

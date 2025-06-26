@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import RotatingText from '../UI/RotatingText';
 
 const CountDownTimer = () => {
@@ -123,13 +123,14 @@ const CountDownTimer = () => {
             >
               Register Now
             </button>
-
+ 
             <p className="text-white text-sm font-semibold uppercase tracking-wider mt-6 md:mt-8">
               July 28, 2025 - Monday
             </p>
           </div>
         </div>
       </div>
+
     </div>
   );
 };

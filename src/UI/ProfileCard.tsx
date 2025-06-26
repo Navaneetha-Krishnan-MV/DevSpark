@@ -60,22 +60,15 @@ const easeInOutCubic = (x: number): number =>
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = "/avatars/jury-1.jpg",
-  iconUrl,
-  grainUrl,
   behindGradient,
   innerGradient,
   showBehindGradient = true,
   className = "",
   enableTilt = true,
-  miniAvatarUrl,
   name = "Javi A. Torres",
   title = "Software Engineer",
-  handle = "javicodes",
-  status = "Online",
-  contactText = "Contact",
   showUserInfo = true,
   bio,
-  onContactClick,
   email,
   website,
   linkedin,
@@ -85,10 +78,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const [isExpanded, setIsExpanded] = React.useState(false);
-  const [isHovered, setIsHovered] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [isAnimating, setIsAnimating] = React.useState(false);
+  // Animation state (removed unused state to fix TypeScript warning)
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
@@ -262,14 +252,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const cardStyle = useMemo(
     () =>
       ({
-        "--icon": iconUrl ? `url(${iconUrl})` : "none",
-        "--grain": grainUrl ? `url(${grainUrl})` : "none",
         "--behind-gradient": showBehindGradient
           ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
           : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
       }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    [showBehindGradient, behindGradient, innerGradient]
   );
 
   const socialLinks = React.useMemo(() => {
@@ -333,9 +321,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   }, [email, website, linkedin, twitter, github]);
 
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
+
 
   return (
     <div

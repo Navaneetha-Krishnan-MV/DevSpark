@@ -1,3 +1,4 @@
+
 import Spline from "@splinetool/react-spline"
 import { Mail, Phone, User } from "lucide-react"
 
@@ -46,9 +47,12 @@ const ContactSection = () => {
       avatar: "NP",
     },
   ]
+  
 
   return (
-    <section className="relative py-20 bg-black" style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
+
+    
+    <section className="relative isolate py-20 bg-black" style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-20 -z-10">
         <div
@@ -139,9 +143,10 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-6 relative z-20">
+
+          <div className="lg:col-span-7 relative z-20">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-              {coordinators.map((coordinator, index) => (
+              {coordinators.map((coordinator) => (
                 <div
                   key={coordinator.name}
                   className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
@@ -208,42 +213,47 @@ const ContactSection = () => {
               ))}
             </div>
           </div>
+          
+          <div className="lg:col-span-5 relative">
+  {/* Fixed-size box aligned to the top, no flexbox pushing */}
+  <div className="w-[230px] h-[230px] relative overflow-visible">
+    <div className="absolute inset-0 top-5 w-[730px] h-[730px] overflow-visible">
+      <Spline
+        scene="https://prod.spline.design/PIxrPkEbntcNli9G/scene.splinecode" 
+        style={{
+          width: '100%',
+          height: '100%',
+          transform: 'translateZ(0)'
+        }}
+      />
+    </div>
+  </div>
+</div>
 
-          <div className="lg:col-span-6 w-full h-full flex justify-end items-start relative" style={{ overflow: "visible", zIndex: 30 }}>
-            <Spline
-              scene="https://prod.spline.design/t4Q61z2kVxGthT-u/scene.splinecode"
-              style={{
-                width: "100%",
-                height: "100%",
-                minHeight: "1000px", // Increased to ensure full visibility
-                position: "relative",
-                zIndex: 100,
-                overflow: "visible",
-                transform: "translateZ(0)", // Removed translateX for proper alignment
-              }}
-            />
-          </div>
 
-          {/* Bottom Message - Centered */}
-          <div className="col-span-full flex justify-center mt-16 mb-8 w-full">
-            <div className="inline-flex items-center space-x-4 px-6 py-3 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
-              <span className="text-cyan-300 font-mono text-lg md:text-xl">Ready to Spark Innovation?</span>
-              <div className="flex space-x-1">
-                <div
-                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0s" }}
-                ></div>
-                <div
-                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.1s" }}
-                ></div>
-                <div
-                  className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.2s" }}
-                ></div>
-              </div>
+
+
+
+        {/* Bottom Message - Centered */}
+        <div className="col-span-full flex justify-center mt-12 mb-4 w-full relative z-30">
+          <div className="inline-flex items-center space-x-2 sm:space-x-4 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
+            <span className="text-cyan-300 font-mono text-sm sm:text-lg md:text-xl whitespace-nowrap">Ready to Spark Innovation?</span>
+            <div className="flex space-x-1">
+              <div
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                style={{ animationDelay: "0s" }}
+              ></div>
+              <div
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                style={{ animationDelay: "0.1s" }}
+              ></div>
+              <div
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                style={{ animationDelay: "0.2s" }}
+              ></div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

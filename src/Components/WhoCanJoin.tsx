@@ -133,7 +133,7 @@ const WhoCanJoin: React.FC = () => {
           }
         }
       `}</style>
-    <section className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
+    <section id="rules" className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
 
         {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
@@ -209,7 +209,7 @@ const WhoCanJoin: React.FC = () => {
         </div>
 
         {/* Tech Tracks */}
-        <div className="mb-16">
+        <div  className="mb-16">
           <p className="text-center text-lg text-gray-300 mb-12 animate-fade-in delay-700">
             Whether you're passionate about <span className="text-cyan-400 font-semibold">AI/ML</span>, 
             obsessed with <span className="text-blue-400 font-semibold">cybersecurity</span>, or a 

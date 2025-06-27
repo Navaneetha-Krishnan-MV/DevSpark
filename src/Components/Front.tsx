@@ -3,11 +3,9 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import a from "/ai3.png"
-import { FaGift, FaUserTie, FaUserFriends, FaArrowRight, FaHandshake } from 'react-icons/fa';
 import AOS from "aos"
 import "aos/dist/aos.css"
 import Spline from "@splinetool/react-spline"
-// import { color } from "framer-motion"
 
 // Lightning Component
 const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensity: number; size: number }> = ({
@@ -59,41 +57,12 @@ export default function Home() {
   const outputCanvasRef = useRef<HTMLCanvasElement>(null)
   const imageRef = useRef<HTMLImageElement | null>(null)
 
-  // Scanner animation for Sponsor button
-  const scanRef = useRef<HTMLDivElement>(null)
-  const [position, setPosition] = useState(0)
-  const [direction, setDirection] = useState(1)
-
-  // For DevSpark underline animation
-  const [underlineFill, setUnderlineFill] = useState(true)
 
   // Typewriter effect for "SPARK" (fix: prevent K from moving to next line)
   const [sparkText, setSparkText] = useState("")
-  const [sparkIdx, setSparkIdx] = useState(0)
   const [sparkDeleting, setSparkDeleting] = useState(false)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prev) => {
-        if (prev >= 100) {
-          setDirection(-1)
-          return 100
-        } else if (prev <= 0) {
-          setDirection(1)
-          return 0
-        }
-        return prev + direction * 2
-      })
-    }, 20)
-    return () => clearInterval(interval)
-  }, [direction])
 
-  useEffect(() => {
-    const underlineTimer = setInterval(() => {
-      setUnderlineFill((prev) => !prev)
-    }, 2000)
-    return () => clearInterval(underlineTimer)
-  }, [])
 
   useEffect(() => {
     const fullText = "SPARK"
@@ -209,7 +178,8 @@ export default function Home() {
       if (typeof window !== "undefined") {
         const isMobile = window.innerWidth < 700
         document.body.style.zoom = isMobile ? "0.7" : "1"
-        document.body.style.WebkitZoom = isMobile ? "0.7" : "1"
+        document.body.style.transform = isMobile ? 'scale(0.7)' : 'scale(1)'
+        document.body.style.transformOrigin = 'top left';
       }
     }
     setZoom()
@@ -218,7 +188,7 @@ export default function Home() {
   }, [])
 
   // State to track robot loaded
-  const [robotLoaded, setRobotLoaded] = useState(false)
+  const [, setRobotLoaded] = useState(false)
 
   return (
     <div
@@ -233,6 +203,7 @@ export default function Home() {
       }}
       data-aos="fade-in"
       data-aos-duration="1200"
+      id="home"
     >
       {/* Spline battery spark as full-page background */}
       <div

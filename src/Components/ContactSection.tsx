@@ -52,7 +52,7 @@ const ContactSection = () => {
   return (
 
     
-    <section className="relative isolate py-20 bg-black" style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
+    <section id="contact" className="relative isolate py-20 bg-black" style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-20 -z-10">
         <div

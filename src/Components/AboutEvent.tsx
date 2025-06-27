@@ -91,7 +91,7 @@ const AboutEvent: React.FC = () => {
         }
       `}</style>
       
-      <section className="min-h-screen bg-black py-10 px-4 relative overflow-hidden">
+      <section id="about" className="min-h-screen bg-black py-10 px-4 relative overflow-hidden">
         
         {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">

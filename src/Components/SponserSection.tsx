@@ -1,6 +1,7 @@
 import IEEE from '/IEEE_logo.png';
 import IEEECS from '/IEEE.png';
-import IEEEHIZE from '/IEEE-HIZE.png';
+import IEEEHIZE from '/ieee-syp.jpeg';
+
 
 const SponsorSection = () => {
   const sponsors = [

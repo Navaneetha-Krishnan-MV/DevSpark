@@ -50,7 +50,7 @@ const Jury: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
+  const [, setIsTablet] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {

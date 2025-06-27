@@ -10,10 +10,7 @@ import Spline from "@splinetool/react-spline"
 // Lightning Component
 const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensity: number; size: number }> = ({
   hue,
-  //   xOffset,
   speed,
-  //   intensity,
-  //   size,
 }) => (
   <div
     style={{
@@ -28,41 +25,28 @@ const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensi
   />
 )
 
-// // Squares Component
-// const Squares: React.FC<{
-//   speed: number
-//   squareSize: number
-//   direction: string
-//   borderColor: string
-//   hoverFillColor: string
-// }> = ({ speed, squareSize, direction, borderColor, hoverFillColor }) => (
-//   <div
-//     style={{
-//       position: "absolute",
-//       inset: 0,
-//       backgroundImage: `
-//         linear-gradient(${borderColor}33 1px, transparent 1px),
-//         linear-gradient(90deg, ${borderColor}33 1px, transparent 1px)
-//       `,
-//       backgroundSize: `${squareSize}px ${squareSize}px`,
-//       opacity: 0.6,
-//       animation: `squares-move-${direction} ${10 / speed}s linear infinite `,
-//       pointerEvents: "none",
-//     }}
-//   />
-// )
-
 export default function Home() {
   const [asciiArt, setAsciiArt] = useState<string>("")
   const outputCanvasRef = useRef<HTMLCanvasElement>(null)
   const imageRef = useRef<HTMLImageElement | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isTablet, setIsTablet] = useState(false)
 
-
-  // Typewriter effect for "SPARK" (fix: prevent K from moving to next line)
+  // Typewriter effect for "SPARK"
   const [sparkText, setSparkText] = useState("")
   const [sparkDeleting, setSparkDeleting] = useState(false)
 
-
+  // Enhanced responsive check
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth
+      setIsMobile(width <= 768)
+      setIsTablet(width > 768 && width <= 1400)
+    }
+    checkScreenSize()
+    window.addEventListener("resize", checkScreenSize)
+    return () => window.removeEventListener("resize", checkScreenSize)
+  }, [])
 
   useEffect(() => {
     const fullText = "SPARK"
@@ -101,7 +85,6 @@ export default function Home() {
 
   useEffect(() => {
     if (asciiArt) renderToCanvas()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [asciiArt])
 
   useEffect(() => {
@@ -172,21 +155,6 @@ export default function Home() {
     })
   }
 
-  // Responsive zoom-out for mobile
-  useEffect(() => {
-    const setZoom = () => {
-      if (typeof window !== "undefined") {
-        const isMobile = window.innerWidth < 700
-        document.body.style.zoom = isMobile ? "0.7" : "1"
-        document.body.style.transform = isMobile ? 'scale(0.7)' : 'scale(1)'
-        document.body.style.transformOrigin = 'top left';
-      }
-    }
-    setZoom()
-    window.addEventListener("resize", setZoom)
-    return () => window.removeEventListener("resize", setZoom)
-  }, [])
-
   // State to track robot loaded
   const [, setRobotLoaded] = useState(false)
 
@@ -199,7 +167,6 @@ export default function Home() {
         position: "relative",
         overflow: "hidden",
         fontFamily: "sans-serif",
-        fontSize: typeof window !== "undefined" && window.innerWidth < 700 ? "13px" : "16px",
       }}
       data-aos="fade-in"
       data-aos-duration="1200"
@@ -212,71 +179,56 @@ export default function Home() {
           inset: 0,
           width: "100vw",
           height: "100vh",
-          zIndex: 0, // background
+          zIndex: 0,
           pointerEvents: "none",
         }}
       >
-        <Spline scene="https://prod.spline.design/FDMBklIDpExNXnEQ/scene.splinecode" />
+        <Spline
+          scene="https://prod.spline.design/FDMBklIDpExNXnEQ/scene.splinecode"
+        />
       </div>
 
       {/* Lightning overlay */}
       <Lightning hue={200} xOffset={0} speed={1} intensity={1} size={1} />
 
-      {/* Squares at the edges only */}
-      {/* <Squares speed={1} squareSize={50} direction="down" borderColor="#06b6d4" hoverFillColor="#a855f7" />
-      <Squares speed={1} squareSize={50} direction="up" borderColor="#06b6d4" hoverFillColor="#a855f7" />
-      <Squares speed={1} squareSize={50} direction="left" borderColor="#06b6d4" hoverFillColor="#a855f7" />
-      <Squares speed={1} squareSize={50} direction="right" borderColor="#06b6d4" hoverFillColor="#a855f7" /> */}
-
-      {/* Two-column layout: Left = event content, Right = 3D Spline model */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100vw",
-          height: "100vh",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {/* Left side: DevSpark content */}
+      {/* Responsive layout container */}
+      <div className={`${isMobile || isTablet ? "flex flex-col min-h-screen" : "flex flex-row h-screen"} w-full relative z-2`}>
+        {/* Content section */}
         <div
-          style={{
-            flex: 1,
-            maxWidth: "700px",
-            minWidth: "350px",
-            padding: "2.5rem 1.2rem 2.5rem 1.5vw", // reduced left padding
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "0", // moved content to the left edge
-            justifyContent: "center",
-            zIndex: 3,
-          }}
+          className={`${
+            isMobile ? "w-full px-4 py-6 flex-1" : 
+            isTablet ? "w-full px-5 py-8 flex-1" : 
+            "flex-1 max-w-[700px] min-w-[350px] px-6 py-10"
+          } flex flex-col justify-center relative z-3`}
           data-aos="fade-right"
           data-aos-duration="1200"
         >
-          <div className="relative z-10 w-200px h-full flex flex-col items-start justify-center pl-[25px]">
-            {/* IEEE Badge */}
-            {/* <div className="inline-block mb-6 animate-bounce" data-aos="zoom-in" data-aos-delay="200">
-              <span className="bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm ">
-                IEEE TECHNICAL EVENT
-              </span>
-            </div> */}
-
+          <div className={`${isMobile || isTablet ? "text-center" : "text-left"} w-full`}>
             {/* Department */}
-            <h2 className="text-xl md:text-xl text-gray-300 mb-4" data-aos="fade-right" data-aos-delay="300">
+            <h2
+              className={`${isMobile ? "text-sm sm:text-base mb-2" : isTablet ? "text-base lg:text-lg mb-3" : "text-xl mb-4"} text-gray-300`}
+              data-aos="fade-right"
+              data-aos-delay="300"
+            >
               Department of Computer Science and Engineering
             </h2>
 
-            <p className="text-cyan-400 text-lg mb-6" data-aos="fade-right" data-aos-delay="400">
+            <p
+              className={`text-cyan-400 ${isMobile ? "text-sm mb-3" : isTablet ? "text-base mb-4" : "text-lg mb-6"}`}
+              data-aos="fade-right"
+              data-aos-delay="400"
+            >
               Organize
             </p>
 
-            {/* Main Title with animated underline */}
-            <div style={{ position: "relative", marginBottom: "2.5rem" }}>
+            {/* Main Title */}
+            <div className={`relative ${isMobile ? "mb-4" : isTablet ? "mb-5" : "mb-10"}`}>
               <h1
-                className="text-5xl md:text-7xl lg:text-8xl font-bold"
-                style={{ display: "inline-block", position: "relative", whiteSpace: "nowrap" }}
+                className={`${
+                  isMobile ? "text-3xl xs:text-4xl" : 
+                  isTablet ? "text-4xl lg:text-5xl" : 
+                  "text-5xl md:text-7xl lg:text-8xl"
+                } font-bold inline-block relative whitespace-nowrap`}
                 data-aos="fade-right"
                 data-aos-delay="500"
               >
@@ -284,7 +236,7 @@ export default function Home() {
                 <span
                   className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600"
                   style={{
-                    minWidth: 90,
+                    minWidth: isMobile ? 50 : isTablet ? 60 : 90,
                     display: "inline-block",
                     whiteSpace: "nowrap",
                     verticalAlign: "bottom",
@@ -295,7 +247,7 @@ export default function Home() {
                     style={{
                       display: "inline-block",
                       width: "1ch",
-                      color: "#06b6d4", // use blue, not violet
+                      color: "#06b6d4",
                       opacity: sparkDeleting || sparkText.length < 5 ? 1 : 0,
                       animation: "blink-cursor 1s steps(1) infinite",
                     }}
@@ -303,19 +255,24 @@ export default function Home() {
                     |
                   </span>
                 </span>
-                {/* Removed animated underline */}
               </h1>
             </div>
 
             {/* Tagline */}
-            <p className="text-xl md:text-2xl text-gray-300 mb-8" data-aos="fade-right" data-aos-delay="600">
+            <p
+              className={`${isMobile ? "text-base mb-5" : isTablet ? "text-lg mb-6" : "text-xl md:text-2xl mb-8"} text-gray-300`}
+              data-aos="fade-right"
+              data-aos-delay="600"
+            >
               Where Ideas Ignite
             </p>
 
             {/* Event Details */}
-            <div className="mb-8 space-y-4" data-aos="fade-up" data-aos-delay="700">
-              <div className="flex items-center text-white text-lg">
-                <svg className="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className={`${isMobile ? "mb-4" : isTablet ? "mb-5" : "mb-8"} space-y-4`} data-aos="fade-up" data-aos-delay="700">
+              <div
+                className={`flex items-center ${isMobile || isTablet ? "justify-center" : ""} text-white ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}
+              >
+                <svg className={`${isMobile ? "w-4 h-4" : "w-5 h-5"} mr-2 text-cyan-400`} fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
@@ -327,13 +284,17 @@ export default function Home() {
             </div>
 
             {/* Tracks */}
-            <div className="mb-12" data-aos="fade-up" data-aos-delay="800">
-              <h3 className="text-white text-xl mb-4">Event Tracks</h3>
-              <div className="flex flex-wrap gap-4">
+            <div className={`${isMobile ? "mb-5" : isTablet ? "mb-6" : "mb-12"}`} data-aos="fade-up" data-aos-delay="800">
+              <h3 className={`text-white ${isMobile ? "text-base mb-2" : isTablet ? "text-lg mb-3" : "text-xl mb-4"}`}>Event Tracks</h3>
+              <div className={`flex flex-wrap gap-2 sm:gap-3 ${isMobile || isTablet ? "justify-center" : ""}`}>
                 {["Fullstack Development", "AI/ML", "Cyber Security"].map((track) => (
                   <span
                     key={track}
-                    className="bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border border-transparent text-cyan-300 px-4 py-2 rounded-lg backdrop-blur-sm"
+                    className={`bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border border-transparent text-cyan-300 ${
+                      isMobile ? "px-2 py-1 text-xs" : 
+                      isTablet ? "px-3 py-2 text-sm" : 
+                      "px-4 py-2"
+                    } rounded-lg backdrop-blur-sm`}
                   >
                     {track}
                   </span>
@@ -341,41 +302,73 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Prizes and Registration inline */}
-            <div className="mt- space-y-6" data-aos="fade-up" data-aos-delay="800">
-              <div className="flex items-center gap-4">
+            {/* Prizes and Registration */}
+            <div className="space-y-4 sm:space-y-6" data-aos="fade-up" data-aos-delay="800">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
-                <span className="text-cyan-400 text-lg font-medium">Prizes Worth</span>
+                <span className={`text-cyan-400 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-lg"} font-medium whitespace-nowrap`}>Prizes Worth</span>
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
               </div>
-              
-              <h3 className="text-3xl md:text-4xl font-bold text-white text-center">
+
+              <h3 className={`${
+                isMobile ? "text-xl" : 
+                isTablet ? "text-2xl" : 
+                "text-3xl md:text-4xl"
+              } font-bold text-white text-center`}>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                   INR 85,000+
                 </span>
               </h3>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-500/20">
-                  <p className="text-cyan-400 font-medium">IEEE Members</p>
-                  <p className="text-2xl font-bold text-white">₹500</p>
+
+              <div className={`flex ${isMobile ? "flex-col gap-2" : isTablet ? "flex-row gap-3" : "flex-row gap-4"} justify-center mt-4 sm:mt-6`}>
+                <div
+                  className={`text-center ${
+                    isMobile ? "px-3 py-2" : 
+                    isTablet ? "px-4 py-2" : 
+                    "px-6 py-3"
+                  } rounded-lg bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-500/20`}
+                >
+                  <p className={`text-cyan-400 ${isMobile ? "text-xs" : ""} font-medium`}>IEEE Members</p>
+                  <p className={`${
+                    isMobile ? "text-lg" : 
+                    isTablet ? "text-xl" : 
+                    "text-2xl"
+                  } font-bold text-white`}>₹500</p>
                 </div>
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20">
-                  <p className="text-blue-400 font-medium">Non-IEEE</p>
-                  <p className="text-2xl font-bold text-white">₹600</p>
+                <div
+                  className={`text-center ${
+                    isMobile ? "px-3 py-2" : 
+                    isTablet ? "px-4 py-2" : 
+                    "px-6 py-3"
+                  } rounded-lg bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20`}
+                >
+                  <p className={`text-blue-400 ${isMobile ? "text-xs" : ""} font-medium`}>Non-IEEE</p>
+                  <p className={`${
+                    isMobile ? "text-lg" : 
+                    isTablet ? "text-xl" : 
+                    "text-2xl"
+                  } font-bold text-white`}>₹600</p>
                 </div>
               </div>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-                <button 
-                  className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-                  onClick={() => window.location.href = '#register'}
+
+              <div className={`flex ${isMobile ? "flex-col gap-2 mt-4" : "flex-row gap-3 mt-6"} justify-center items-center`}>
+                <button
+                  className={`${
+                    isMobile ? "px-3 py-1.5 text-xs w-full sm:w-auto" : 
+                    isTablet ? "px-4 py-2 text-sm" : 
+                    "px-5 py-2 text-sm"
+                  } bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap inline-block`}
+                  onClick={() => (window.location.href = "#register")}
                 >
                   Register Now
                 </button>
-                <button 
-                  className="px-6 py-3 border border-cyan-500/50 text-cyan-400 font-medium rounded-lg hover:bg-cyan-500/10 transition-colors"
-                  onClick={() => window.location.href = '#sponsor'}
+                <button
+                  className={`${
+                    isMobile ? "px-3 py-1.5 text-xs w-full sm:w-auto" : 
+                    isTablet ? "px-4 py-2 text-sm" : 
+                    "px-5 py-2 text-sm"
+                  } border border-cyan-500/50 text-cyan-400 font-medium rounded-lg hover:bg-cyan-500/10 transition-colors whitespace-nowrap inline-block`}
+                  onClick={() => (window.location.href = "#sponsor")}
                 >
                   Become a Sponsor
                 </button>
@@ -384,39 +377,36 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right side: 3D Spline Model with chip overlay */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh",
-            position: "relative",
-          }}
-        >
-          {/* Spline 3D Robot */}
-          <div
-            style={{
-              width: "100%", // increased width
-              height: "100%",
-              zIndex: 6, // higher z-index for robot
-              background: "none",
-              position: "relative",
-              marginLeft: "130px",
-            }}
-          >
-            <Spline
-              scene="https://prod.spline.design/d2ccyKuzetN8iyIO/scene.splinecode"
-              onLoad={() => setRobotLoaded(true)}
-            />
+        {/* 3D Model section - now renders for tablets too, but with adjusted size */}
+        {(!isMobile) && (
+          <div className={`${isTablet ? "h-[40vh] w-full mt-4" : "flex-1"} flex items-center justify-center relative`}>
+            <div
+              style={{
+                width: isTablet ? "100%" : "120%",
+                height: "100%",
+                zIndex: 6,
+                background: "none",
+                position: "relative",
+                marginLeft: isTablet ? "0" : "-50px",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <Spline
+                scene="https://prod.spline.design/d2ccyKuzetN8iyIO/scene.splinecode"
+                onLoad={() => setRobotLoaded(true)}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
-      {/* Enhanced curved transition to CountdownTimer */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "120px", zIndex: 10 }}>
-        {/* Grid pattern overlay for consistency */}
+      {/* Enhanced curved transition */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ 
+        height: isMobile ? "80px" : isTablet ? "100px" : "120px", 
+        zIndex: 10 
+      }}>
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -424,11 +414,10 @@ export default function Home() {
             linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
           `,
-            backgroundSize: "50px 50px",
+            backgroundSize: isMobile ? "30px 30px" : "50px 50px",
           }}
         ></div>
 
-        {/* Glowing dots along the curve */}
         <div className="absolute bottom-0 left-0 w-full" style={{ height: "100%", zIndex: 5 }}>
           {[...Array(8)].map((_, i) => (
             <div
@@ -436,9 +425,9 @@ export default function Home() {
               className="absolute"
               style={{
                 left: `${12 + i * 12}%`,
-                bottom: `${Math.abs(Math.sin((i / 8) * Math.PI)) * 60 + 60}px`, // Adjusted to follow new curve
-                width: "4px",
-                height: "4px",
+                bottom: `${Math.abs(Math.sin((i / 8) * Math.PI)) * (isMobile ? 40 : 60) + (isMobile ? 40 : 60)}px`,
+                width: isMobile ? "3px" : "4px",
+                height: isMobile ? "3px" : "4px",
                 borderRadius: "50%",
                 backgroundColor: "rgba(6, 182, 212, 0.8)",
                 boxShadow: "0 0 8px rgba(6, 182, 212, 0.6)",
@@ -449,7 +438,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Main curved SVG */}
         <svg
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"
@@ -460,10 +448,7 @@ export default function Home() {
             filter: "drop-shadow(0 -5px 10px rgba(6, 182, 212, 0.15))",
           }}
         >
-          {/* Background fill - Adjusted path for a smooth "W" shape (top edge of black fill) */}
           <path d="M0,120 L1440,120 L1440,120 L0,120 Z" fill="black"></path>
-
-          {/* Glowing stroke */}
           <path
             d="M0,120 L1440,120"
             fill="none"
@@ -471,111 +456,55 @@ export default function Home() {
             strokeWidth="1.5"
             strokeLinecap="round"
           ></path>
-
         </svg>
       </div>
-      <style>{`
-        @media (max-width: 700px) {
-          .flex-col, .flex-row, .flex, .items-center, .justify-center, .w-full, .h-full {
-            flex-direction: column !important;
-            width: 100vw !important;
-            height: auto !important;
-            min-width: 0 !important;
-            min-height: 0 !important;
-          }
-          .max-w-2xl, .max-w-full, .max-w-lg, .max-w-xl, .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-7xl {
-            max-width: 100vw !important;
-          }
-          .px-8, .lg\\:px-16 {
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-          }
-          .ml-24, .marginLeft-100px {
-            margin-left: 0 !important;
-          }
-          .text-5xl, .md\\:text-7xl, .lg\\:text-8xl {
-            font-size: 2.2rem !important;
-          }
-          .text-xl, .md\\:text-xl, .md\\:text-2xl, .lg\\:text-2xl {
-            font-size: 1.1rem !important;
-          }
-          .mb-8, .mb-12, .mb-6, .mb-4, .mb-2, .mb-0 {
-            margin-bottom: 1rem !important;
-          }
-          .gap-4 {
-            gap: 0.5rem !important;
-          }
-          .rounded-lg, .rounded-full {
-            border-radius: 0.5rem !important;
-          }
-          .p-6, .py-3, .px-8 {
-            padding: 0.5rem 1rem !important;
-          }
-          .h-96, .w-96, .min-w-1200px, .min-h-400px, .max-w-1800px, .max-h-1000px {
-            min-width: 0 !important;
-            min-height: 0 !important;
-            max-width: 100vw !important;
-            max-height: 60vw !important;
-            width: 100vw !important;
-            height: auto !important;
-          }
-        }
+
+      <style jsx>{`
         @keyframes lightning-pulse {
           0%, 100% { opacity: 0.3; }
           50% { opacity: 0.7; }
-        }
-        @keyframes squares-move-down {
-          0% { transform: translateY(-40px); }
-          100% { transform: translateY(40px); }
-        }
-        @keyframes squares-move-up {
-          0% { transform: translateY(40px); }
-          100% { transform: translateY(-40px); }
-        }
-        @keyframes floatingBeam {
-          0% { top: 0; }
-          50% { top: 80%; }
-          100% { top: 0; }
-        }
-        @keyframes robot-eye-blink {
-          0%, 92%, 100% { opacity: 0.92; }
-          95% { opacity: 0.2; }
-        }
-        .cyber-scan-button:hover .button-fill {
-          width: 100% !important;
-          animation: scanBounce 1.2s cubic-bezier(0.4,0,0.2,1);
-        }
-        .become-sponsor-btn .sponsor-fill {
-          right: auto;
-          left: 0;
-        }
-        .become-sponsor-btn:hover .sponsor-fill,
-        .become-sponsor-btn:active .sponsor-fill {
-          width: 100% !important;
-          transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
-        }
-        .become-sponsor-btn:not(:hover) .sponsor-fill {
-          width: 0% !important;
-          transition: width 0.6s cubic-bezier(0.4,0,0.2,1) 0s;
-        }
-        .become-sponsor-btn .sponsor-fill {
-          transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
-        }
-        @keyframes scanBounce {
-          0%, 100% { top: 0; }
-          50% { top: 80%; }
         }
         @keyframes blink-cursor {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
-        
         @keyframes glow-curve {
           0%, 100% { opacity: 0.7; transform: translateY(0); }
           50% { opacity: 1; transform: translateY(-3px); }
+        }
+        
+        /* Added responsive styles */
+        @media (max-width: 380px) {
+          h1.text-3xl { font-size: 1.5rem !important; }
+          .text-lg { font-size: 0.875rem !important; }
+          .text-base { font-size: 0.75rem !important; }
+          .px-3 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+          .py-1\\.5 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
+        }
+        
+        @media (max-width: 480px) {
+          .py-6 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+          .mb-4 { margin-bottom: 0.75rem !important; }
+          .gap-2 { gap: 0.375rem !important; }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+          .py-6 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+          .mb-8 { margin-bottom: 1.5rem !important; }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1023px) {
+          .md\\:text-7xl { font-size: 3.5rem !important; }
+          .md\\:text-2xl { font-size: 1.25rem !important; }
+        }
+        
+        /* Prevent overflow issues with 3D model */
+        @media (min-width: 769px) and (max-width: 1400px) {
+          .h-\\[40vh\\] {
+            overflow: hidden;
+          }
         }
       `}</style>
     </div>
   )
 }
-

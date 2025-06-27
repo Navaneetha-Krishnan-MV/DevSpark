@@ -47,6 +47,30 @@ body {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: black;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Optimize for performance */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Enable hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  
+  /* Animation keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -12,7 +12,7 @@ function App() {
   return (
     <>
     <Navbar />
-    <Front/>
+      <Front />
       <DeadLine />
       <AboutEvent />
       <WhoCanJoin />

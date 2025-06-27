@@ -3,7 +3,8 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import a from "/ai3.png"
-import AOS from "aos/dist/aos"
+import { FaGift, FaUserTie, FaUserFriends, FaArrowRight, FaHandshake } from 'react-icons/fa';
+import AOS from "aos"
 import "aos/dist/aos.css"
 import Spline from "@splinetool/react-spline"
 // import { color } from "framer-motion"
@@ -285,11 +286,11 @@ export default function Home() {
         >
           <div className="relative z-10 w-200px h-full flex flex-col items-start justify-center pl-[25px]">
             {/* IEEE Badge */}
-            <div className="inline-block mb-6 animate-bounce" data-aos="zoom-in" data-aos-delay="200">
+            {/* <div className="inline-block mb-6 animate-bounce" data-aos="zoom-in" data-aos-delay="200">
               <span className="bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm ">
                 IEEE TECHNICAL EVENT
               </span>
-            </div>
+            </div> */}
 
             {/* Department */}
             <h2 className="text-xl md:text-xl text-gray-300 mb-4" data-aos="fade-right" data-aos-delay="300">
@@ -342,15 +343,15 @@ export default function Home() {
 
             {/* Event Details */}
             <div className="mb-8 space-y-4" data-aos="fade-up" data-aos-delay="700">
-              <div className="flex items-center text-cyan-400 text-lg">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center text-white text-lg">
+                <svg className="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                     clipRule="evenodd"
                   />
                 </svg>
-                Coming Soon - Stay Tuned
+                28-29 July 2025
               </div>
             </div>
 
@@ -361,7 +362,7 @@ export default function Home() {
                 {["Fullstack Development", "AI/ML", "Cyber Security"].map((track) => (
                   <span
                     key={track}
-                    className="bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-lg backdrop-blur-sm"
+                    className="bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border border-transparent text-cyan-300 px-4 py-2 rounded-lg backdrop-blur-sm"
                   >
                     {track}
                   </span>
@@ -369,119 +370,45 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="900">
-              <button
-                className="cyber-scan-button font-semibold relative overflow-hidden"
-                style={{
-                  background: "transparent",
-                  color: "#fff",
-                  borderRadius: "0.5rem",
-                  padding: "0.75rem 2rem",
-                  border: "2px solid #06b6d4",
-                  boxShadow: "0 0 18px #b3e0ff",
-                  position: "relative",
-                  transition: "background 0.3s, color 0.3s, transform 0.2s cubic-bezier(0.4,0,0.2,1)",
-                  zIndex: 2,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "linear-gradient(90deg, #fff 0%, #06b6d4 60%, #a855f7 100%)"
-                  e.currentTarget.style.color = "#0f172a"
-                  e.currentTarget.style.transform = "scale(1.05)"
-
-                  const fill = e.currentTarget.querySelector(".button-fill") as HTMLElement
-                  if (fill) fill.style.width = "100%"
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent"
-                  e.currentTarget.style.color = "#fff"
-                  e.currentTarget.style.transform = "scale(1)"
-
-                  const fill = e.currentTarget.querySelector(".button-fill") as HTMLElement
-                  if (fill) fill.style.width = "0%"
-                }}
-                onMouseDown={(e) => {
-                  e.currentTarget.style.background = "linear-gradient(90deg, #fff 0%, #06b6d4 60%, #a855f7 100%)"
-                  e.currentTarget.style.color = "#0f172a"
-                }}
-                onMouseUp={(e) => {
-                  e.currentTarget.style.background = "linear-gradient(90deg, #fff 0%, #06b6d4 60%, #a855f7 100%)"
-                  e.currentTarget.style.color = "#0f172a"
-                }}
-                data-aos="zoom-in"
-                data-aos-delay="950"
-              >
-                <span className="relative z-10 ">Get Started</span>
-
-                <span
-                  className="button-fill"
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    height: "100%",
-                    width: "0%",
-                    background: "linear-gradient(90deg, #fff 0%, #06b6d4 60%, #a855f7 100%)",
-                    opacity: 0.35,
-                    zIndex: 1,
-                    transition: "width 0.7s cubic-bezier(0.4,0,0.2,1)",
-                    pointerEvents: "none",
-                  }}
-                />
-              </button>
-
-              <button
-                style={{
-                  border: "2px solid #06b6d4",
-                  color: "#06b6d4",
-                  padding: "12px 32px",
-                  borderRadius: "8px",
-                  fontWeight: "600",
-                  backgroundColor: "transparent",
-                  cursor: "pointer",
-                  overflow: "hidden",
-                  position: "relative",
-                  transition: "all 0.2s ease",
-                }}
-                className="become-sponsor-btn"
-                data-aos="zoom-in"
-                data-aos-delay="1000"
-              >
-                <span className="relative z-10" style={{ position: "relative" }}>
-                  Become a Sponsor
+            {/* Prizes and Registration inline */}
+            <div className="mt- space-y-6" data-aos="fade-up" data-aos-delay="800">
+              <div className="flex items-center gap-4">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+                <span className="text-cyan-400 text-lg font-medium">Prizes Worth</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+              </div>
+              
+              <h3 className="text-3xl md:text-4xl font-bold text-white text-center">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                  INR 85,000+
                 </span>
-                {/* ld// */}
-                <span
-                  className="sponsor-fill"
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    height: "100%",
-                    width: "0%",
-                    background: "linear-gradient(90deg, #06b6d4 0%, #a855f7 100%)",
-                    opacity: 0.25,
-                    zIndex: 1,
-                    transition: "width 0.6s cubic-bezier(0.4,0,0.2,1)",
-                    pointerEvents: "none",
-                  }}
-                />
-
-                <div
-                  ref={scanRef}
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    width: "100%",
-                    height: "20px",
-                    background: "rgba(255,255,255,0.95)",
-                    filter: "blur(10px)",
-                    pointerEvents: "none",
-                    animation: "floatingBeam 2s linear infinite",
-                    top: `${position}%`,
-                    transition: "top 0.02s linear",
-                  }}
-                />
-              </button>
+              </h3>
+              
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-500/20">
+                  <p className="text-cyan-400 font-medium">IEEE Members</p>
+                  <p className="text-2xl font-bold text-white">₹500</p>
+                </div>
+                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20">
+                  <p className="text-blue-400 font-medium">Non-IEEE</p>
+                  <p className="text-2xl font-bold text-white">₹600</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                <button 
+                  className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  onClick={() => window.location.href = '#register'}
+                >
+                  Register Now
+                </button>
+                <button 
+                  className="px-6 py-3 border border-cyan-500/50 text-cyan-400 font-medium rounded-lg hover:bg-cyan-500/10 transition-colors"
+                  onClick={() => window.location.href = '#sponsor'}
+                >
+                  Become a Sponsor
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -563,25 +490,17 @@ export default function Home() {
           }}
         >
           {/* Background fill - Adjusted path for a smooth "W" shape (top edge of black fill) */}
-          <path d="M0,120 C360,60 720,60 1440,120 L1440,120 L0,120 Z" fill="black"></path>
+          <path d="M0,120 L1440,120 L1440,120 L0,120 Z" fill="black"></path>
 
           {/* Glowing stroke */}
           <path
-            d="M0,120 C360,60 720,60 1440,120"
+            d="M0,120 L1440,120"
             fill="none"
             stroke="rgba(6, 182, 212, 0.4)"
             strokeWidth="1.5"
             strokeLinecap="round"
           ></path>
 
-          {/* Dotted accent line */}
-          <path
-            d="M0,110 C360,50 720,50 1440,110" // Adjusted to follow new curve
-            fill="none"
-            stroke="rgba(6, 182, 212, 0.2)"
-            strokeWidth="0.8"
-            strokeDasharray="4,4"
-          ></path>
         </svg>
       </div>
       <style>{`
@@ -688,3 +607,4 @@ export default function Home() {
     </div>
   )
 }
+

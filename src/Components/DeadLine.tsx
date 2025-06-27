@@ -167,100 +167,28 @@ export default function DeadLine() {
   return (
     <div className="relative flex flex-col items-center bg-black overflow-hidden">
       
-      {/* Enhanced Blue Glowing Background */}
-      <div className="absolute inset-0">
-        {/* Radial gradient overlay */}
-        <div 
-          className="absolute inset-0 opacity-60"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 30%, rgba(0, 191, 255, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 70%)
-            `
-          }}
-        />
-        
-        {/* Animated Grid Background with enhanced glow */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(0, 212, 255, 0.2) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 212, 255, 0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            filter: 'drop-shadow(0 0 10px rgba(0, 212, 255, 0.3))'
-          }} />
-        </div>
-
-        {/* Diagonal lines with glow */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(45deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(-45deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '100px 100px',
-            filter: 'blur(1px)'
-          }} />
-        </div>
-
-        {/* Floating orbs */}
-        <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`orb-${i}`}
-              className="absolute rounded-full animate-pulse"
-              style={{
-                left: `${15 + Math.random() * 70}%`,
-                top: `${15 + Math.random() * 70}%`,
-                width: `${20 + Math.random() * 40}px`,
-                height: `${20 + Math.random() * 40}px`,
-                background: `radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, rgba(0, 212, 255, 0.1) 50%, transparent 100%)`,
-                filter: `blur(${2 + Math.random() * 4}px)`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }} />
       </div>
 
-      {/* Enhanced Glowing Particles */}
+      {/* Glowing Particles */}
       <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              width: `${1 + Math.random() * 3}px`,
-              height: `${1 + Math.random() * 3}px`,
-              background: i % 3 === 0 ? '#00bfff' : i % 3 === 1 ? '#3b82f6' : '#0ea5e9',
-              boxShadow: `0 0 ${4 + Math.random() * 8}px currentColor`,
               animationDelay: `${Math.random() * 3}s`,
               animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Animated light beams */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={`beam-${i}`}
-            className="absolute"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: '-10%',
-              width: '2px',
-              height: '120%',
-              background: 'linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.8), transparent)',
-              transform: `rotate(${-15 + Math.random() * 30}deg)`,
-              animation: `float-beam ${4 + Math.random() * 3}s linear infinite`,
-              animationDelay: `${Math.random() * 2}s`
             }}
           />
         ))}
@@ -321,8 +249,8 @@ export default function DeadLine() {
           className="text-[25px] font-extrabold text-white mb-4 tracking-widest"
           style={{
             fontFamily: "'Orbitron', monospace",
-            filter: "drop-shadow(0 0 25px rgba(0, 212, 255, 0.6)) drop-shadow(0 0 15px rgba(255,255,255,0.4))",
-            textShadow: "0 0 40px rgba(0, 212, 255, 0.8), 0 0 20px rgba(255,255,255,0.5)",
+            filter: "drop-shadow(0 0 25px rgba(255,255,255,0.4))",
+            textShadow: "0 0 40px rgba(255,255,255,0.5)",
           }}
         >
           {currentTime.toLocaleTimeString("en-US", {
@@ -334,73 +262,6 @@ export default function DeadLine() {
         </div>
         <CountDownTimer />
       </div>
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes float-beam {
-          0% {
-            transform: translateY(-20px) rotate(var(--rotation));
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(calc(100vh + 20px)) rotate(var(--rotation));
-            opacity: 0;
-          }
-        }
-        
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
-          }
-          50% {
-            box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
-          }
-        }
-        
-        @keyframes orbit {
-          0% {
-            transform: rotate(0deg) translateX(50px) rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg) translateX(50px) rotate(-360deg);
-          }
-        }
-        
-        @keyframes shimmer {
-          0% {
-            background-position: -200% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
-        }
-        
-        .animate-pulse {
-          animation: pulse-glow 2s ease-in-out infinite;
-        }
-        
-        /* Enhanced grid animation */
-        .grid-glow {
-          animation: grid-pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes grid-pulse {
-          0%, 100% {
-            opacity: 0.3;
-            filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3));
-          }
-          50% {
-            opacity: 0.6;
-            filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
-          }
-        }
-      `}</style>
     </div>
   );
 }

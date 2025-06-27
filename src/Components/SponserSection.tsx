@@ -1,18 +1,24 @@
 import IEEE from '/IEEE_logo.png';
 import IEEECS from '/IEEE.png';
+import IEEEHIZE from '/IEEE-HIZE.png';
 
 const SponsorSection = () => {
   const sponsors = [
     {
       name: "IEEE",
       logo: IEEE,
-      description: "The world's largest technical professional organization dedicated to advancing technology for humanity.",
+      description: "IEEE is the world’s largest technical professional organization dedicated to advancing technology for the benefit of humanity.",
     },
     {
       name: "IEEE Computer Society",
       logo: IEEECS,
-      description: "Premier source for information, inspiration and collaboration in computer science and engineering.",
+      description: "Organization dedicated to engaging the engineers, scientists, academia, and industry professionals from across the globe driving continued advancements in computer science and technology.",
     
+    },
+    {
+      name: "IEEE HIZE",
+      logo: IEEEHIZE,
+      description: "Cornerstone of technological ambition and achievement across India, redefining what is possible through expertise, collaboration, and vision.",
     }
   ];
 
@@ -65,7 +71,7 @@ const SponsorSection = () => {
         </div>
 
         {/* Sponsors Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {sponsors.map((sponsor, index) => (
             <div
               key={sponsor.name}
@@ -120,12 +126,12 @@ const SponsorSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <div className="inline-flex items-center space-x-4 px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full border border-cyan-400/30 backdrop-blur-sm">
             <a href='https://google.com' target='_blank' className="text-cyan-300 font-mono">Want to sponsor DEVSPARK?</a>
             <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

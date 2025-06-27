@@ -240,7 +240,7 @@ export default function Home() {
                 fontWeight: "400"
               }}
             >
-              Department of Computer Science and Engineering
+              IEEE Computer Society KPRIET
             </h2>
 
             <p 
@@ -394,12 +394,6 @@ export default function Home() {
                   onClick={() => window.location.href = '#register'}
                 >
                   Register Now
-                </button>
-                <button 
-                  className="px-6 py-3 border border-cyan-500/50 text-cyan-400 font-medium rounded-lg hover:bg-cyan-500/10 transition-colors"
-                  onClick={() => window.location.href = '#sponsor'}
-                >
-                  Become a Sponsor
                 </button>
               </div>
             </div>

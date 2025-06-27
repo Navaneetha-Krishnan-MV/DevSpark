@@ -16,7 +16,7 @@ function App() {
       <DeadLine />
       <AboutEvent />
       <WhoCanJoin />
-      <Jury />
+      {/* <Jury /> */}
       <SponserSection />
       <ContactSection />
     </>

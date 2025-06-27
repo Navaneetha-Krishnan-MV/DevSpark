@@ -7,14 +7,14 @@ const ContactSection = () => {
     {
       name: "Avinarasi S",
       role: "Chair",
-      email: "22cs000@kpriet.ac.in",
+      email: "22cs023@kpriet.ac.in",
       phone: "+91 9385405744",
       avatar: "AS",
     },
     {
       name: "Kanimozhi BV",
       role: "Vice Chair",
-      email: "22cs001@kpriet.ac.in",
+      email: "22cs059@kpriet.ac.in",
       phone: "+91 9384945040",
       avatar: "KB",
     },
@@ -28,21 +28,21 @@ const ContactSection = () => {
     {
       name: "Harini L",
       role: "Joint Secretary",
-      email: "22cs002@kpriet.ac.in",
+      email: "23cs056@kpriet.ac.in",
       phone: "+91 8667877621",
       avatar: "HL",
     },
     {
       name: "Kanimuthu AR M",
       role: "Treasurer",
-      email: "22cs003@kpriet.ac.in",
+      email: "23cs076@kpriet.ac.in",
       phone: "+91 9600477801",
       avatar: "KM",
     },
     {
       name: "Nitish P K",
       role: "Head Designer",
-      email: "22cs004@kpriet.ac.in",
+      email: "23cs118@kpriet.ac.in",
       phone: "+91 9677491055",
       avatar: "NP",
     },
@@ -240,7 +240,7 @@ const ContactSection = () => {
         {/* Bottom Message - Centered */}
         <div className="col-span-full flex justify-center mt-12 mb-4 w-full relative z-30">
           <div className="inline-flex items-center space-x-2 sm:space-x-4 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
-            <span className="text-cyan-300 font-mono text-sm sm:text-lg md:text-xl whitespace-nowrap">Ready to Spark Innovation?</span>
+            <span className="text-cyan-300 mr-3 font-mono text-sm sm:text-lg md:text-xl whitespace-nowrap">Ready to Spark Innovation?</span>
             <div className="flex space-x-1">
               <div
                 className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"

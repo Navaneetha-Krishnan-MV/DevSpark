@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, Trophy, Clock, Globe, Brain, DollarSign } from 'lucide-react';
+import { Users, Trophy, Clock, Globe, Brain, IndianRupee } from 'lucide-react';
 import "../UI/AboutEvent.css"
 
 const AboutEvent: React.FC = () => {
@@ -9,7 +9,7 @@ const AboutEvent: React.FC = () => {
   const stats = [
     { icon: Brain, value: "12+", label: "Domain-specific Problem Statements", color: "text-cyan-400" },
     { icon: Users, value: "1000+", label: "Participants Expected", color: "text-blue-400" },
-    { icon: DollarSign, value: "₹80000", label: "Prize Pool", color: "text-green-400" },
+    { icon: IndianRupee, value: "₹85000", label: "Prize Pool", color: "text-green-400" },
     { icon: Globe, value: "3", label: "Tracks: Cybersecurity, Full Stack, AI/ML", color: "text-purple-400" },
     { icon: Clock, value: "24", label: "Hours of Non-Stop Coding", color: "text-orange-400" },
     { icon: Trophy, value: "National", label: "Level Recognition", color: "text-yellow-400" }

@@ -180,7 +180,7 @@ const AboutEvent: React.FC = () => {
                       }`}
                       style={{ transitionDelay: `${index * 100}ms` }}
                     >
-                      <div className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
+                      <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
                         <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-pulse"></div>
                         <p className="text-gray-200 text-lg">{feature}</p>
                       </div>

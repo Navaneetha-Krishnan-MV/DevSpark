@@ -12,6 +12,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = href === '#about' || href === '#jury' ? 80 : 0;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -36,11 +50,12 @@ const Navbar: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="ml-10 flex items-baseline" style={{ gap: '2.5rem' }}>
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => scrollToSection(e, item.href)}
                     className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
                   >
                     {item.name}
@@ -77,13 +92,16 @@ const Navbar: React.FC = () => {
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="md:hidden bg-slate-900/95 backdrop-blur-md">
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-6 pt-6 pb-8" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      scrollToSection(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-gray-300 hover:text-cyan-400 block px-6 py-3 text-lg font-medium transition-colors duration-200"
                   >
                     {item.name}
                   </a>

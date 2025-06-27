@@ -303,9 +303,9 @@ const WhoCanJoin: React.FC = () => {
                           : 'translate-y-20 opacity-0'
                       }`}
                     >
-                      <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
-                        <div className="flex-shrink-0 mt-1">
-                          <IconComponent className="w-6 h-6 text-green-400" />
+                      <div className="flex items-start p-6 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                        <div className="flex-shrink-0 mt-1 mr-4">
+                          <IconComponent className="w-6 h-6 text-green-400 flex-shrink-0" />
                         </div>
                         <div className="flex-1">
                           <p className="text-gray-200 text-lg leading-relaxed">{action.text}</p>
@@ -340,9 +340,9 @@ const WhoCanJoin: React.FC = () => {
                           : 'translate-y-20 opacity-0'
                       }`}
                     >
-                      <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-red-500/20 hover:border-red-500/40 transition-all duration-300">
-                        <div className="flex-shrink-0 mt-1">
-                          <IconComponent className="w-6 h-6 text-red-400" />
+                      <div className="flex items-start p-6 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-red-500/20 hover:border-red-500/40 transition-all duration-300">
+                        <div className="flex-shrink-0 mt-1 mr-4">
+                          <IconComponent className="w-6 h-6 text-red-400 flex-shrink-0" />
                         </div>
                         <div className="flex-1">
                           <p className="text-gray-200 text-lg leading-relaxed">{action.text}</p>
@@ -378,8 +378,8 @@ const WhoCanJoin: React.FC = () => {
   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-75 group-hover:opacity-100 rounded-2xl blur-xl transition-all duration-300 animate-pulse" />
   
   <div className="relative bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-cyan-400/50 hover:border-cyan-300">
-    <div className="flex items-center space-x-3">
-      <Zap className="w-5 h-5 animate-pulse" />
+    <div className="flex items-center">
+      <Zap className="w-5 h-5 animate-pulse mr-3" />
       <span>🔗 REGISTER NOW</span>
     </div>
   </div>

@@ -124,8 +124,8 @@ const ContactSection = () => {
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <div className="px-6 py-2 border border-cyan-400/30 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm">
-              <span className="text-cyan-400 text-sm uppercase tracking-widest font-mono flex items-center space-x-2">
-                <User className="w-4 h-4" />
+              <span className="text-cyan-400 text-sm uppercase tracking-widest font-mono flex items-center space-x-3">
+                <User className="w-5 h-5 flex-shrink-0" />
                 <span>Connect With Us</span>
               </span>
             </div>
@@ -183,8 +183,8 @@ const ContactSection = () => {
                         href={`mailto:${coordinator.email}`}
                         className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
                       >
-                        <Mail className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
-                        <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-cyan-200 break-all">
+                        <Mail className="w-5 h-5 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-cyan-200 break-all ml-3">
                           {coordinator.email}
                         </span>
                       </a>
@@ -193,8 +193,8 @@ const ContactSection = () => {
                         href={`tel:${coordinator.phone.replace(/\s/g, "")}`}
                         className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
                       >
-                        <Phone className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200" />
-                        <span className="text-gray-300 text-sm font-mono group-hover/item:text-cyan-200 break-all">
+                        <Phone className="w-5 h-5 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm font-mono group-hover/item:text-cyan-200 break-all ml-3">
                           {coordinator.phone}
                         </span>
                       </a>

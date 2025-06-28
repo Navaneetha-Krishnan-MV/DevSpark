@@ -125,7 +125,7 @@ const CountDownTimer = () => {
             </button>
 
             <p className="text-white text-sm font-semibold uppercase tracking-wider mt-6 md:mt-8">
-              July 25, 2025 - Monday
+              July 25, 2025 - Friday
             </p>
           </div>
         </div>

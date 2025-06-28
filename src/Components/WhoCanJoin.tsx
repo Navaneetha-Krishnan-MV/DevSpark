@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Users,Zap , Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, CheckCircle, XCircle } from 'lucide-react';
+import { Users, Zap, Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, CheckCircle, XCircle } from 'lucide-react';
 
 
 const WhoCanJoin: React.FC = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [, setVisibleRules] = useState<number[]>([]);
   const [visiblePermitted, setVisiblePermitted] = useState<number[]>([]);
   const [visibleProhibited, setVisibleProhibited] = useState<number[]>([]);
-
-  const eligibilityItems = [
-    { icon: Users, text: "Participants should either belong to B.E, B.Tech, M.E, M.Tech, MCA or MSc and should be studying in any stream and any semester/year", color: "text-cyan-400" },
-
-  ];
 
   const rules = [
     { icon: Users, text: "Teams must consist of 2 to 4 members", color: "text-green-400" },
@@ -43,15 +37,6 @@ const WhoCanJoin: React.FC = () => {
 
 
   useEffect(() => {
-    // Animate eligibility items
-    const timer1 = setTimeout(() => {
-      eligibilityItems.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleItems(prev => [...prev, index]);
-        }, index * 200);
-      });
-    }, 300);
-
     // Animate rules
     const timer2 = setTimeout(() => {
       rules.forEach((_, index) => {
@@ -80,7 +65,6 @@ const WhoCanJoin: React.FC = () => {
     }, 1600);
 
     return () => {
-      clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
       clearTimeout(timer4);
@@ -235,36 +219,6 @@ const WhoCanJoin: React.FC = () => {
                       
                       <h3 className="text-2xl font-bold text-white mb-2">{track.name}</h3>
                       <p className="text-gray-300 text-sm">{track.description}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Eligibility */}
-        <div className="mb-16">
-          <div className="space-y-6">
-            {eligibilityItems.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <div
-                  key={index}
-                  className={`transform transition-all duration-1000 ${
-                    visibleItems.includes(index)
-                      ? 'translate-x-0 opacity-100'
-                      : 'translate-x-20 opacity-0'
-                  }`}
-                >
-                  <div className="flex items-center space-x-6 p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <p className={`text-xl font-semibold ${item.color}`}>➡️ {item.text}</p>
                     </div>
                   </div>
                 </div>

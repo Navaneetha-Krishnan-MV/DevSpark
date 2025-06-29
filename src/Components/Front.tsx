@@ -1,18 +1,17 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import Spline from "@splinetool/react-spline"
+
+// Dynamic import for Spline to reduce initial bundle size
+const Spline = lazy(() => import("@splinetool/react-spline"))
 
 // Lightning Component
 const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensity: number; size: number }> = ({
   hue,
-  //   xOffset,
   speed,
-  //   intensity,
-  //   size,
 }) => (
   <div
     style={{
@@ -29,20 +28,30 @@ const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensi
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false)
-
-  // Typewriter effect for "SPARK" (fix: prevent K from moving to next line)
   const [sparkText, setSparkText] = useState("")
   const [sparkDeleting, setSparkDeleting] = useState(false)
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false)
 
-  // Check screen size
+  // Check screen size - with debounce for better performance
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768)
     }
     
     checkScreenSize()
-    window.addEventListener("resize", checkScreenSize)
-    return () => window.removeEventListener("resize", checkScreenSize)
+    
+    // Debounced resize handler
+    let resizeTimer: NodeJS.Timeout
+    const handleResize = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(checkScreenSize, 100)
+    }
+    
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      clearTimeout(resizeTimer)
+    }
   }, [])
 
   useEffect(() => {
@@ -68,12 +77,17 @@ export default function Home() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true, // Changed to true for better performance
+      duration: isMobile ? 600 : 1000, // Shorter animations on mobile
+      once: true, // Critical for performance - animations only happen once
       easing: "ease-out-cubic",
-      offset: 100,
+      offset: 50, // Reduced offset for mobile
+      disable: isMobile ? 'phone' : false, // Disable on very small screens if needed
     })
-  }, [])
+  }, [isMobile])
+
+  const handleSplineLoad = () => {
+    setIsSplineLoaded(true)
+  }
 
   return (
     <div
@@ -92,22 +106,28 @@ export default function Home() {
       data-aos-duration="1200"
       id="home"
     >
-      {/* Spline battery spark as background - only show on desktop */}
+      {/* Spline background - only load on desktop with Suspense fallback */}
       {!isMobile && (
-        <div className="bg-black"
+        <div 
+          className="bg-black"
           style={{
             position: "fixed",
             top: 0,
             right: 0,
-            width: "60vw", // Move to right side and make smaller
+            width: "60vw",
             height: "100vh",
             zIndex: 0,
             pointerEvents: "none",
+            opacity: isSplineLoaded ? 1 : 0,
+            transition: "opacity 0.5s ease-in"
           }}
         >
-          <Spline
-            scene="https://prod.spline.design/P3cA3Sxw3sDqofWJ/scene.splinecode" 
-          />
+          <Suspense fallback={<div />}>
+            <Spline
+              scene="https://prod.spline.design/P3cA3Sxw3sDqofWJ/scene.splinecode"
+              onLoad={handleSplineLoad}
+            />
+          </Suspense>
         </div>
       )}
 
@@ -121,12 +141,12 @@ export default function Home() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: isMobile ? "center" : "flex-start",
-          width: "100vw",
+          width: "100%", // Changed from 100vw to prevent horizontal scrolling issues
           minHeight: "100vh",
           position: "relative",
           zIndex: 2,
-          padding: isMobile ? "6rem 1rem 2rem 1rem" : "0", // Added top padding for mobile nav
-          paddingTop: isMobile ? "6rem" : "0", // Extra top padding to avoid nav overlap
+          padding: isMobile ? "6rem 1rem 2rem 1rem" : "0",
+          paddingTop: isMobile ? "6rem" : "0",
         }}
       >
         {/* Content */}

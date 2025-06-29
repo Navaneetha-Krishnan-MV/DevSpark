@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
-import ProfileCard from "../UI/ProfileCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { toast } from "sonner";
+"use client"
+
+import type React from "react"
+import { useState, useEffect, useRef } from "react"
+import ProfileCard from "../UI/ProfileCard"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { toast } from "sonner"
 
 interface JuryMember {
-  id: number;
-  name: string;
-  title: string;
-  handle: string;
-  status: string;
-  avatarUrl: string;
-  contactText: string;
-  bio?: string;
-  email: string;
-  website: string;
-  linkedin: string;
-  github: string;
+  id: number
+  name: string
+  title: string
+  handle: string
+  status: string
+  avatarUrl: string
+  contactText: string
+  bio?: string
+  email: string
+  website: string
+  linkedin: string
+  github: string
 }
 
 const juryMembers: JuryMember[] = [
@@ -25,13 +28,14 @@ const juryMembers: JuryMember[] = [
     title: "Cybersecurity Expert",
     handle: "maharajm",
     status: "Available",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/C5603AQG8_pBskNFTiA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1650554132670?e=1756944000&v=beta&t=Mv398YQMMkVqnwjHbeFJpXg_sW9jEJnFFAKbXPRJVGs",
+    avatarUrl:
+      "https://media.licdn.com/dms/image/v2/C5603AQG8_pBskNFTiA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1650554132670?e=1756944000&v=beta&t=Mv398YQMMkVqnwjHbeFJpXg_sW9jEJnFFAKbXPRJVGs",
     contactText: "Connect",
     bio: "Founder and CEO of BCBUZZ Technologies Pvt. Ltd., with over a decade of experience in the IT industry. A seasoned professional specializing in Enterprise Blockchain solutions, Cybersecurity frameworks, and Artificial Intelligence applications. Passionate about leveraging cutting-edge technology to drive digital transformation.",
     email: "maharaj@bcbuzz.io",
     website: "https://in100w.com/about_me/",
     linkedin: "https://www.linkedin.com/in/maharaj-m/",
-    github: ""
+    github: "",
   },
   {
     id: 2,
@@ -39,97 +43,104 @@ const juryMembers: JuryMember[] = [
     title: "Full Stack ML Dev | UI/UX Designer",
     handle: "nigunsanjai",
     status: "Online",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
+    avatarUrl:
+      "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
     contactText: "Message",
     bio: "A Software Development Engineer at Autodesk with hands-on experience in full-stack Java development and a strong foundation in scalable backend systems. As a passionate freelancer and competitive programmer, I bring a problem-solving mindset, deep technical expertise, and a keen interest in innovation. I enjoy mentoring budding developers and evaluating creative solutions",
     email: "radha.nigun@gmail.com",
     website: "",
     linkedin: "https://www.linkedin.com/in/nigun-sanjai-radhakrishnan-650a011b6/",
-    github: "https://github.com/NigunSanjai"
+    github: "https://github.com/NigunSanjai",
   },
-  // {
-  //   id: 3,
-  //   name: "Alex Kumar",
-  //   title: "Tech Lead",
-  //   handle: "alextech",
-  //   status: "Busy",
-  //   avatarUrl: "https://i.pravatar.cc/300?img=3",
-  //   contactText: "Schedule",
-  //   bio: "Engineering leader with 10+ years in tech innovation.",
-  //   email: "user@example.com",
-  //   website:"example.com",
-  //   linkedin: "username",
-  //   github: "username"
-  // },
-];
+]
 
 const Jury: React.FC = () => {
-  const [visibleCards, setVisibleCards] = useState<number[]>([]);
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [, setIsTablet] = useState(false);
-  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState<number[]>([])
+  const [expandedCard, setExpandedCard] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [, setIsTablet] = useState(false)
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0)
+  const [isScrolling, setIsScrolling] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     const checkScreenSize = () => {
-      const width = window.innerWidth;
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
-    };
+      const width = window.innerWidth
+      setIsMobile(width < 768)
+      setIsTablet(width >= 768 && width < 1024)
+    }
 
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
+    checkScreenSize()
+    window.addEventListener("resize", checkScreenSize)
+    return () => window.removeEventListener("resize", checkScreenSize)
+  }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       juryMembers.forEach((_, index) => {
         setTimeout(() => {
-          setVisibleCards((prev) => [...prev, index]);
-        }, index * 150);
-      });
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
+          setVisibleCards((prev) => [...prev, index])
+        }, index * 150)
+      })
+    }, 300)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleCardClick = (member: JuryMember) => {
-    setExpandedCard((prev) => (prev === member.id ? null : member.id));
+    // Don't handle click if we're currently scrolling
+    if (isScrolling) return
+
+    setExpandedCard((prev) => (prev === member.id ? null : member.id))
     if (expandedCard !== member.id) {
       toast.success(`Viewing ${member.name}'s Profile`, {
         description: `Learn more about ${member.title}`,
         duration: 2000,
-      });
+      })
     }
-  };
+  }
 
   const handleContactClick = (member: JuryMember) => {
     toast.info(`Contacting ${member.name}`, {
       description: `Opening connection with ${member.title}...`,
       duration: 3000,
-    });
-    console.log(`Connecting with ${member.name} (@${member.handle})`);
-  };
+    })
+    console.log(`Connecting with ${member.name} (@${member.handle})`)
+  }
+
+  const handleScrollStart = () => {
+    setIsScrolling(true)
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current)
+    }
+  }
+
+  const handleScrollEnd = () => {
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false)
+    }, 150)
+  }
 
   const nextCard = () => {
-    setCurrentMobileIndex((prev) => 
-      prev >= juryMembers.length - 1 ? 0 : prev + 1
-    );
-  };
+    setCurrentMobileIndex((prev) => (prev >= juryMembers.length - 1 ? 0 : prev + 1))
+  }
 
   const prevCard = () => {
-    setCurrentMobileIndex((prev) => 
-      prev <= 0 ? juryMembers.length - 1 : prev - 1
-    );
-  };
+    setCurrentMobileIndex((prev) => (prev <= 0 ? juryMembers.length - 1 : prev - 1))
+  }
 
   return (
     <section id="jury" className="w-full min-h-screen bg-black text-white py-5 px-4 relative overflow-hidden">
-      {/* Scroll Shadows (Mobile) - Only for tablet scroll view */}
-      <div className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" 
-           style={{ display: isMobile ? 'none' : 'block' }} />
-      <div className="md:hidden lg:block absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-black/90 to-transparent z-10 pointer-events-none" 
-           style={{ display: isMobile ? 'none' : 'block' }} />
+      {/* Scroll Shadows (Tablet) */}
+      <div
+        className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none"
+        style={{ display: isMobile ? "none" : "block" }}
+      />
+      <div
+        className="md:hidden lg:block absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-black/90 to-transparent z-10 pointer-events-none"
+        style={{ display: isMobile ? "none" : "block" }}
+      />
 
       {/* Heading */}
       <div className="text-center mb-10">
@@ -137,7 +148,7 @@ const Jury: React.FC = () => {
           Meet Our Jury Panel
         </h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          Industry experts evaluating your journey. {isMobile ? 'Navigate to explore.' : 'Tap or click to explore.'}
+          Industry experts evaluating your journey. {isMobile ? "Navigate to explore." : "Tap or click to explore."}
         </p>
       </div>
 
@@ -150,15 +161,13 @@ const Jury: React.FC = () => {
               <div
                 key={member.id}
                 className={`absolute inset-0 transition-all duration-500 transform ${
-                  index === currentMobileIndex 
-                    ? 'translate-x-0 opacity-100 scale-100' 
-                    : index < currentMobileIndex 
-                      ? '-translate-x-full opacity-0 scale-95'
-                      : 'translate-x-full opacity-0 scale-95'
-                } ${
-                  visibleCards.includes(index) ? '' : 'translate-y-10'
-                }`}
-                style={{ transitionDelay: visibleCards.includes(index) ? '0ms' : `${index * 150}ms` }}
+                  index === currentMobileIndex
+                    ? "translate-x-0 opacity-100 scale-100"
+                    : index < currentMobileIndex
+                      ? "-translate-x-full opacity-0 scale-95"
+                      : "translate-x-full opacity-0 scale-95"
+                } ${visibleCards.includes(index) ? "" : "translate-y-10"}`}
+                style={{ transitionDelay: visibleCards.includes(index) ? "0ms" : `${index * 150}ms` }}
               >
                 <div
                   className="h-full w-full cursor-pointer transition duration-300 active:scale-95"
@@ -201,9 +210,7 @@ const Jury: React.FC = () => {
                 key={index}
                 onClick={() => setCurrentMobileIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  index === currentMobileIndex 
-                    ? 'bg-cyan-400 w-6' 
-                    : 'bg-gray-600 hover:bg-gray-500'
+                  index === currentMobileIndex ? "bg-cyan-400 w-6" : "bg-gray-600 hover:bg-gray-500"
                 }`}
                 aria-label={`Go to card ${index + 1}`}
               />
@@ -212,15 +219,22 @@ const Jury: React.FC = () => {
         </div>
       </div>
 
-      {/* Tablet Scroll */}
+      {/* Tablet Scroll - IMPROVED */}
       <div className="hidden md:block lg:hidden">
         <div
-          className="scrollbar-hide flex gap-4 overflow-x-auto pb-4 px-2"
+          ref={scrollContainerRef}
+          className="flex gap-6 overflow-x-auto pb-6 px-4 scrollbar-hide"
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             scrollPaddingLeft: "1rem",
+            scrollBehavior: "smooth",
           }}
+          onTouchStart={handleScrollStart}
+          onTouchEnd={handleScrollEnd}
+          onMouseDown={handleScrollStart}
+          onMouseUp={handleScrollEnd}
+          onScroll={handleScrollStart}
         >
           {juryMembers.map((member, index) => (
             <div
@@ -235,10 +249,14 @@ const Jury: React.FC = () => {
               }}
             >
               <div
-                className={`h-full w-full transition duration-300 cursor-pointer ${
-                  expandedCard === member.id ? "transform scale-105" : "active:scale-95"
-                }`}
+                className={`h-full w-full transition duration-300 ${
+                  expandedCard === member.id ? "transform scale-105" : ""
+                } ${!isScrolling ? "cursor-pointer hover:scale-[1.02]" : "cursor-grabbing"}`}
                 onClick={() => handleCardClick(member)}
+                onMouseDown={(e) => {
+                  // Prevent text selection during potential drag
+                  e.preventDefault()
+                }}
               >
                 <ProfileCard
                   {...member}
@@ -253,8 +271,8 @@ const Jury: React.FC = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex justify-center mt-4 text-gray-400 text-xs animate-pulse">
-          <span className="mr-1">⬅️</span> Swipe to Explore <span className="ml-1">➡️</span>
+        <div className="flex justify-center mt-6 text-gray-300 text-sm animate-pulse">
+          <span className="mr-2">⬅️</span> Scroll to Explore More <span className="ml-2">➡️</span>
         </div>
       </div>
 
@@ -287,8 +305,18 @@ const Jury: React.FC = () => {
           ))}
         </div>
       </div>
-    </section>
-  );
-};
 
-export default Jury;
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </section>
+  )
+}
+
+export default Jury

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CountDownTimer from "./CountDownTimer";
 
 export default function DeadLine() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -260,7 +259,6 @@ export default function DeadLine() {
             second: "2-digit"
           })}
         </div>
-        <CountDownTimer />
       </div>
     </div>
   );

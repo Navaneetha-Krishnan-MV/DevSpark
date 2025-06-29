@@ -8,6 +8,7 @@ import ContactSection from './Components/ContactSection.tsx'
 import SponserSection from './Components/SponserSection.tsx'
 import Front from "./Components/Front.tsx"
 import Navbar from "./Components/Navbar.tsx"
+import Hurry from "./Components/Hurry.tsx"
 
 function App() {
   useEffect(() => {
@@ -18,7 +19,7 @@ function App() {
     <>
     <Navbar />
       <Front />
-      <DeadLine />
+      <Hurry />
       <AboutEvent />
       <WhoCanJoin />
       <Jury />

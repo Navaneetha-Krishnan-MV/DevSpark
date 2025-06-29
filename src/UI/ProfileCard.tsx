@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
-import { Mail, Globe, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Globe, Linkedin, Github } from 'lucide-react';
 import "./ProfileCard.css";
 
 interface ProfileCardProps {

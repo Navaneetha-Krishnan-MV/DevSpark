@@ -13,6 +13,7 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: black;
 }
 
 body {
@@ -209,11 +210,4 @@ p,h1,h2,h3,h4,h5,h6{
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+

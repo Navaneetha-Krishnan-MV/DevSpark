@@ -1,8 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useRef } from "react"
-import a from "/ai3.png"
+import { useState, useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import Spline from "@splinetool/react-spline"
@@ -29,9 +28,6 @@ const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensi
 )
 
 export default function Home() {
-  const [asciiArt, setAsciiArt] = useState<string>("")
-  const outputCanvasRef = useRef<HTMLCanvasElement>(null)
-  const imageRef = useRef<HTMLImageElement | null>(null)
   const [isMobile, setIsMobile] = useState(false)
 
   // Typewriter effect for "SPARK" (fix: prevent K from moving to next line)
@@ -70,93 +66,14 @@ export default function Home() {
     return () => clearTimeout(timeout)
   }, [sparkText, sparkDeleting])
 
-  const resolution = 0.4
-  const charSets = { minimal: " .:█" }
-  const charSet = "minimal"
-
-  useEffect(() => {
-    const img = new window.Image()
-    img.crossOrigin = "anonymous"
-    img.onload = () => {
-      imageRef.current = img
-      convertToAscii()
-    }
-    img.src = a
-  }, [])
-
-  useEffect(() => {
-    if (asciiArt) renderToCanvas()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [asciiArt])
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,
+      once: true, // Changed to true for better performance
       easing: "ease-out-cubic",
       offset: 100,
     })
   }, [])
-
-  const convertToAscii = () => {
-    if (!imageRef.current) return
-    const img = imageRef.current
-    const canvas = document.createElement("canvas")
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-    const width = Math.floor(img.width * resolution)
-    const height = Math.floor(img.height * resolution)
-    canvas.width = img.width
-    canvas.height = img.height
-    ctx.drawImage(img, 0, 0, img.width, img.height)
-    const imageData = ctx.getImageData(0, 0, img.width, img.height)
-    const data = imageData.data
-    const chars = charSets[charSet as keyof typeof charSets]
-    const fontAspect = 0.5
-    const widthStep = Math.ceil(img.width / width)
-    const heightStep = Math.ceil(img.height / height / fontAspect)
-    let result = ""
-    for (let y = 0; y < img.height; y += heightStep) {
-      for (let x = 0; x < img.width; x += widthStep) {
-        const pos = (y * img.width + x) * 4
-        const r = data[pos]
-        const g = data[pos + 1]
-        const b = data[pos + 2]
-        const brightness = (r * 0.299 + g * 0.587 + b * 0.114) / 255
-        const charIndex = Math.floor(brightness * (chars.length - 1))
-        result += chars[charIndex]
-      }
-      result += "\n"
-    }
-    setAsciiArt(result)
-  }
-
-  const renderToCanvas = () => {
-    if (!outputCanvasRef.current) return
-    const canvas = outputCanvasRef.current
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-    const lines = asciiArt.split("\n").filter((line) => line.length > 0)
-    const maxLineLength = Math.max(...lines.map((line) => line.length))
-    const viewportWidth = window.innerWidth
-    const viewportHeight = window.innerHeight
-    const fontSizeByWidth = Math.floor((viewportWidth * 0.7) / (maxLineLength * 0.6))
-    const fontSizeByHeight = Math.floor((viewportHeight * 0.8) / lines.length)
-    const fontSize = Math.max(10, Math.min(fontSizeByWidth, fontSizeByHeight, 48))
-    ctx.font = `${fontSize}px monospace`
-    ctx.textBaseline = "top"
-    const lineHeight = fontSize
-    const charWidth = fontSize * 0.6
-    canvas.width = maxLineLength * charWidth
-    canvas.height = lines.length * lineHeight
-    ctx.font = `${fontSize}px monospace`
-    ctx.textBaseline = "top"
-    ctx.fillStyle = "white"
-    lines.forEach((line, lineIndex) => {
-      ctx.fillText(line, 0, lineIndex * lineHeight)
-    })
-  }
-
 
   return (
     <div
@@ -189,8 +106,8 @@ export default function Home() {
           }}
         >
           <Spline
-        scene="https://prod.spline.design/P3cA3Sxw3sDqofWJ/scene.splinecode" 
-      />
+            scene="https://prod.spline.design/P3cA3Sxw3sDqofWJ/scene.splinecode" 
+          />
         </div>
       )}
 

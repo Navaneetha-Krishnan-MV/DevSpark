@@ -1,4 +1,3 @@
-
 import Spline from "@splinetool/react-spline"
 import { Mail, Phone, User } from "lucide-react"
 
@@ -67,22 +66,6 @@ const ContactSection = () => {
         />
       </div>
 
-      {/* Glowing Dots */}
-      <div className="absolute inset-0 -z-10">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Circuit Pattern */}
       <div className="absolute inset-0 opacity-10 -z-10">
         <svg width="100%" height="100%">
@@ -101,22 +84,6 @@ const ContactSection = () => {
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
         </svg>
-      </div>
-
-      {/* Floating Squares */}
-      <div className="absolute inset-0 -z-10">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 border border-cyan-400/30 rotate-45 animate-ping"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6" style={{ overflow: "visible" }}>
@@ -193,8 +160,8 @@ const ContactSection = () => {
                         href={`tel:${coordinator.phone.replace(/\s/g, "")}`}
                         className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
                       >
-                        <Phone className="w-5 h-5 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm font-mono group-hover/item:text-cyan-200 break-all ml-3">
+                        <Phone className="w-5 h-5 text-cyan-400 group-hover:item:scale-110 transition-transform duration-200 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm font-mono group-hover:item:text-cyan-200 break-all ml-3">
                           {coordinator.phone}
                         </span>
                       </a>

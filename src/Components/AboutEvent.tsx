@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, Trophy, Clock,Hotel, Globe, Brain, IndianRupee, Shirt, Utensils } from 'lucide-react';
+import { Users, Trophy, Clock, Hotel, Globe, Brain, IndianRupee, Shirt, Utensils } from 'lucide-react';
 import "../UI/AboutEvent.css"
 
 const AboutEvent: React.FC = () => {
@@ -94,32 +94,16 @@ const AboutEvent: React.FC = () => {
       <section id="about" className="min-h-screen bg-black py-10 px-4 relative overflow-hidden">
         
         {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
 
-      {/* Glowing Particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-        
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 -left-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>

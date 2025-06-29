@@ -37,22 +37,6 @@ const SponsorSection = () => {
         }} />
       </div>
 
-      {/* Glowing Particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

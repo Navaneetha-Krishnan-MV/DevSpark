@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+// import type React from "react"
 import { useState, useEffect, lazy, Suspense } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -8,23 +8,7 @@ import "aos/dist/aos.css"
 // Dynamic import for Spline to reduce initial bundle size
 const Spline = lazy(() => import("@splinetool/react-spline"))
 
-// Lightning Component
-const Lightning: React.FC<{ hue: number; xOffset: number; speed: number; intensity: number; size: number }> = ({
-  hue,
-  speed,
-}) => (
-  <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      marginLeft: "",
-      background: `radial-gradient(ellipse at center, hsla(${hue}, 70%, 50%, 0.1) 0%, transparent 70%)`,
-      animation: `lightning-pulse ${3 / speed}s ease-in-out infinite`,
-      zIndex: 0,
-      pointerEvents: "none",
-    }}
-  />
-)
+// Removing Lightning Component
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false)
@@ -131,8 +115,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Lightning overlay - only on desktop */}
-      {!isMobile && <Lightning hue={200} xOffset={0} speed={1} intensity={1} size={1} />}
+      {/* Removing Lightning overlay */}
 
       {/* Main content container */}
       <div
@@ -341,10 +324,6 @@ export default function Home() {
       </div>
 
       <style>{`
-        @keyframes lightning-pulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.7; }
-        }
         @keyframes blink-cursor {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }

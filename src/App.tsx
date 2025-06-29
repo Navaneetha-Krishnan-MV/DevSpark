@@ -1,6 +1,5 @@
 import './App.css'
 import { useEffect } from 'react';
-import DeadLine from './Components/DeadLine.tsx'
 import AboutEvent from './Components/AboutEvent.tsx'
 import WhoCanJoin from './Components/WhoCanJoin.tsx'
 import Jury from './Components/Jury.tsx'

@@ -334,7 +334,7 @@ const WhoCanJoin: React.FC = () => {
   <div className="relative bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-cyan-400/50 hover:border-cyan-300">
     <div className="flex items-center">
       <Zap className="w-5 h-5 animate-pulse mr-3" />
-      <span>🔗 REGISTER NOW</span>
+      <a href="https://unstop.com/o/SzV3A1F" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
     </div>
   </div>
 </div>

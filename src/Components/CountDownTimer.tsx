@@ -117,12 +117,14 @@ const CountDownTimer = () => {
               <span className="text-white  font-bold uppercase tracking-widest text-lg md:text-xl">WITH US!</span>
             </div>
             
-            <button
-              onClick={() => window.open('https://google.com', '_blank')}
+            <a
+              href="https://unstop.com/o/SzV3A1F"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative overflow-hidden group bg-gradient-to-r from-cyan-400 to-blue-400 text-white font-bold uppercase tracking-wider text-lg md:text-xl px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 transform hover:shadow-lg hover:shadow-cyan-500/20"
             >
               Register Now
-            </button>
+            </a>
 
             <p className="text-white text-sm font-semibold uppercase tracking-wider mt-6 md:mt-8">
               July 25, 2025 - Friday

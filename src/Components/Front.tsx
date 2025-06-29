@@ -389,12 +389,14 @@ export default function Home() {
               </div>
               
               <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
-                <button 
+                <a 
+                  href="https://unstop.com/o/SzV3A1F" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-                  onClick={() => window.location.href = '#register'}
                 >
                   Register Now
-                </button>
+                </a>
               </div>
             </div>
           </div>

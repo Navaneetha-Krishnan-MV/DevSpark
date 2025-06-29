@@ -68,9 +68,14 @@ const Navbar: React.FC = () => {
 
             {/* Register Button */}
             <div className="hidden md:block">
-              <button className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+              <a 
+                href="https://unstop.com/o/SzV3A1F" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 inline-block cursor-pointer"
+              >
                 Register Now
-              </button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -107,9 +112,9 @@ const Navbar: React.FC = () => {
                     {item.name}
                   </a>
                 ))}
-                <button className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200">
+                <a href="https://unstop.com/o/SzV3A1F" target="_blank" rel="noopener noreferrer" className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200">
                   Register Now
-                </button>
+                </a>
               </div>
             </div>
           )}

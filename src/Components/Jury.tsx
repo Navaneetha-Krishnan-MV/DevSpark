@@ -170,10 +170,6 @@ const Jury: React.FC = () => {
                     enableTilt={false}
                     bio={expandedCard === member.id ? member.bio : undefined}
                     onContactClick={() => handleContactClick(member)}
-                    email="user@example.com"
-                    website="example.com"
-                    linkedin="username"
-                    github="username"
                   />
                 </div>
               </div>
@@ -250,10 +246,6 @@ const Jury: React.FC = () => {
                   enableTilt={false}
                   bio={expandedCard === member.id ? member.bio : undefined}
                   onContactClick={() => handleContactClick(member)}
-                  email="user@example.com"
-                  website="example.com"
-                  linkedin="username"
-                  github="username"
                 />
               </div>
             </div>

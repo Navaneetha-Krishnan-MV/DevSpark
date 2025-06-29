@@ -26,6 +26,7 @@
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-scroll": "^1.9.3",
+    "react-virtualized-auto-sizer": "^1.0.26",
     "react-window": "^1.8.11",
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.1",

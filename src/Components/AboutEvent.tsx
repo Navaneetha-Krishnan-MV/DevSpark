@@ -266,7 +266,7 @@ const AboutEvent: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-cyan-400">
-                    Accommodation available upon request (Rs.300 per day)
+                    Accommodation available upon request (Rs.250 per day)
                   </p>
                 </div>
               </div>

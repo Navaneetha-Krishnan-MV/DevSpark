@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Logo from '/Logo-DevSpark.png'
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Who can Join', href: '#rules' },
-    // { name: 'Jury', href: '#jury' },
+    { name: 'Jury', href: '#jury' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <div className="text-2xl font-bold text-white">
-                <span className="text-cyan-400">Dev</span>Spark
+                <img src={Logo} className="w-32 h-8 bg-white" alt="Logo" />
               </div>
             </div>
 

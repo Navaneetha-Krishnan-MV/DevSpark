@@ -72,7 +72,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   email,
   website,
   linkedin,
-  twitter,
   github,
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -263,7 +262,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const socialLinks = React.useMemo(() => {
     const links = [];
     
-    if (email) {
+    if (email && email != "") {
       links.push({
         name: 'Email',
         icon: <Mail size={16} />,
@@ -273,7 +272,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       });
     }
     
-    if (website) {
+    if (website && website != "") {
       const websiteUrl = website.startsWith('http') ? website : `https://${website}`;
       links.push({
         name: 'Website',
@@ -295,18 +294,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       });
     }
     
-    if (twitter) {
-      const twitterHandle = twitter.startsWith('@') ? twitter.substring(1) : twitter;
-      links.push({
-        name: 'Twitter',
-        icon: <Twitter size={16} />,
-        url: `https://twitter.com/${twitterHandle}`,
-        color: 'text-cyan-300 hover:text-cyan-200',
-        bg: 'bg-cyan-900/30 hover:bg-cyan-900/50'
-      });
-    }
-    
-    if (github) {
+    if (github!="" && github!=undefined) {
       const githubUrl = github.startsWith('http') ? github : `https://github.com/${github}`;
       links.push({
         name: 'GitHub',
@@ -318,7 +306,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     }
 
     return links;
-  }, [email, website, linkedin, twitter, github]);
+  }, [email, website, linkedin, github]);
 
 
 

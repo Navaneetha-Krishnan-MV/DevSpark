@@ -1,8 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import ProfileCard from "../UI/ProfileCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
-import { FixedSizeList as List } from 'react-window';
-import AutoSizer from 'react-virtualized-auto-sizer';
 
 interface JuryMember {
   id: number;
@@ -13,134 +12,287 @@ interface JuryMember {
   avatarUrl: string;
   contactText: string;
   bio?: string;
+  email: string;
+  website: string;
+  linkedin: string;
+  github: string;
 }
 
 const juryMembers: JuryMember[] = [
   {
     id: 1,
-    name: "Javi A. Torres",
-    title: "Software Engineer",
-    handle: "javicodes",
+    name: "Maharaj M",
+    title: "Cybersecurity Expert",
+    handle: "maharajm",
     status: "Available",
-    avatarUrl: "https://i.pravatar.cc/300?img=1",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/C5603AQG8_pBskNFTiA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1650554132670?e=1756944000&v=beta&t=Mv398YQMMkVqnwjHbeFJpXg_sW9jEJnFFAKbXPRJVGs",
     contactText: "Connect",
-    bio: "Full-stack developer with expertise in React and Node.js.",
+    bio: "Founder and CEO of BCBUZZ Technologies Pvt. Ltd., with over a decade of experience in the IT industry. A seasoned professional specializing in Enterprise Blockchain solutions, Cybersecurity frameworks, and Artificial Intelligence applications. Passionate about leveraging cutting-edge technology to drive digital transformation.",
+    email: "maharaj@bcbuzz.io",
+    website: "https://in100w.com/about_me/",
+    linkedin: "https://www.linkedin.com/in/maharaj-m/",
+    github: ""
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    title: "UI/UX Designer",
-    handle: "sarahdesigns",
+    name: "Nigun Sanjai R",
+    title: "Full Stack ML Dev | UI/UX Designer",
+    handle: "nigunsanjai",
     status: "Online",
-    avatarUrl: "https://i.pravatar.cc/300?img=2",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
     contactText: "Message",
-    bio: "Award-winning designer focused on user-centered design.",
+    bio: "A Software Development Engineer at Autodesk with hands-on experience in full-stack Java development and a strong foundation in scalable backend systems. As a passionate freelancer and competitive programmer, I bring a problem-solving mindset, deep technical expertise, and a keen interest in innovation. I enjoy mentoring budding developers and evaluating creative solutions",
+    email: "radha.nigun@gmail.com",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/nigun-sanjai-radhakrishnan-650a011b6/",
+    github: "https://github.com/NigunSanjai"
   },
-  {
-    id: 3,
-    name: "Alex Kumar",
-    title: "Tech Lead",
-    handle: "alextech",
-    status: "Busy",
-    avatarUrl: "https://i.pravatar.cc/300?img=3",
-    contactText: "Schedule",
-    bio: "Engineering leader with 10+ years in tech innovation.",
-  },
+  // {
+  //   id: 3,
+  //   name: "Alex Kumar",
+  //   title: "Tech Lead",
+  //   handle: "alextech",
+  //   status: "Busy",
+  //   avatarUrl: "https://i.pravatar.cc/300?img=3",
+  //   contactText: "Schedule",
+  //   bio: "Engineering leader with 10+ years in tech innovation.",
+  //   email: "user@example.com",
+  //   website:"example.com",
+  //   linkedin: "username",
+  //   github: "username"
+  // },
 ];
 
-interface RowProps {
-  index: number;
-  style: React.CSSProperties;
-}
-
 const Jury: React.FC = () => {
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsTablet] = useState(false);
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      juryMembers.forEach((_, index) => {
+        setTimeout(() => {
+          setVisibleCards((prev) => [...prev, index]);
+        }, index * 150);
+      });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleCardClick = (member: JuryMember) => {
+    setExpandedCard((prev) => (prev === member.id ? null : member.id));
+    if (expandedCard !== member.id) {
+      toast.success(`Viewing ${member.name}'s Profile`, {
+        description: `Learn more about ${member.title}`,
+        duration: 2000,
+      });
+    }
+  };
+
   const handleContactClick = (member: JuryMember) => {
     toast.info(`Contacting ${member.name}`, {
       description: `Opening connection with ${member.title}...`,
       duration: 3000,
     });
+    console.log(`Connecting with ${member.name} (@${member.handle})`);
   };
 
-  // Render each row in the virtualized list
-  const Row = useCallback(({ index, style }: RowProps) => {
-    const member = juryMembers[index];
-    return (
-      <div 
-        className="mx-auto w-full max-w-md md:max-w-none px-4 py-2"
-        style={{
-          ...style,
-          opacity: 0,
-          animation: 'fadeIn 0.5s forwards',
-          animationDelay: `${index * 0.05}s`,
-          willChange: 'transform, opacity'
-        }}
-      >
-        <ProfileCard
-          {...member}
-          showUserInfo
-          enableTilt={false}
-          onContactClick={() => handleContactClick(member)}
-          email="user@example.com"
-          website="example.com"
-          linkedin="username"
-          github="username"
-        />
-      </div>
+  const nextCard = () => {
+    setCurrentMobileIndex((prev) => 
+      prev >= juryMembers.length - 1 ? 0 : prev + 1
     );
-  }, []);
+  };
+
+  const prevCard = () => {
+    setCurrentMobileIndex((prev) => 
+      prev <= 0 ? juryMembers.length - 1 : prev - 1
+    );
+  };
 
   return (
-    <section id="jury" className="w-full min-h-screen bg-black text-white py-16 px-4 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `pulse ${2 + Math.random() * 3}s infinite`,
-              animationDelay: `${Math.random() * 2}s`,
-              willChange: 'opacity'
-            }}
-          />
-        ))}
+    <section id="jury" className="w-full min-h-screen bg-black text-white py-5 px-4 relative overflow-hidden">
+      {/* Scroll Shadows (Mobile) - Only for tablet scroll view */}
+      <div className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" 
+           style={{ display: isMobile ? 'none' : 'block' }} />
+      <div className="md:hidden lg:block absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-black/90 to-transparent z-10 pointer-events-none" 
+           style={{ display: isMobile ? 'none' : 'block' }} />
+
+      {/* Heading */}
+      <div className="text-center mb-10">
+        <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+          Meet Our Jury Panel
+        </h2>
+        <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+          Industry experts evaluating your journey. {isMobile ? 'Navigate to explore.' : 'Tap or click to explore.'}
+        </p>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-block mb-4">
-            <div className="px-4 py-2 border border-cyan-400/30 rounded-full bg-cyan-400/5 backdrop-blur-sm">
-              <span className="text-cyan-400 text-sm uppercase tracking-widest font-mono">
-                Our Esteemed
-              </span>
-            </div>
+      {/* Mobile Single Card Display */}
+      <div className="block md:hidden">
+        <div className="relative max-w-sm mx-auto">
+          {/* Card Container */}
+          <div className="relative h-96 mb-6">
+            {juryMembers.map((member, index) => (
+              <div
+                key={member.id}
+                className={`absolute inset-0 transition-all duration-500 transform ${
+                  index === currentMobileIndex 
+                    ? 'translate-x-0 opacity-100 scale-100' 
+                    : index < currentMobileIndex 
+                      ? '-translate-x-full opacity-0 scale-95'
+                      : 'translate-x-full opacity-0 scale-95'
+                } ${
+                  visibleCards.includes(index) ? '' : 'translate-y-10'
+                }`}
+                style={{ transitionDelay: visibleCards.includes(index) ? '0ms' : `${index * 150}ms` }}
+              >
+                <div
+                  className="h-full w-full cursor-pointer transition duration-300 active:scale-95"
+                  onClick={() => handleCardClick(member)}
+                >
+                  <ProfileCard
+                    {...member}
+                    showUserInfo
+                    enableTilt={false}
+                    bio={expandedCard === member.id ? member.bio : undefined}
+                    onContactClick={() => handleContactClick(member)}
+                    email="user@example.com"
+                    website="example.com"
+                    linkedin="username"
+                    github="username"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
-            JURY PANEL
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto mb-12"></div>
+
+          {/* Navigation Arrows */}
+          <div className="absolute right-4 bottom-4 flex gap-2">
+            <button
+              onClick={prevCard}
+              className="bg-gray-800/80 hover:bg-gray-700 text-white p-2 rounded-full transition-all duration-200 transform hover:scale-110 active:scale-95"
+              aria-label="Previous card"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={nextCard}
+              className="bg-gray-800/80 hover:bg-gray-700 text-white p-2 rounded-full transition-all duration-200 transform hover:scale-110 active:scale-95"
+              aria-label="Next card"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-4">
+            {juryMembers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentMobileIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  index === currentMobileIndex 
+                    ? 'bg-cyan-400 w-6' 
+                    : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+                aria-label={`Go to card ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Tablet Scroll */}
+      <div className="hidden md:block lg:hidden">
+        <div
+          className="scrollbar-hide flex gap-4 overflow-x-auto pb-4 px-2"
+          style={{
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+            scrollPaddingLeft: "1rem",
+          }}
+        >
+          {juryMembers.map((member, index) => (
+            <div
+              key={member.id}
+              className={`flex-shrink-0 snap-start transition-all transform duration-700 ${
+                visibleCards.includes(index) ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              } ${expandedCard && expandedCard !== member.id ? "opacity-40" : "opacity-100"}`}
+              style={{
+                width: "320px",
+                minWidth: "320px",
+                transitionDelay: `${index * 150}ms`,
+              }}
+            >
+              <div
+                className={`h-full w-full transition duration-300 cursor-pointer ${
+                  expandedCard === member.id ? "transform scale-105" : "active:scale-95"
+                }`}
+                onClick={() => handleCardClick(member)}
+              >
+                <ProfileCard
+                  {...member}
+                  showUserInfo
+                  enableTilt={false}
+                  bio={expandedCard === member.id ? member.bio : undefined}
+                  onContactClick={() => handleContactClick(member)}
+                  email="user@example.com"
+                  website="example.com"
+                  linkedin="username"
+                  github="username"
+                />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Virtualized Jury Members List */}
-        <div className="h-[600px] w-full">
-          <AutoSizer>
-            {({ height, width }) => (
-              <List
-                height={height}
-                itemCount={juryMembers.length}
-                itemSize={400}
-                width={width}
-                layout={width > 1024 ? 'horizontal' : 'vertical'}
-                className="scrollbar-hide"
-                overscanCount={3}
+        {/* Scroll Indicator */}
+        <div className="flex justify-center mt-4 text-gray-400 text-xs animate-pulse">
+          <span className="mr-1">⬅️</span> Swipe to Explore <span className="ml-1">➡️</span>
+        </div>
+      </div>
+
+      {/* Desktop Grid */}
+      <div className="hidden lg:block">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {juryMembers.map((member, index) => (
+            <div
+              key={member.id}
+              className={`transition-all transform duration-700 ${
+                visibleCards.includes(index) ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              } ${expandedCard && expandedCard !== member.id ? "opacity-40" : "opacity-100"}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div
+                className={`h-full w-full cursor-pointer transition duration-300 ${
+                  expandedCard === member.id ? "transform scale-105" : "hover:scale-[1.02]"
+                }`}
+                onClick={() => handleCardClick(member)}
               >
-                {Row}
-              </List>
-            )}
-          </AutoSizer>
+                <ProfileCard
+                  {...member}
+                  showUserInfo
+                  enableTilt={true}
+                  bio={expandedCard === member.id ? member.bio : undefined}
+                  onContactClick={() => handleContactClick(member)}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

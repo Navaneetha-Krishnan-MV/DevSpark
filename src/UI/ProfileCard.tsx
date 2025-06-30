@@ -28,10 +28,10 @@ interface ProfileCardProps {
 }
 
 const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)";
+  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(195,100%,75%,var(--card-opacity)) 4%,hsla(195,80%,65%,calc(var(--card-opacity)*0.75)) 10%,hsla(195,60%,55%,calc(var(--card-opacity)*0.5)) 50%,hsla(195,40%,45%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00e6ffcc 0%,#001a2200 100%),radial-gradient(100% 100% at 50% 50%,#00bfff 1%,#001a2200 76%),conic-gradient(from 124deg at 50% 50%,#0891b2 0%,#06b6d4 40%,#22d3ee 60%,#0891b2 100%)";
 
 const DEFAULT_INNER_GRADIENT =
-  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
+  "linear-gradient(145deg,rgba(0,0,0,0.85) 0%,rgba(15,23,42,0.9) 50%,rgba(0,0,0,0.85) 100%)";
 
 const ANIMATION_CONFIG = {
   SMOOTH_DURATION: 600,
@@ -76,8 +76,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // Animation state (removed unused state to fix TypeScript warning)
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
@@ -262,7 +260,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const socialLinks = React.useMemo(() => {
     const links = [];
     
-    if (email && email != "") {
+    if (email && email !== "") {
       links.push({
         name: 'Email',
         icon: <Mail size={16} />,
@@ -272,7 +270,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       });
     }
     
-    if (website && website != "") {
+    if (website && website !== "") {
       const websiteUrl = website.startsWith('http') ? website : `https://${website}`;
       links.push({
         name: 'Website',
@@ -283,7 +281,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       });
     }
     
-    if (linkedin) {
+    if (linkedin && linkedin !== "") {
       const linkedinUrl = linkedin.startsWith('http') ? linkedin : `https://linkedin.com/in/${linkedin}`;
       links.push({
         name: 'LinkedIn',
@@ -294,7 +292,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       });
     }
     
-    if (github!="" && github!=undefined) {
+    if (github && github !== "" && github !== undefined) {
       const githubUrl = github.startsWith('http') ? github : `https://github.com/${github}`;
       links.push({
         name: 'GitHub',
@@ -308,9 +306,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     return links;
   }, [email, website, linkedin, github]);
 
-
-
-
   return (
     <div
       ref={wrapRef}
@@ -322,31 +317,40 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content">
+            {/* Header with name and title */}
             <div className="pc-details">
-              <h3>{name}</h3>
-              <p>{title}</p>
+              <h3 className="pc-name">{name}</h3>
+              <p className="pc-title">{title}</p>
             </div>
-            <div className="pc-avatar-content">
-              {bio ? (
-                <div className="mt-45 sm:mt-45">
-                  <div className="text-sm sm:text-base">{bio}</div>
-                </div>
-              ) : (
-                <>
-                  <img
-                    className="avatar"
-                    src={avatarUrl}
-                    alt={`${name || "User"} avatar`}
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                    }}
-                  />
-                </>
-              )}
+
+            {/* Main content area - scrollable */}
+            <div className="pc-main-content">
+              {/* Avatar or Bio */}
+              <div className="pc-avatar-content">
+                {bio ? (
+                  <div className="pc-bio">
+                    <p className="pc-bio-text">{bio}</p>
+                  </div>
+                ) : (
+                  <>
+                    <img
+                      
+                      className="avatar mt-2"
+                      src={avatarUrl}
+                      alt={`${name || "User"} avatar`}
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = "none";
+                      }}
+                    />
+                  </>
+                )}
+              </div>
+
+              {/* Social Links */}
               {showUserInfo && socialLinks.length > 0 && (
-                <div className="pc-user-info !flex !flex-row !gap-2 !mt-4 !justify-center !items-center !flex-wrap">
+                <div className="pc-user-info">
                   {socialLinks.map((link) => (
                     <a
                       key={link.name}

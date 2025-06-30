@@ -124,7 +124,7 @@ const Jury: React.FC = () => {
   };
 
   return (
-    <section id="jury" className="w-full min-h-screen bg-black text-white py-5 px-4 relative overflow-hidden">
+    <section id="jury" className="w-full min-h-screen bg-black text-white pt-5 pb-2 px-4 relative overflow-hidden">
       {/* Scroll Shadows (Mobile) - Only for tablet scroll view */}
       <div className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" 
            style={{ display: isMobile ? 'none' : 'block' }} />

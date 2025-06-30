@@ -24,7 +24,7 @@ const SponsorSection = () => {
   ];
 
   return (
-    <section className="relative py-5 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+    <section className="relative pt-2 pb-5 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
       {/* Animated Grid Background */}
       
       <div className="absolute inset-0 opacity-20">

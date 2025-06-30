@@ -1,7 +1,9 @@
 import Spline from "@splinetool/react-spline"
 import { Mail, Phone, User } from "lucide-react"
+import {useMediaQuery} from "react-responsive"
 
 const ContactSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 800 })
   const coordinators = [
     {
       name: "Avinarasi S",
@@ -181,7 +183,7 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="relative w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[900px] mx-auto lg:col-span-5">
+          {!isMobile && <div className="relative w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[900px] mx-auto lg:col-span-5">
   {/* Responsive container box */}
   <div className="relative w-full aspect-[1/1] sm:aspect-[4/3] md:aspect-[1] overflow-visible">
     <div
@@ -202,7 +204,7 @@ const ContactSection = () => {
       </div>
     </div>
   </div>
-</div>
+</div>}
 
         {/* Bottom Message - Centered */}
         <div className="col-span-full flex justify-center mt-12 mb-4 w-full relative z-30">

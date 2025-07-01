@@ -136,7 +136,7 @@ const AboutEvent: React.FC = () => {
                     Hosted by the <span className="text-blue-400 font-semibold">Department of Computer Science and Engineering, 
                     KPR Institute of Engineering and Technology</span>, in collaboration with 
                     <span className="text-cyan-400 font-semibold"> IEEE KPRIET CS</span> and 
-                    <span className="text-blue-400 font-semibold"> IEEE SPY Hize</span>.
+                    <span className="text-blue-400 font-semibold"> IEEE SYP Hize</span>.
                   </p>
                   
                   <p>

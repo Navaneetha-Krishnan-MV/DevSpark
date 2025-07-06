@@ -151,20 +151,22 @@ export default function Home() {
               data-aos="fade-right" 
               data-aos-delay="300"
             >
-              <h2 
-                className="font-bold mb-2"
-                style={{ 
-                  fontSize: isMobile ? "1.5rem" : "2.5rem",
-                  lineHeight: "1.1",
-                  background: "linear-gradient(90deg, #ff7200, #ffae00)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  textShadow: isMobile ? "0 2px 10px rgba(255, 114, 0, 0.3)" : "0 4px 20px rgba(255, 114, 0, 0.4)",
-                  marginBottom: isMobile ? "0.5rem" : "1rem"
-                }}
-              >
-                IEEE CS SYP HIZE
-              </h2>
+              <div style={{
+                marginBottom: isMobile ? "0.5rem" : "1rem"
+              }}>
+                <img 
+                  src="/HIZE IEEE.png" 
+                  alt="IEEE SYP HIZE" 
+                  className="w-auto"
+                  style={{
+                    height: isMobile ? '3.5rem' : '6rem',
+                    width: 'auto',
+                    maxWidth: '100%',
+                    objectFit: 'contain',
+                    margin: '0.5rem 0'
+                  }}
+                />
+              </div>
               <p 
                 className="text-gray-300"
                 style={{ 
@@ -297,54 +299,57 @@ export default function Home() {
             </div>
 
             {/* Prizes and Registration */}
-            <div className="space-y-6" data-aos="fade-up" data-aos-delay="800">
-              <div className="flex items-center gap-4">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
-                <span 
-                  className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
-                  style={{ fontSize: isMobile ? "1rem" : "1.125rem" }}
-                >
-                  Prizes Worth
-                </span>
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
-              </div>
-              
-              <h3 
-                className="font-bold text-center"
-                style={{ fontSize: isMobile ? "2rem" : "2.5rem" }}
-              >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600">
-                  INR 85,000+
-                </span>
-              </h3>
-              
-              <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
-                  <p className="text-orange-400 font-medium">IEEE Members</p>
-                  <p className="text-2xl font-bold text-white">₹500</p>
+            <div className="w-full" data-aos="fade-up" data-aos-delay="800">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full">
+                {/* Prizes Section - Left Side */}
+                <div className="flex-1 w-full md:w-auto">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+                      <span 
+                        className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent text-lg font-bold whitespace-nowrap"
+                      >
+                        Prizes Worth
+                      </span>
+                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+                    </div>
+                    
+                    <h3 className="font-bold">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600" style={{ fontSize: isMobile ? "1.75rem" : "2.25rem" }}>
+                        INR 85,000+
+                      </span>
+                    </h3>
+                    
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2 w-full">
+                      <div className="flex items-center gap-4">
+                        <div className="text-center px-4 py-2 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
+                          <p className="text-orange-400 text-sm font-medium">IEEE Members</p>
+                          <p className="text-xl font-bold text-white">₹500</p>
+                        </div>
+                        <div className="text-center px-4 py-2 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
+                          <p className="text-orange-400 text-sm font-medium">Non-IEEE</p>
+                          <p className="text-xl font-bold text-white">₹600</p>
+                        </div>
+                      </div>
+                      <a 
+                        href="https://unstop.com/o/SzV3A1F" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-8 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 whitespace-nowrap text-base ml-0 sm:ml-2 mt-2 sm:mt-0"
+                      >
+                        Register Now
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
-                  <p className="text-orange-400 font-medium">Non-IEEE</p>
-                  <p className="text-2xl font-bold text-white">₹600</p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
-                <a 
-                  href="https://unstop.com/o/SzV3A1F" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-6 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
-                >
-                  Register Now
-                </a>
+                {/* Space for additional content on the right if needed */}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <style>{`
+      <style jsx>{`
         @keyframes blink-cursor {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }

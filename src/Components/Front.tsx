@@ -5,7 +5,7 @@ import { useState, useEffect, lazy, Suspense } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
-// Dynamic import for Spline to reduce initial bundle size
+
 const Spline = lazy(() => import("@splinetool/react-spline"))
 
 // Removing Lightning Component
@@ -90,7 +90,7 @@ export default function Home() {
       data-aos-duration="1200"
       id="home"
     >
-      {/* Spline background - only load on desktop with Suspense fallback */}
+    
       {!isMobile && (
         <div 
           className="bg-black"
@@ -112,9 +112,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Removing Lightning overlay */}
-
-      {/* Main content container */}
+   
       <div
         style={{
           display: "flex",
@@ -129,7 +127,7 @@ export default function Home() {
           paddingTop: isMobile ? "6rem" : "0",
         }}
       >
-        {/* Content */}
+       
         <div
           style={{
             maxWidth: isMobile ? "100%" : "50%",
@@ -145,7 +143,7 @@ export default function Home() {
           data-aos-duration="1200"
         >
           <div className="relative z-10 w-full flex flex-col pt-4 md:pt-2">
-            {/* Department */}
+       
             <div 
               className="flex flex-col"
               data-aos="fade-right" 
@@ -176,21 +174,52 @@ export default function Home() {
               >
                 In Collaboration with
               </p>
-              <p 
-                className="text-gray-100 font-medium"
-                style={{ 
-                  fontSize: isMobile ? "1rem" : "1.3rem"
-                }}
-              >
-                IEEE Computer Society KPRIET
-              </p>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: '0.25rem',
+                width: '100%'
+              }}>
+                <div style={{
+                  width: isMobile ? '180px' : '250px',
+                  maxWidth: '100%',
+                  marginLeft: 0
+                }}>
+                  <img 
+                    src="/IEEE.png" 
+                    alt="IEEE Computer Society" 
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                  />
+                </div>
+                <p 
+                  className="text-gray-100 font-medium"
+                  style={{ 
+                    fontSize: isMobile ? "1.4rem" : "1.8rem",
+                    margin: 0,
+                    paddingLeft: '4px',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  KPRIET
+                </p>
+              </div>
             </div>
 
             <p 
               className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent text-lg" 
               data-aos="fade-right" 
               data-aos-delay="400"
-              style={{ fontSize: isMobile ? "1rem" : "1.125rem" }}
+              style={{ 
+                fontSize: isMobile ? "1.2rem" : "1.5rem",
+                fontWeight: 'bold',
+                margin: '0.5rem 0'
+              }}
             >
               Organize
             </p>

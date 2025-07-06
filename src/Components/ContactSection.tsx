@@ -192,7 +192,7 @@ const ContactSection = () => {
       <div className="w-full h-full relative">
         <div className="absolute inset-0 lg:scale-[1.3] lg:translate-x-20 transition-transform duration-300 ease-in-out">
           <Spline
-            scene="https://prod.spline.design/PIxrPkEbntcNli9G/scene.splinecode"
+            scene="./robot.splinecode"
             style={{ width: '100%', height: '100%' }}
           />
         </div>

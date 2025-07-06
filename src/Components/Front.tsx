@@ -107,7 +107,7 @@ export default function Home() {
           }}
         >
           <Suspense fallback={<div />}>
-          <Spline scene="/scene1.splinecode" onLoad={handleSplineLoad} />
+          <Spline scene="/Circuit.splinecode" onLoad={handleSplineLoad} />
           </Suspense>
         </div>
       )}

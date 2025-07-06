@@ -157,7 +157,7 @@ export default function Home() {
                   alt="IEEE SYP HIZE" 
                   className="w-auto"
                   style={{
-                    height: isMobile ? '3.5rem' : '6rem',
+                    height: isMobile ? '4rem' : '6rem',
                     width: 'auto',
                     maxWidth: '100%',
                     objectFit: 'contain',
@@ -181,22 +181,16 @@ export default function Home() {
                 gap: '0.25rem',
                 width: '100%'
               }}>
-                <div style={{
-                  width: isMobile ? '180px' : '250px',
-                  maxWidth: '100%',
-                  marginLeft: 0
-                }}>
-                  <img 
-                    src="/IEEE.png" 
-                    alt="IEEE Computer Society" 
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      objectFit: 'contain',
-                      display: 'block'
-                    }}
-                  />
-                </div>
+                <h3
+                  className="text-gray-100 font-bold"
+                  style={{
+                    fontSize: isMobile ? '1.5rem' : '2rem',
+                    margin: 0,
+                    paddingLeft: '4px'
+                  }}
+                >
+                  IEEE Computer Society
+                </h3>
                 <p 
                   className="text-gray-100 font-medium"
                   style={{ 
@@ -232,7 +226,7 @@ export default function Home() {
                   display: "inline-block", 
                   position: "relative", 
                   whiteSpace: "nowrap",
-                  fontSize: isMobile ? "2.2rem" : "clamp(2.5rem, 7vw, 5rem)"
+                  fontSize: isMobile ? "2.2rem" : "clamp(2.5rem, 6vw, 4rem)"
                 }}
                 data-aos="fade-right"
                 data-aos-delay="500"

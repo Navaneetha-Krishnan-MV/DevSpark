@@ -60,8 +60,8 @@ const ContactSection = () => {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-            linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(255, 114, 0, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 114, 0, 0.1) 1px, transparent 1px)
           `,
             backgroundSize: "50px 50px",
           }}
@@ -78,10 +78,10 @@ const ContactSection = () => {
                 stroke="currentColor"
                 strokeWidth="1"
                 fill="none"
-                className="text-cyan-400/20"
+                className="text-[#ff7200]/20"
               />
-              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-cyan-400/30" />
-              <circle cx="90" cy="90" r="2" fill="currentColor" className="text-cyan-400/30" />
+              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-[#ff7200]/30" />
+              <circle cx="90" cy="90" r="2" fill="currentColor" className="text-[#ff7200]/30" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
@@ -92,15 +92,15 @@ const ContactSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <div className="px-6 py-2 border border-cyan-400/30 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm">
-              <span className="text-cyan-400 text-sm uppercase tracking-widest font-mono flex items-center space-x-3">
+            <div className="px-6 py-2 border border-[#ff7200]/30 rounded-full bg-gradient-to-r from-[#ff7200]/10 to-[#ffae00]/10 backdrop-blur-sm">
+              <span className="text-[#ff7200] text-sm uppercase tracking-widest font-mono flex items-center space-x-3">
                 <User className="w-5 h-5 flex-shrink-0" />
                 <span>Connect With Us</span>
               </span>
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
             CONTACT TEAM
           </h2>
 
@@ -108,7 +108,7 @@ const ContactSection = () => {
             Ready to revolutionize the future? Connect with our coordinators who are here to guide your journey.
           </p>
 
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -118,66 +118,61 @@ const ContactSection = () => {
               {coordinators.map((coordinator) => (
                 <div
                   key={coordinator.name}
-                  className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+                  className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-[#ff7200]/20 hover:border-[#ff7200]/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
                 >
                   {/* Glow Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff7200]/5 via-transparent to-[#ffae00]/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                   <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/20 via-transparent to-cyan-400/20 animate-pulse"></div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff7200]/20 via-transparent to-[#ff7200]/20 animate-pulse"></div>
                   </div>
 
                   <div className="relative p-4">
                     {/* Avatar */}
                     <div className="flex justify-center mb-4">
                       <div className="relative">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[#ff7200] to-[#ffae00] rounded-full flex items-center justify-center text-black font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                           {coordinator.avatar}
                         </div>
-                        <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 scale-110 group-hover:scale-125 transition-transform duration-300"></div>
-                        <div className="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping opacity-0 group-hover:opacity-100"></div>
+                        <div className="absolute inset-0 rounded-full border-2 border-[#ff7200]/30 scale-110 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div className="absolute inset-0 rounded-full bg-[#ff7200]/20 animate-ping opacity-0 group-hover:opacity-100"></div>
                       </div>
                     </div>
 
                     {/* Name & Role */}
                     <div className="text-center mb-4">
-                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-[#ffae00] transition-colors duration-300">
                         {coordinator.name}
                       </h3>
-                      <p className="text-cyan-400 text-sm font-mono uppercase tracking-wider">{coordinator.role}</p>
+                      <p className="text-[#ff8a00] text-sm font-mono uppercase tracking-wider">{coordinator.role}</p>
                     </div>
 
                     {/* Email & Phone */}
                     <div className="space-y-3">
                       <a
                         href={`mailto:${coordinator.email}`}
-                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
+                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-[#ff7200]/10 transition-colors duration-300 group/item"
                       >
-                        <Mail className="w-5 h-5 text-cyan-400 group-hover/item:scale-110 transition-transform duration-200 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-cyan-200 break-all ml-3">
+                        <Mail className="w-5 h-5 text-[#ff8a00] group-hover/item:scale-110 transition-transform duration-200 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm font-mono truncate group-hover/item:text-[#ffae00] break-all ml-3">
                           {coordinator.email}
                         </span>
                       </a>
 
                       <a
                         href={`tel:${coordinator.phone.replace(/\s/g, "")}`}
-                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-cyan-400/10 transition-colors duration-300 group/item"
+                        className="flex items-center space-x-3 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-800/70 hover:bg-[#ff7200]/10 transition-colors duration-300 group/item"
                       >
-                        <Phone className="w-5 h-5 text-cyan-400 group-hover:item:scale-110 transition-transform duration-200 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm font-mono group-hover:item:text-cyan-200 break-all ml-3">
+                        <Phone className="w-5 h-5 text-[#ff8a00] group-hover:item:scale-110 transition-transform duration-200 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm font-mono group-hover:item:text-[#ffae00] break-all ml-3">
                           {coordinator.phone}
                         </span>
                       </a>
                     </div>
 
-                    {/* Online Indicator */}
-                    <div className="flex items-center justify-center mt-4 space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-green-400 text-xs font-mono">ONLINE</span>
-                    </div>
                   </div>
 
                   {/* Bottom Glow */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               ))}
             </div>
@@ -208,19 +203,19 @@ const ContactSection = () => {
 
         {/* Bottom Message - Centered */}
         <div className="col-span-full flex justify-center mt-12 mb-4 w-full relative z-30">
-          <div className="inline-flex items-center space-x-2 sm:space-x-4 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
-            <span className="text-cyan-300 mr-3 font-mono text-sm sm:text-lg md:text-xl whitespace-nowrap">Ready to Spark Innovation?</span>
+          <div className="inline-flex items-center space-x-2 sm:space-x-4 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#ff7200]/10 via-[#ff8a00]/10 to-[#ff7200]/10 rounded-2xl border border-[#ff7200]/30 backdrop-blur-sm shadow-lg">
+            <span className="text-[#ffae00] mr-3 font-mono text-sm sm:text-lg md:text-xl whitespace-nowrap">Ready to Spark Innovation?</span>
             <div className="flex space-x-1">
               <div
-                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#ff8a00] rounded-full animate-bounce"
                 style={{ animationDelay: "0s" }}
               ></div>
               <div
-                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#ff8a00] rounded-full animate-bounce"
                 style={{ animationDelay: "0.1s" }}
               ></div>
               <div
-                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-400 rounded-full animate-bounce"
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#ff8a00] rounded-full animate-bounce"
                 style={{ animationDelay: "0.2s" }}
               ></div>
             </div>

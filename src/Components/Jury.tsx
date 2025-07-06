@@ -133,7 +133,7 @@ const Jury: React.FC = () => {
 
       {/* Heading */}
       <div className="text-center mb-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+        <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
           Meet Our Jury Panel
         </h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
@@ -202,8 +202,8 @@ const Jury: React.FC = () => {
                 onClick={() => setCurrentMobileIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
                   index === currentMobileIndex 
-                    ? 'bg-cyan-400 w-6' 
-                    : 'bg-gray-600 hover:bg-gray-500'
+                    ? 'bg-[#ff7200] w-6' 
+                    : 'bg-gray-600 hover:bg-[#ffae00]'
                 }`}
                 aria-label={`Go to card ${index + 1}`}
               />

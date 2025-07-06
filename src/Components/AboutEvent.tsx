@@ -7,7 +7,7 @@ const AboutEvent: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
 
   const stats = [
-    { icon: Brain, value: "12+", label: "Domain-specific Problem Statements", color: "text-cyan-400" },
+    { icon: Brain, value: "12+", label: "Domain-specific Problem Statements", color: "text-[#ff7200]" },
     { icon: Users, value: "1000+", label: "Participants Expected", color: "text-blue-400" },
     { icon: IndianRupee, value: "₹85000", label: "Prize Pool", color: "text-green-400" },
     { icon: Globe, value: "3", label: "Tracks: Cybersecurity, Full Stack, AI/ML", color: "text-purple-400" },
@@ -66,7 +66,7 @@ const AboutEvent: React.FC = () => {
           position: absolute;
           height: 102%;
           width: 102%;
-          background-image: conic-gradient(from var(--angle), transparent 50%, blue);
+          background-image: conic-gradient(from var(--angle), transparent 50%, #ff7200);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -106,7 +106,7 @@ const AboutEvent: React.FC = () => {
 
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 -left-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 -left-40 w-80 h-80 bg-[#ff7200]/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
@@ -118,25 +118,24 @@ const AboutEvent: React.FC = () => {
             {/* Left Side - About This Event */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+                <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
                   ABOUT THIS EVENT
                 </h2>
                 
                 <div className="space-y-6 text-gray-300 text-lg leading-relaxed animate-fade-in delay-300">
-                  <p className="text-2xl font-semibold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  <p className="text-2xl font-semibold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
                     Welcome to DevSpark 2025
                   </p>
                   
                   <p>
-                    South India's dynamic <span className="text-cyan-400 font-bold">24-hour offline national-level Hackathon</span> — 
+                    South India's dynamic <span className="text-[#ff7200] font-bold">24-hour offline national-level Hackathon</span> — 
                     a celebration of creativity, code, and cutting-edge innovation!
                   </p>
                   
                   <p>
-                    Hosted by the <span className="text-blue-400 font-semibold">Department of Computer Science and Engineering, 
-                    KPR Institute of Engineering and Technology</span>, in collaboration with 
-                    <span className="text-cyan-400 font-semibold"> IEEE KPRIET CS</span> and 
-                    <span className="text-blue-400 font-semibold"> IEEE SYP Hize</span>.
+                    Conducted by <span className="text-[#ff7200] font-semibold">IEEE SYP HIZE</span>, in collaboration with 
+                    <span className="text-[#ff7200] font-semibold"> IEEE KPRIET CS</span> and 
+                    <span className="text-[#ff7200] font-semibold"> KPR Institute of Engineering and Technology</span>.
                   </p>
                   
                   <p>
@@ -149,7 +148,7 @@ const AboutEvent: React.FC = () => {
             {/* Right Side - What You'll Experience */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-8 animate-fade-in">
+                <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent mb-8 animate-fade-in">
                   WHAT YOU'LL EXPERIENCE
                 </h3>
                 
@@ -164,8 +163,8 @@ const AboutEvent: React.FC = () => {
                       }`}
                       style={{ transitionDelay: `${index * 100}ms` }}
                     >
-                      <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
-                        <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-pulse"></div>
+                      <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-[#ff7200]/20 hover:border-[#ff7200]/40 transition-all duration-300 hover:scale-105">
+                        <div className="w-3 h-3 bg-gradient-to-r from-[#ff7200] to-[#ffae00] rounded-full animate-pulse"></div>
                         <p className="text-gray-200 text-lg">{feature}</p>
                       </div>
                     </div>
@@ -212,18 +211,18 @@ const AboutEvent: React.FC = () => {
 
           {/* Eligibility Section */}
           <div className="mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
               Information & Perks
             </h3>
             <div className="space-y-6 max-w-4xl mx-auto">
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-[#ff7200] to-[#ffae00] rounded-full flex items-center justify-center animate-pulse">
                     <Users className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xl font-semibold text-cyan-400">
+                  <p className="text-xl font-semibold text-white">
                     Participants should either belong to B.E, B.Tech, M.E, M.Tech, MCA or MSc and should be studying in any stream and any semester/year
                   </p>
                 </div>
@@ -236,7 +235,7 @@ const AboutEvent: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xl font-semibold text-cyan-400">
+                  <p className="text-xl font-semibold text-white">
                     Complimentary t-shirts will be provided to all participants
                   </p>
                 </div>
@@ -249,7 +248,7 @@ const AboutEvent: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xl font-semibold text-cyan-400">
+                  <p className="text-xl font-semibold text-white">
                     Accommodation available upon request (Rs.250 per day)
                   </p>
                 </div>
@@ -257,12 +256,12 @@ const AboutEvent: React.FC = () => {
               
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-pulse">
+                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
                     <Utensils className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xl font-semibold text-cyan-400">
+                  <p className="text-xl font-semibold text-white">
                     Free Food and refreshments will be provided during the event
                   </p>
                 </div>
@@ -272,7 +271,7 @@ const AboutEvent: React.FC = () => {
 
           {/* Call to Action */}
           <div className="text-center">
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
               Ready to Spark Innovation?
             </h3>
           </div>

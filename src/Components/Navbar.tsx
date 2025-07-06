@@ -40,46 +40,63 @@ const Navbar: React.FC = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform ${
         isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-black backdrop-blur-md'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-10xl mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <div className="text-2xl font-bold text-white">
-                <img src={Logo} className="w-32 h-8 bg-white" alt="Logo" />
+            {/* Left side - Logo and Sponsor Logos */}
+            <div className="flex items-center min-w-0 flex-1">
+              <div className="flex-shrink-0">
+                <img src={Logo} className="w-24 h-6 sm:w-28 sm:h-7 lg:w-32 lg:h-8 bg-white" alt="DevSpark Logo" />
+              </div>
+              
+              {/* Sponsor Logos - Hide on smaller screens, show progressively */}
+              <div className="hidden lg:flex items-center ml-4 xl:ml-6">
+                <div className="h-6 lg:h-8 border-l border-gray-600 mr-4 xl:mr-6"></div>
+                <div className="flex items-center gap-3 xl:gap-5">
+                  <img src="/IEEE_logo.png" className="h-6 lg:h-8 w-auto" alt="IEEE Logo" />
+                  <img src="/IEEE.png" className="h-6 lg:h-8 w-auto" alt="IEEE Logo" />
+                  <img src="/ieee-syp.jpeg" className="h-6 lg:h-8 w-auto" alt="IEEE SYP Logo" />
+                </div>
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline" style={{ gap: '2.5rem' }}>
+            {/* Center - Desktop Navigation */}
+            <div className="hidden lg:block">
+              <div className="flex items-baseline gap-4 xl:gap-6 2xl:gap-8">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => scrollToSection(e, item.href)}
-                    className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent px-2 xl:px-3 py-2 text-sm xl:text-base font-medium transition-all duration-200 relative group whitespace-nowrap"
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#ff7200] to-[#ffae00] transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Register Button */}
-            <div className="hidden md:block">
+            {/* Right side - Register Button */}
+            <div className="hidden md:block flex-shrink-0">
               <a 
                 href="https://unstop.com/o/SzV3A1F" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 inline-block cursor-pointer"
+                className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-2 rounded-lg text-sm lg:text-base font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 inline-block cursor-pointer whitespace-nowrap"
               >
                 Register Now
               </a>
             </div>
 
+            {/* Mobile Sponsor Logos - Show on right side */}
+            <div className="flex md:hidden lg:hidden items-center gap-2 mr-2">
+              <img src="/IEEE_logo.png" className="h-5 w-auto" alt="IEEE Logo" />
+              <img src="/IEEE.png" className="h-5 w-auto" alt="IEEE Logo" />
+              <img src="/ieee-syp.jpeg" className="h-5 w-auto" alt="IEEE SYP Logo" />
+            </div>
+
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-gray-300 hover:text-white p-2"
@@ -97,24 +114,34 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <div className="md:hidden bg-slate-900/95 backdrop-blur-md">
-              <div className="px-6 pt-6 pb-8" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      scrollToSection(e, item.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-gray-300 hover:text-cyan-400 block px-6 py-3 text-lg font-medium transition-colors duration-200"
+            <div className="md:hidden lg:hidden bg-slate-900/95 backdrop-blur-md">
+              <div className="px-4 pt-4 pb-6">
+                {/* Mobile Navigation Items */}
+                <div className="flex flex-col gap-3">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        scrollToSection(e, item.href);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent block px-4 py-3 text-lg font-medium transition-all duration-200 rounded-lg hover:bg-gray-800/50"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                  
+                  {/* Mobile Register Button */}
+                  <a 
+                    href="https://unstop.com/o/SzV3A1F" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full mt-4 bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-6 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 text-center"
                   >
-                    {item.name}
+                    Register Now
                   </a>
-                ))}
-                <a href="https://unstop.com/o/SzV3A1F" target="_blank" rel="noopener noreferrer" className="w-full mt-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all duration-200">
-                  Register Now
-                </a>
+                </div>
               </div>
             </div>
           )}

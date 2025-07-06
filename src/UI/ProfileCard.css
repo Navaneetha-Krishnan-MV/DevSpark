@@ -8,11 +8,11 @@
   --card-padding: 1.5rem;
   --card-border-radius: 1.5rem;
   --transition-duration: 0.3s;
-  --primary-cyan: #06b6d4;
-  --primary-blue: #3b82f6;
-  --accent-cyan: #22d3ee;
+  --primary-orange: #ff7200;
+  --primary-orange-light: #ff8a00;
+  --accent-orange: #ffae00;
   --dark-bg: rgba(0, 0, 0, 0.9);
-  --glass-border: rgba(6, 182, 212, 0.2);
+  --glass-border: rgba(255, 114, 0, 0.2);
 }
 
 /* Base wrapper styles */
@@ -96,10 +96,10 @@
   /* Enhanced glass effect with cyan tint */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(34, 211, 238, 0.3);
+  border: 1px solid rgba(255, 114, 0, 0.3);
   box-shadow: 
-    inset 0 0 15px rgba(34, 211, 238, 0.2),
-    0 0 25px rgba(34, 211, 238, 0.15),
+    inset 0 0 15px rgba(255, 114, 0, 0.2),
+    0 0 25px rgba(255, 114, 0, 0.15),
     0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   
@@ -120,7 +120,7 @@
   background: linear-gradient(
     135deg,
     transparent 40%,
-    rgba(6, 182, 212, 0.2) 50%,
+    rgba(255, 114, 0, 0.2) 50%,
     transparent 60%
   );
   opacity: 0;
@@ -138,7 +138,7 @@
   border-radius: inherit;
   background: radial-gradient(
     circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-    rgba(34, 211, 238, 0.15) 0%,
+    rgba(255, 174, 0, 0.15) 0%,
     transparent 50%
   );
   opacity: 0;
@@ -257,10 +257,10 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #22d3ee; /* Brighter cyan for better visibility */
+  border: 3px solid #ff8a00; /* Brighter orange for better visibility */
   box-shadow: 
-    0 0 15px rgba(34, 211, 238, 0.5),
-    0 0 30px rgba(6, 182, 212, 0.3);
+    0 0 15px rgba(255, 114, 0, 0.5),
+    0 0 30px rgba(255, 174, 0, 0.3);
   transition: all var(--transition-duration) ease;
   
   @media (max-width: 480px) {
@@ -272,9 +272,9 @@
 .pc-card:hover .avatar {
   transform: scale(1.05);
   box-shadow: 
-    0 0 25px rgba(34, 211, 238, 0.8),
-    0 0 40px rgba(6, 182, 212, 0.6);
-  border-color: #67e8f9; /* Even brighter cyan on hover */
+    0 0 25px rgba(255, 114, 0, 0.8),
+    0 0 40px rgba(255, 174, 0, 0.6);
+  border-color: #ffc107; /* Even brighter orange on hover */
 }
 
 /* Bio section */

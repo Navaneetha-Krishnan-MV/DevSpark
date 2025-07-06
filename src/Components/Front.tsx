@@ -107,10 +107,7 @@ export default function Home() {
           }}
         >
           <Suspense fallback={<div />}>
-            <Spline
-              scene="https://prod.spline.design/P3cA3Sxw3sDqofWJ/scene.splinecode"
-              onLoad={handleSplineLoad}
-            />
+          <Spline scene="/scene1.splinecode" onLoad={handleSplineLoad} />
           </Suspense>
         </div>
       )}
@@ -149,22 +146,46 @@ export default function Home() {
         >
           <div className="relative z-10 w-full flex flex-col pt-4 md:pt-2">
             {/* Department */}
-            <h2 
-              className="text-gray-300" 
+            <div 
+              className="flex flex-col"
               data-aos="fade-right" 
               data-aos-delay="300"
-              style={{ 
-                fontSize: isMobile ? "1rem" : "1.3rem",
-                lineHeight: isMobile ? "1.3" : "1.4",
-                marginBottom: isMobile ? "0.75rem" : "1.25rem",
-                fontWeight: "400"
-              }}
             >
-              IEEE Computer Society KPRIET
-            </h2>
+              <h2 
+                className="font-bold mb-2"
+                style={{ 
+                  fontSize: isMobile ? "1.5rem" : "2.5rem",
+                  lineHeight: "1.1",
+                  background: "linear-gradient(90deg, #ff7200, #ffae00)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textShadow: isMobile ? "0 2px 10px rgba(255, 114, 0, 0.3)" : "0 4px 20px rgba(255, 114, 0, 0.4)",
+                  marginBottom: isMobile ? "0.5rem" : "1rem"
+                }}
+              >
+                IEEE CS SYP HIZE
+              </h2>
+              <p 
+                className="text-gray-300"
+                style={{ 
+                  fontSize: isMobile ? "1rem" : "1.2rem",
+                  marginBottom: isMobile ? "0.5rem" : "0.75rem"
+                }}
+              >
+                In Collaboration with
+              </p>
+              <p 
+                className="text-gray-100 font-medium"
+                style={{ 
+                  fontSize: isMobile ? "1rem" : "1.3rem"
+                }}
+              >
+                IEEE Computer Society KPRIET
+              </p>
+            </div>
 
             <p 
-              className="text-cyan-400 text-lg " 
+              className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent text-lg" 
               data-aos="fade-right" 
               data-aos-delay="400"
               style={{ fontSize: isMobile ? "1rem" : "1.125rem" }}
@@ -180,14 +201,14 @@ export default function Home() {
                   display: "inline-block", 
                   position: "relative", 
                   whiteSpace: "nowrap",
-                  fontSize: isMobile ? "2.5rem" : "clamp(3rem, 8vw, 6rem)"
+                  fontSize: isMobile ? "2.2rem" : "clamp(2.5rem, 7vw, 5rem)"
                 }}
                 data-aos="fade-right"
                 data-aos-delay="500"
               >
                 <span className="text-white">DEV</span>
                 <span
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600"
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7200] to-[#ffae00]"
                   style={{
                     minWidth: isMobile ? "auto" : 90,
                     display: "inline-block",
@@ -200,7 +221,7 @@ export default function Home() {
                     style={{
                       display: "inline-block",
                       width: "1ch",
-                      color: "#06b6d4",
+                      color: "#ff7200",
                       opacity: sparkDeleting || sparkText.length < 5 ? 1 : 0,
                       animation: "blink-cursor 1s steps(1) infinite",
                     }}
@@ -238,7 +259,7 @@ export default function Home() {
                   justifyContent: isMobile ? "center" : "flex-start"
                 }}
               >
-                <svg className="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-2 text-[#ff7200]" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
@@ -266,7 +287,7 @@ export default function Home() {
                 {["Fullstack Development", "AI/ML", "Cyber Security"].map((track) => (
                   <span
                     key={track}
-                    className="bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border border-transparent text-cyan-300 px-4 py-2 rounded-lg backdrop-blur-sm text-center"
+                    className="bg-gradient-to-r from-[#ff7200]/10 to-[#ffae00]/10 border border-transparent text-[#ffae00] px-4 py-2 rounded-lg backdrop-blur-sm text-center"
                     style={{ fontSize: isMobile ? "0.875rem" : "1rem" }}
                   >
                     {track}
@@ -278,32 +299,32 @@ export default function Home() {
             {/* Prizes and Registration */}
             <div className="space-y-6" data-aos="fade-up" data-aos-delay="800">
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
                 <span 
-                  className="text-cyan-400 font-medium"
+                  className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
                   style={{ fontSize: isMobile ? "1rem" : "1.125rem" }}
                 >
                   Prizes Worth
                 </span>
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
               </div>
               
               <h3 
                 className="font-bold text-center"
                 style={{ fontSize: isMobile ? "2rem" : "2.5rem" }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600">
                   INR 85,000+
                 </span>
               </h3>
               
               <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-500/20">
-                  <p className="text-cyan-400 font-medium">IEEE Members</p>
+                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
+                  <p className="text-orange-400 font-medium">IEEE Members</p>
                   <p className="text-2xl font-bold text-white">₹500</p>
                 </div>
-                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20">
-                  <p className="text-blue-400 font-medium">Non-IEEE</p>
+                <div className="text-center px-6 py-3 rounded-lg bg-gradient-to-r from-orange-900/20 to-orange-900/20 border border-orange-500/20">
+                  <p className="text-orange-400 font-medium">Non-IEEE</p>
                   <p className="text-2xl font-bold text-white">₹600</p>
                 </div>
               </div>
@@ -313,7 +334,7 @@ export default function Home() {
                   href="https://unstop.com/o/SzV3A1F" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-6 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
                 >
                   Register Now
                 </a>

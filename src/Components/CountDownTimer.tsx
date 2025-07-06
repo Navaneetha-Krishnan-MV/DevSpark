@@ -49,7 +49,7 @@ const CountDownTimer = () => {
           cx={x}
           cy={y}
           r={isFilled ? 2.5 : 1.5}
-          fill={isFilled ? '#06b6d4' : '#444'}
+          fill={isFilled ? '#ff7200' : '#444'}
           style={{ opacity: isFilled ? 1 : 0.3, transition: 'all 0.3s ease' }}
         />
       );
@@ -84,7 +84,7 @@ const CountDownTimer = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 md:gap-20 lg:gap-28 max-w-8xl w-full px-2 sm:px-6 md:px-8">
         {/* Countdown Section */}
         <div className="flex flex-col items-center w-full">
-          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400 text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-widest mb-6 sm:mb-8 md:mb-10 text-center">
+          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00] text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-widest mb-6 sm:mb-8 md:mb-10 text-center">
             Registration Deadline 
           </h2>
           <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-full max-w-xl mx-auto px-1">
@@ -101,7 +101,7 @@ const CountDownTimer = () => {
             <div className="flex items-center justify-center gap-3 px-6 py-3 rounded-xl mb-8 min-w-[280px] h-20 md:h-24 ">
               <RotatingText
                 texts={[ 'BUILD', 'WIN' , 'SPARK']}
-                mainClassName="font-bold bg-gradient-to-r from-cyan-400 to-blue-400 px-6 py-2 text-xl md:text-2xl text-white rounded-lg inline-flex items-center justify-center h-full"
+                mainClassName="font-bold bg-gradient-to-r from-[#ff7200] to-[#ffae00] px-6 py-2 text-xl md:text-2xl text-white rounded-lg inline-flex items-center justify-center h-full"
                 staggerFrom="last"
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -121,7 +121,7 @@ const CountDownTimer = () => {
               href="https://unstop.com/o/SzV3A1F"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden group bg-gradient-to-r from-cyan-400 to-blue-400 text-white font-bold uppercase tracking-wider text-lg md:text-xl px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 transform hover:shadow-lg hover:shadow-cyan-500/20"
+              className="relative overflow-hidden group bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white font-bold uppercase tracking-wider text-lg md:text-xl px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 transform hover:shadow-lg hover:shadow-orange-500/20"
             >
               Register Now
             </a>

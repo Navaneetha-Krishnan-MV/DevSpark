@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Logo from '/Logo-DevSpark.png'
+import Logo from '/Logo.jpeg'
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
             {/* Left side - Logo and Sponsor Logos */}
             <div className="flex items-center min-w-0 flex-1">
               <div className="flex-shrink-0">
-                <img src={Logo} className="w-24 h-6 sm:w-28 sm:h-7 lg:w-32 lg:h-8 bg-white" alt="DevSpark Logo" />
+                <img src={Logo} className="h-12 w-auto object-contain" alt="DevSpark Logo" />
               </div>
               
               {/* Sponsor Logos - Hide on smaller screens, show progressively */}

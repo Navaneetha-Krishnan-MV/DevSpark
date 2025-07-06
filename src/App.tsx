@@ -19,7 +19,7 @@ function App() {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 5000) // Increased to 5 seconds to match the Load component animation
+    }, 4100) // Increased to 5 seconds to match the Load component animation
     
     return () => clearTimeout(timer)
   }, [])

@@ -38,16 +38,16 @@ const SponsorSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-4">
+          {/* <div className="inline-block mb-4">
             <div className="px-4 py-2 border border-[#ff7200]/30 rounded-full bg-[#ff7200]/5 backdrop-blur-sm">
               <span className="text-[#ff7200] text-sm uppercase tracking-widest font-mono">
                 Powered By
               </span>
             </div>
-          </div>
+          </div> */}
           
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
-            OUR SPONSORS
+          Hosted under the aegis of
           </h2>
           
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent mx-auto"></div>

@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center gap-3 xl:gap-5">
                   <img src="/IEEE_logo.png" className="h-6 lg:h-8 w-auto" alt="IEEE Logo" />
                   <img src="/IEEE.png" className="h-6 lg:h-8 w-auto" alt="IEEE Logo" />
-                  <img src="/ieee-syp.jpeg" className="h-6 lg:h-8 w-auto" alt="IEEE SYP Logo" />
+                  <img src="/HIZE IEEE.png" className="h-6 lg:h-8 w-auto" alt="IEEE SYP Logo" />
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
             <div className="flex md:hidden lg:hidden items-center gap-2 mr-2">
               <img src="/IEEE_logo.png" className="h-5 w-auto" alt="IEEE Logo" />
               <img src="/IEEE.png" className="h-5 w-auto" alt="IEEE Logo" />
-              <img src="/ieee-syp.jpeg" className="h-5 w-auto" alt="IEEE SYP Logo" />
+              <img src="/HIZE IEEE.png" className="h-5 w-auto" alt="IEEE SYP Logo" />
             </div>
 
             {/* Mobile menu button */}

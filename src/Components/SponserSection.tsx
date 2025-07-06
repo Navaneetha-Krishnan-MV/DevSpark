@@ -1,7 +1,5 @@
 import IEEE from '/IEEE_logo.png';
 import IEEECS from '/IEEE.png';
-import IEEEHIZE from '/ieee-syp.jpeg';
-
 
 const SponsorSection = () => {
   const sponsors = [
@@ -18,7 +16,7 @@ const SponsorSection = () => {
     },
     {
       name: "IEEE HIZE",
-      logo: IEEEHIZE,
+      logo: "/HIZE IEEE.png", // Using DevSpark logo as a placeholder
       description: "Cornerstone of technological ambition and achievement across India, redefining what is possible through expertise, collaboration, and vision.",
     }
   ];

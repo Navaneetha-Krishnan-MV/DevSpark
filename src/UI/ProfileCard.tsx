@@ -15,7 +15,7 @@ interface ProfileCardProps {
   name?: string;
   title?: string;
   handle?: string;
-  status?: string;
+  company?: string;
   contactText?: string;
   showUserInfo?: boolean;
   bio?: string;
@@ -69,6 +69,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   title = "Software Engineer",
   showUserInfo = true,
   bio,
+  company,
   email,
   website,
   linkedin,
@@ -333,17 +334,23 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   </div>
                 ) : (
                   <>
-                    <img
-                      
-                      className="avatar mt-2"
-                      src={avatarUrl}
-                      alt={`${name || "User"} avatar`}
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = "none";
-                      }}
-                    />
+                    <div className="flex flex-col items-center">
+                      <img
+                        className="avatar mt-2"
+                        src={avatarUrl}
+                        alt={`${name || "User"} avatar`}
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                        }}
+                      />
+                      {company && (
+                        <p className="text-xl font-bold text-gray-300 mt-4 text-center">
+                          {company}
+                        </p>
+                      )}
+                    </div>
                   </>
                 )}
               </div>

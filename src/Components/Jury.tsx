@@ -8,7 +8,7 @@ interface JuryMember {
   name: string;
   title: string;
   handle: string;
-  status: string;
+  company: string;
   avatarUrl: string;
   contactText: string;
   bio?: string;
@@ -21,16 +21,16 @@ interface JuryMember {
 const juryMembers: JuryMember[] = [
   {
     id: 1,
-    name: "Maharaj M",
+    name: "Dinesh Paranthagan",
     title: "Cybersecurity Expert",
-    handle: "maharajm",
-    status: "Available",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/C5603AQG8_pBskNFTiA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1650554132670?e=1756944000&v=beta&t=Mv398YQMMkVqnwjHbeFJpXg_sW9jEJnFFAKbXPRJVGs",
+    handle: "dineshparanthagan",
+    company: "Hackup Technology",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQGwlkg0UquM7Q/profile-displayphoto-shrink_400_400/B56ZONKMKiGcAk-/0/1733240080151?e=1757548800&v=beta&t=j1Vy_pajMPyl3r6O7h4DUoE1KT-j66IktQLGf8K2lAg",
     contactText: "Connect",
-    bio: "Founder and CEO of BCBUZZ Technologies Pvt. Ltd., with over a decade of experience in the IT industry. A seasoned professional specializing in Enterprise Blockchain solutions, Cybersecurity frameworks, and Artificial Intelligence applications. Passionate about leveraging cutting-edge technology to drive digital transformation.",
-    email: "maharaj@bcbuzz.io",
-    website: "https://in100w.com/about_me/",
-    linkedin: "https://www.linkedin.com/in/maharaj-m/",
+    bio: "I am the CEO and Founder of Hackup Technology, with over 11 years of experience in ethical hacking, VAPT, and SOC solutions. I work as a cyber security expert and am an official EC-Council Certification Partner. I’ve helped many companies around the world improve their security and also enjoy teaching and guiding others in this field.",
+    email: "",
+    website: "https://www.hackuptechnology.com/",
+    linkedin: "https://www.linkedin.com/in/dineshparanthagan/",
     github: ""
   },
   {
@@ -38,7 +38,7 @@ const juryMembers: JuryMember[] = [
     name: "Nigun Sanjai R",
     title: "Full Stack ML Dev | UI/UX Designer",
     handle: "nigunsanjai",
-    status: "Online",
+    company: "Autodesk",
     avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
     contactText: "Message",
     bio: "A Software Development Engineer at Autodesk with hands-on experience in full-stack Java development and a strong foundation in scalable backend systems. As a passionate freelancer and competitive programmer, I bring a problem-solving mindset, deep technical expertise, and a keen interest in innovation. I enjoy mentoring budding developers and evaluating creative solutions",
@@ -47,20 +47,20 @@ const juryMembers: JuryMember[] = [
     linkedin: "https://www.linkedin.com/in/nigun-sanjai-radhakrishnan-650a011b6/",
     github: "https://github.com/NigunSanjai"
   },
-  // {
-  //   id: 3,
-  //   name: "Alex Kumar",
-  //   title: "Tech Lead",
-  //   handle: "alextech",
-  //   status: "Busy",
-  //   avatarUrl: "https://i.pravatar.cc/300?img=3",
-  //   contactText: "Schedule",
-  //   bio: "Engineering leader with 10+ years in tech innovation.",
-  //   email: "user@example.com",
-  //   website:"example.com",
-  //   linkedin: "username",
-  //   github: "username"
-  // },
+  {
+    id: 3,
+    name: "Hariharan Murugesan",
+    title: "AI/ML Expert",
+    handle: "hariharanmurugesan",
+    company: "Velam AI",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHnJFZ60ycsYQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725420529833?e=1757548800&v=beta&t=7j7hxHMN_yW24ZjQqirtdeyIcckIy_jqQ8sS2_i8o-A",
+    contactText: "Schedule",
+    bio: "Founder & CEO of Velam AI | Driven by an indomitable spirit and a passion for transforming bold ideas into impactful products with precision and craftsmanship.",
+    email: "",
+    website:"https://www.velam.ai/",
+    linkedin: "https://www.linkedin.com/in/hari-murugan/",
+    github: ""
+  },
 ];
 
 const Jury: React.FC = () => {
@@ -137,7 +137,7 @@ const Jury: React.FC = () => {
           Meet Our Jury Panel
         </h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          Industry experts evaluating your journey. {isMobile ? 'Navigate to explore.' : 'Tap or click to explore.'}
+          Industry experts evaluating your journey. Tap or click to explore.
         </p>
       </div>
 

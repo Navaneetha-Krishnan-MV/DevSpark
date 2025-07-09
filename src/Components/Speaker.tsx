@@ -3,7 +3,7 @@ import ProfileCard from "../UI/ProfileCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 
-interface JuryMember {
+interface Speaker {
   id: number;
   name: string;
   title: string;
@@ -18,49 +18,49 @@ interface JuryMember {
   github: string;
 }
 
-const juryMembers: JuryMember[] = [
+const juryMembers: Speaker[] = [
   {
     id: 1,
-    name: "Dinesh Paranthagan",
-    title: "Cybersecurity Expert",
-    handle: "dineshparanthagan",
-    company: "Hackup Technology",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQGwlkg0UquM7Q/profile-displayphoto-shrink_400_400/B56ZONKMKiGcAk-/0/1733240080151?e=1757548800&v=beta&t=j1Vy_pajMPyl3r6O7h4DUoE1KT-j66IktQLGf8K2lAg",
+    name: "Palak Awasthi",
+    title: "Software Engineer",
+    handle: "palakawasthi",
+    company: "Salesforce",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQFIGYxyfXm2eA/profile-displayphoto-shrink_400_400/B56ZSitCNiHQAg-/0/1737896504048?e=1757548800&v=beta&t=jVi1RL_uvEwOXMOP99lVK_wPTSxUjilUeru--ziFTL0",
     contactText: "Connect",
-    bio: "I am the CEO and Founder of Hackup Technology, with over 11 years of experience in ethical hacking, VAPT, and SOC solutions. I work as a cyber security expert and am an official EC-Council Certification Partner. I’ve helped many companies around the world improve their security and also enjoy teaching and guiding others in this field.",
+    bio: "Engineer at Salesforce | Women Techmakers Ambassador @ Google | A mentor, speaker, and hackathon judge with 100K+ LinkedIn followers, she shares insights on DSA, AI/ML, career growth, and hiring. Known for inspiring talks and real-world guidance, she's here to help you level up your journey in tech.",
     email: "",
-    website: "https://www.hackuptechnology.com/",
-    linkedin: "https://www.linkedin.com/in/dineshparanthagan/",
+    website: "https://www.youtube.com/@palakawasthi1",
+    linkedin: "https://www.linkedin.com/in/palakawasthi/",
     github: ""
   },
   {
     id: 2,
-    name: "Nigun Sanjai R",
-    title: "Full Stack ML Dev | UI/UX Designer",
-    handle: "nigunsanjai",
-    company: "Autodesk",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
+    name: "Kshitiz Jaiswal",
+    title: "Software Engineer",
+    handle: "kshitizjaiswal",
+    company: "Google",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQEJnkAqZ4S1zw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723048832371?e=1757548800&v=beta&t=at-dFfDzsJ6D8br_IVnIqDnNPHU277oWYO8HuqoC9IY",
     contactText: "Message",
-    bio: "A Software Development Engineer at Autodesk with hands-on experience in full-stack Java development and a strong foundation in scalable backend systems. As a passionate freelancer and competitive programmer, I bring a problem-solving mindset, deep technical expertise, and a keen interest in innovation. I enjoy mentoring budding developers and evaluating creative solutions",
-    email: "radha.nigun@gmail.com",
-    website: "",
-    linkedin: "https://www.linkedin.com/in/nigun-sanjai-radhakrishnan-650a011b6/",
-    github: "https://github.com/NigunSanjai"
-  },
-  {
-    id: 3,
-    name: "Hariharan Murugesan",
-    title: "AI/ML Expert",
-    handle: "hariharanmurugesan",
-    company: "Velam AI",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHnJFZ60ycsYQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725420529833?e=1757548800&v=beta&t=7j7hxHMN_yW24ZjQqirtdeyIcckIy_jqQ8sS2_i8o-A",
-    contactText: "Schedule",
-    bio: "Founder & CEO of Velam AI | Driven by an indomitable spirit and a passion for transforming bold ideas into impactful products with precision and craftsmanship.",
+    bio: "SWE at Google | Candidate Master on Codeforces | With experience at Amazon and Goldman Sachs, he blends deep algorithmic expertise with real-world software engineering. As a Codeforces Candidate Master, he’s passionate about competitive programming, system design, and mentoring. Get ready to gain practical strategies from someone who’s cracked the toughest tech challenges.",
     email: "",
-    website:"https://www.velam.ai/",
-    linkedin: "https://www.linkedin.com/in/hari-murugan/",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/kshitizjaiswal/",
     github: ""
-  },
+   },
+//   {
+//     id: 3,
+//     name: "Hariharan Murugesan",
+//     title: "AI/ML Expert",
+//     handle: "hariharanmurugesan",
+//     company: "Velam AI",
+//     avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHnJFZ60ycsYQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725420529833?e=1757548800&v=beta&t=7j7hxHMN_yW24ZjQqirtdeyIcckIy_jqQ8sS2_i8o-A",
+//     contactText: "Schedule",
+//     bio: "Founder & CEO of Velam AI | Driven by an indomitable spirit and a passion for transforming bold ideas into impactful products with precision and craftsmanship.",
+//     email: "",
+//     website:"https://www.velam.ai/",
+//     linkedin: "https://www.linkedin.com/in/hari-murugan/",
+//     github: ""
+//   },
 ];
 
 const Jury: React.FC = () => {
@@ -93,7 +93,7 @@ const Jury: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleCardClick = (member: JuryMember) => {
+  const handleCardClick = (member: Speaker) => {
     setExpandedCard((prev) => (prev === member.id ? null : member.id));
     if (expandedCard !== member.id) {
       toast.success(`Viewing ${member.name}'s Profile`, {
@@ -103,7 +103,7 @@ const Jury: React.FC = () => {
     }
   };
 
-  const handleContactClick = (member: JuryMember) => {
+  const handleContactClick = (member: Speaker) => {
     toast.info(`Contacting ${member.name}`, {
       description: `Opening connection with ${member.title}...`,
       duration: 3000,
@@ -124,7 +124,7 @@ const Jury: React.FC = () => {
   };
 
   return (
-    <section id="jury" className="w-full bg-black min-h-[80vh] text-white pb-2 py-12 px-4 relative overflow-hidden">
+    <section id="speaker" className="w-full min-h-[80vh] bg-black text-white pt-5 pb-2 px-4 relative overflow-hidden">
       {/* Scroll Shadows (Mobile) - Only for tablet scroll view */}
       <div className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" 
            style={{ display: isMobile ? 'none' : 'block' }} />
@@ -134,10 +134,10 @@ const Jury: React.FC = () => {
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
-          Meet Our Jury Panel
+          Learn from the Best
         </h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          Industry experts evaluating your journey. Tap or click to explore.
+          Get inspired by our guest speakers. Hear their stories, learn industry insights, and discover what it takes to stand out in tech. Don't just compete — grow!.Tap or click to explore.
         </p>
       </div>
 
@@ -260,7 +260,7 @@ const Jury: React.FC = () => {
 
       {/* Desktop Grid */}
       <div className="hidden lg:block">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">
           {juryMembers.map((member, index) => (
             <div
               key={member.id}

@@ -7,7 +7,7 @@ const AboutEvent: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
 
   const stats = [
-    { icon: Brain, value: "12+", label: "Domain-specific Problem Statements", color: "text-[#ff7200]" },
+    { icon: Brain, value: "Your Idea", label: "Build in AI/ML, Fullstack or Cybersecurity", color: "text-[#ff7200]" },
     { icon: Users, value: "1000+", label: "Participants Expected", color: "text-blue-400" },
     { icon: IndianRupee, value: "₹85000", label: "Prize Pool", color: "text-green-400" },
     { icon: Globe, value: "3", label: "Tracks: Cybersecurity, Full Stack, AI/ML", color: "text-purple-400" },

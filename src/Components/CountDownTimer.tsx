@@ -10,7 +10,7 @@ const CountDownTimer = () => {
   });
 
   useEffect(() => {
-    const deadline = new Date('2025-09-11T23:59:59');
+    const deadline = new Date('2025-09-10T23:59:59');
     const updateTimer = () => {
       const now = new Date();
       const diff = deadline.getTime() - now.getTime();

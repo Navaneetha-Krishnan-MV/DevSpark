@@ -10,7 +10,7 @@ const CountDownTimer = () => {
   });
 
   useEffect(() => {
-    const deadline = new Date('2025-07-24T23:59:59');
+    const deadline = new Date('2025-09-11T23:59:59');
     const updateTimer = () => {
       const now = new Date();
       const diff = deadline.getTime() - now.getTime();
@@ -127,7 +127,7 @@ const CountDownTimer = () => {
             </a>
 
             <p className="text-white text-sm font-semibold uppercase tracking-wider mt-6 md:mt-8">
-              July 25, 2025 - Friday
+              September 12, 2025 - Friday
             </p>
           </div>
         </div>

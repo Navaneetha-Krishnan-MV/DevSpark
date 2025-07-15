@@ -291,7 +291,7 @@ export default function Home() {
                     clipRule="evenodd"
                   />
                 </svg>
-                25-26 July 2025
+                12-13 September 2025
               </div>
             </div>
 

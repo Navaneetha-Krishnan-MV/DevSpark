@@ -89,6 +89,7 @@ export default function Home() {
       data-aos="fade-in"
       data-aos-duration="1200"
       id="home"
+      className="overflow-hidden"
     >
     
       {!isMobile && (

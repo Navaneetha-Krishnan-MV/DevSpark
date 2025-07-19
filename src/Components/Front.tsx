@@ -309,7 +309,7 @@ export default function Home() {
                 Event Tracks
               </h3>
               <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:gap-4">
-                {["Fullstack Development", "AI/ML", "Cyber Security"].map((track) => (
+                {["DevForge - Hackathon", "Mosaic - Bootcamp", "Bizpulse - Business"].map((track) => (
                   <span
                     key={track}
                     className="bg-gradient-to-r from-[#ff7200]/10 to-[#ffae00]/10 border border-transparent text-[#ffae00] px-4 py-2 rounded-lg backdrop-blur-sm text-center"

@@ -124,7 +124,7 @@ const Jury: React.FC = () => {
   };
 
   return (
-    <section id="speaker" className="w-full min-h-[80vh] bg-black text-white pt-5 pb-2 px-4 relative overflow-hidden">
+    <section id="speaker" className="w-full min-h-[80vh]  bg-black text-white pt-5 pb-2 px-4 relative overflow-hidden">
       {/* Scroll Shadows (Mobile) - Only for tablet scroll view */}
       <div className="md:hidden lg:block absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-black/90 to-transparent z-10 pointer-events-none" 
            style={{ display: isMobile ? 'none' : 'block' }} />
@@ -133,12 +133,13 @@ const Jury: React.FC = () => {
 
       {/* Heading */}
       <div className="text-center mb-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
+        <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
           Learn from the Best
         </h2>
-        <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
           Get inspired by our guest speakers. Hear their stories, learn industry insights, and discover what it takes to stand out in tech. Don't just compete — grow!.Tap or click to explore.
         </p>
+        <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent mx-auto"></div>
       </div>
 
       {/* Mobile Single Card Display */}

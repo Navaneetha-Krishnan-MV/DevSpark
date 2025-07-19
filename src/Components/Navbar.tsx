@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Who can Join', href: '#rules' },
+    { name: 'Tracks', href: '#tracks' },
     { name: 'Speaker', href: '#speaker' },
     { name: 'Contact', href: '#contact' }
   ];

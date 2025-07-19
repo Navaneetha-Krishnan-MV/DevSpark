@@ -1,15 +1,14 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import AboutEvent from './Components/AboutEvent.tsx'
-import WhoCanJoin from './Components/WhoCanJoin.tsx'
-import Jury from './Components/Jury.tsx'
 import Speaker from './Components/Speaker.tsx'
 import ContactSection from './Components/ContactSection.tsx'
 import SponserSection from './Components/SponserSection.tsx'
 import Front from "./Components/Front.tsx"
 import Navbar from "./Components/Navbar.tsx"
 import Hurry from "./Components/Hurry.tsx"
+import About from "./Components/About.tsx"
 import Loading from "./Components/Load"
+import Tracks from "./Components/Track.tsx"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -34,10 +33,9 @@ function App() {
       <Navbar />
       <Front />
       <Hurry />
-      <AboutEvent />
-      <WhoCanJoin />
+      <About />
+      <Tracks />
       <Speaker />
-      <Jury />
       <SponserSection />
       <ContactSection />
     </>

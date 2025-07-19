@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowRight, Code, Palette, TrendingUp } from 'lucide-react';
 
 const Tracks = () => {
+  //  Add tracks
   const tracks = [
     {
       id: 'devforge',

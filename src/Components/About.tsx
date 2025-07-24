@@ -1,26 +1,29 @@
+// Imports & Style Unchanged
 import React, { useEffect, useState } from 'react';
 import { Users, Trophy, Clock, Hotel, Globe, Brain, IndianRupee, Shirt, Utensils } from 'lucide-react';
-import "../UI/AboutEvent.css"
+import "../UI/AboutEvent.css";
 
-const AboutEvent: React.FC = () => {
+const About: React.FC = () => {
   const [visibleStats, setVisibleStats] = useState<number[]>([]);
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
 
+  // Update: Stats represent DevSpark as a whole, not a single hackathon.
   const stats = [
-    { icon: Brain, value: "Your Idea", label: "Build in AI/ML, Fullstack or Cybersecurity", color: "text-[#ff7200]" },
-    { icon: Users, value: "1000+", label: "Participants Expected", color: "text-blue-400" },
-    { icon: IndianRupee, value: "₹85000", label: "Prize Pool", color: "text-green-400" },
-    { icon: Globe, value: "3", label: "Tracks: Cybersecurity, Full Stack, AI/ML", color: "text-purple-400" },
-    { icon: Clock, value: "24", label: "Hours of Non-Stop Coding", color: "text-orange-400" },
-    { icon: Trophy, value: "National", label: "Level Recognition", color: "text-yellow-400" }
+    { icon: Globe, value: "3", label: "Tracks: DevForge, Mosaic, Bizpulse", color: "text-purple-400" },
+    { icon: Users, value: "1400+", label: "Participants Expected", color: "text-blue-400" },
+    { icon: IndianRupee, value: "₹85,000+", label: "Total Prize Pool", color: "text-green-400" },
+    { icon: Trophy, value: "National", label: "Level Recognition & Opportunities", color: "text-yellow-400" },
+    { icon: Clock, value: "2 Days", label: "of Learning, Building & Pitching", color: "text-orange-400" },
+    { icon: Brain, value: "20+", label: "Mentors & Industry Experts", color: "text-pink-400" }
   ];
 
+  // Update: Features reflect the multi-track platform.
   const features = [
-    "Real-world challenges across trending tech domains",
-    "From Cybersecurity to AI/ML to Full-Stack Development",
-    "Build impactful solutions that matter",
-    "Collaborate with the best minds in India",
-    "Win exciting prizes, internships, and industry recognition"
+    "Three powerful tracks for every innovator: DevForge , Mosaic , Bizpulse",
+    "Hands-on experience and mentorship in AI/ML, Full Stack, Cybersecurity, and Business",
+    "Collaborate with peers and industry experts from across India",
+    "Win prizes, internships, and national recognition",
+    "Build impactful tech and business solutions for real-world challenges"
   ];
 
   useEffect(() => {
@@ -50,7 +53,7 @@ const AboutEvent: React.FC = () => {
 
   return (
     <>
-      <style>{`
+     <style>{`
         @property --angle {
           syntax: "<angle>";
           initial-value: 0deg;
@@ -90,9 +93,9 @@ const AboutEvent: React.FC = () => {
           }
         }
       `}</style>
-      
+      {/* ...[Retain your gradient, blur, and card effects styling unchanged]... */}
       <section id="about" className="min-h-screen bg-black py-10 px-4 relative overflow-hidden">
-        
+
         {/* Animated Grid Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
@@ -113,45 +116,41 @@ const AboutEvent: React.FC = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
 
-          {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-            {/* Left Side - About This Event */}
+            {/* LEFT: About DevSpark */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
-                  ABOUT THIS EVENT
+                  ABOUT DEVSPARK
                 </h2>
-                
                 <div className="space-y-6 text-gray-300 text-lg leading-relaxed animate-fade-in delay-300">
                   <p className="text-2xl font-semibold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
-                    Welcome to DevSpark 2025
+                    South India's Premier Multi-Track Innovation Fest
                   </p>
-                  
                   <p>
-                    South India's dynamic <span className="text-[#ff7200] font-bold">24-hour offline national-level Hackathon</span> — 
-                    a celebration of creativity, code, and cutting-edge innovation!
+                    <b>DevSpark</b> is a dynamic national platform bringing together students, innovators, and leaders across <span className="text-[#ff7200] font-bold">technology, software engineering, and business</span>. Uniting three powerful tracks—
+                    <span className="text-[#ff7200] font-semibold"> DevForge</span> (Hackathon),
+                    <span className="text-[#ff7200] font-semibold"> Mosaic</span> (Bootcamp),
+                    <span className="text-[#ff7200] font-semibold"> Bizpulse</span> (Business),
+                    —DevSpark is where collaboration, creativity, and industry opportunities meet.
                   </p>
-                  
                   <p>
-                    Conducted by <span className="text-[#ff7200] font-semibold">IEEE SYP HIZE</span>, in collaboration with 
-                    <span className="text-[#ff7200] font-semibold"> IEEE KPRIET CS</span> and 
-                    <span className="text-[#ff7200] font-semibold"> KPR Institute of Engineering and Technology</span>.
+                    Organized by <span className="text-[#ff7200] font-semibold">IEEE SYP HIZE</span> and hosted by <span className="text-[#ff7200] font-semibold">KPR Institute of Engineering and Technology</span>, DevSpark empowers you to learn, build, and pitch in a vibrant offline setting.
                   </p>
-                  
                   <p>
-                    DevSpark brings together future-focused developers, designers, and thinkers under one roof.
+                    Whether you code, conceptualize, or strategize—there’s a track for you at DevSpark.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right Side - What You'll Experience */}
+            {/* RIGHT: What Makes DevSpark Unique */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent mb-8 animate-fade-in">
-                  WHAT YOU'LL EXPERIENCE
+                <h3 className="text-4xl md:text-5xl  font-bold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent mb-8 animate-fade-in">
+                  WHY JOIN DEVSPARK?
                 </h3>
-                
+
                 <div className="space-y-4">
                   {features.map((feature, index) => (
                     <div
@@ -174,8 +173,8 @@ const AboutEvent: React.FC = () => {
             </div>
           </div>
 
-          {/* Stats Grid with Animated Borders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {/* STATS across all tracks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -193,7 +192,6 @@ const AboutEvent: React.FC = () => {
                       <div className="mb-6">
                         <IconComponent className={`w-12 h-12 mx-auto ${stat.color} animate-pulse`} />
                       </div>
-                      
                       <div className="space-y-2">
                         <div className={`text-4xl font-bold ${stat.color}`}>
                           {stat.value}
@@ -209,10 +207,10 @@ const AboutEvent: React.FC = () => {
             })}
           </div>
 
-          {/* Eligibility Section */}
+          {/* Info & Perks – adjust for all participants */}
           <div className="mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
-              Information & Perks
+            <h3 className="text-4xl mt-10 md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
+              Who Can Join & What You'll Get
             </h3>
             <div className="space-y-6 max-w-4xl mx-auto">
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
@@ -223,11 +221,10 @@ const AboutEvent: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Participants should either belong to B.E, B.Tech, M.E, M.Tech, MCA or MSc and should be studying in any stream and any semester/year
+                    Open to students from all streams and years
                   </p>
                 </div>
               </div>
-
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
@@ -236,11 +233,10 @@ const AboutEvent: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Complimentary t-shirts will be provided to all participants
+                    Complimentary t-shirts for all participants
                   </p>
                 </div>
               </div>
-
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
@@ -249,11 +245,10 @@ const AboutEvent: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Accommodation available upon request (Rs.250 per day)
+                    Optional accommodation (₹250 per day, on request)
                   </p>
                 </div>
               </div>
-              
               <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
@@ -262,23 +257,17 @@ const AboutEvent: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Free Food and refreshments will be provided during the event
+                    Free meals and refreshments for all track participants
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center">
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
-              Ready to Spark Innovation?
-            </h3>
-          </div>
         </div>
       </section>
     </>
   );
 };
 
-export default AboutEvent;
+export default About;

@@ -117,7 +117,7 @@ const WhoCanJoin: React.FC = () => {
           }
         }
       `}</style>
-    <section id="rules" className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
+    <section id="who-can-join" className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
 
         {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
@@ -162,7 +162,7 @@ const WhoCanJoin: React.FC = () => {
             
             <div className="text-5xl md:text-7xl font-bold relative">
               <span className="bg-gradient-to-r from-[#ff7200] via-[#ff8a00] to-[#ffae00] bg-clip-text text-transparent relative">
-                DEVSPARK
+                DEVFORGE
                 <div className="absolute inset-0 bg-gradient-to-r from-[#ff7200]/20 to-[#ffae00]/20 blur-2xl animate-pulse" />
               </span>
             </div>
@@ -171,7 +171,7 @@ const WhoCanJoin: React.FC = () => {
           </div>
 
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-500">
-            DevSpark is open to all tech enthusiasts, coders, and creative problem-solvers from across India 
+            DevForge is open to all tech enthusiasts, coders, and creative problem-solvers from across India 
             who are ready to <span className="text-[#ff7200] font-semibold">challenge the norms</span> and 
             <span className="text-[#ffae00] font-semibold"> build the future</span>.
           </p>
@@ -215,7 +215,7 @@ const WhoCanJoin: React.FC = () => {
         {/* Competition Rules - Two Column Layout */}
         <div className="mb-16">
           <h3 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
-            DEVSPARK HACKATHON RULES
+            DEVFORGE HACKATHON RULES
           </h3>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -319,7 +319,7 @@ const WhoCanJoin: React.FC = () => {
   <div className="relative bg-gradient-to-r from-[#ff7200] via-[#ff8a00] to-[#ffae00] text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-[#ff7200]/50 hover:border-[#ff7200]/30">
     <div className="flex items-center">
       <Zap className="w-5 h-5 animate-pulse mr-3" />
-      <a href="https://unstop.com/o/SzV3A1F" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
+      <a href="https://forms.gle/RMwToJpPsgaAWtbG6" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
     </div>
   </div>
 </div>

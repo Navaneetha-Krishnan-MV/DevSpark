@@ -89,6 +89,7 @@ export default function Home() {
       data-aos="fade-in"
       data-aos-duration="1200"
       id="home"
+      className="overflow-hidden"
     >
     
       {!isMobile && (
@@ -309,7 +310,7 @@ export default function Home() {
                 Event Tracks
               </h3>
               <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:gap-4">
-                {["Fullstack Development", "AI/ML", "Cyber Security"].map((track) => (
+                {["DevForge - Hackathon", "Mosaic - Bootcamp", "Bizpulse - Business"].map((track) => (
                   <span
                     key={track}
                     className="bg-gradient-to-r from-[#ff7200]/10 to-[#ffae00]/10 border border-transparent text-[#ffae00] px-4 py-2 rounded-lg backdrop-blur-sm text-center"
@@ -355,7 +356,7 @@ export default function Home() {
                         </div>
                       </div>
                       <a 
-                        href="https://unstop.com/o/SzV3A1F" 
+                        href="https://linktr.ee/devspark25" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-8 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 whitespace-nowrap text-base ml-0 sm:ml-2 mt-2 sm:mt-0"

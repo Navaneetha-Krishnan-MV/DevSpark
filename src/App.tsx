@@ -1,18 +1,22 @@
-import './App.css'
+import './App.css';
 import { useState, useEffect } from 'react';
-import AboutEvent from './Components/AboutEvent.tsx'
-import WhoCanJoin from './Components/WhoCanJoin.tsx'
-import Jury from './Components/Jury.tsx'
-import Speaker from './Components/Speaker.tsx'
-import ContactSection from './Components/ContactSection.tsx'
-import SponserSection from './Components/SponserSection.tsx'
-import Front from "./Components/Front.tsx"
-import Navbar from "./Components/Navbar.tsx"
-import Hurry from "./Components/Hurry.tsx"
-import Loading from "./Components/Load"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Speaker from './Components/Speaker.tsx';
+import ContactSection from './Components/ContactSection.tsx';
+import SponserSection from './Components/SponserSection.tsx';
+import Front from "./Components/Front.tsx";
+import Navbar from "./Components/Navbar.tsx";
+import Hurry from "./Components/Hurry.tsx";
+import About from "./Components/About.tsx";
+import Loading from "./Components/Load";
+import Tracks from "./Components/Track.tsx";
+import DevForgePage from './Components/DevForge/DevForgePage';
+import MosaicPage from './Components/Mosaic/MosaicPage';
+import BizPulsePage from './Components/BizPulse/BizPulsePage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState<'home' | 'devforge' | 'mosaic' | 'bizpulse'>('home')
 
   useEffect(() => {
     document.title = "DevSpark'25"
@@ -29,19 +33,43 @@ function App() {
     return <Loading onComplete={() => setIsLoading(false)} />
   }
 
+  const Home = () => {
+    useEffect(() => {
+      setCurrentPage("home");
+    }, []);
+    
+    return (
+      <>
+        <Front />
+        <Hurry />
+        <About />
+        <Tracks />
+        <Speaker />
+        <SponserSection />
+      </>
+    );
+  };
+
   return (
-    <>
-      <Navbar />
-      <Front />
-      <Hurry />
-      <AboutEvent />
-      <WhoCanJoin />
-      <Speaker />
-      <Jury />
-      <SponserSection />
-      <ContactSection />
-    </>
+    <Router>
+      <div className="bg-black">
+        <Navbar currentPage={currentPage} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/devforge" element={
+            <DevForgePage setCurrentPage={setCurrentPage} />
+          } />
+          <Route path="/mosaic" element={
+            <MosaicPage setCurrentPage={setCurrentPage} />
+          } />
+          <Route path="/bizpulse" element={
+            <BizPulsePage setCurrentPage={setCurrentPage} />
+          } />
+        </Routes>
+        <ContactSection />
+      </div>
+    </Router>
   )
 }
-// n
+
 export default App

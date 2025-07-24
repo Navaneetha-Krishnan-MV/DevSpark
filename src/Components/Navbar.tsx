@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '/Logo.jpeg'
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar: React.FC = () => {
+type NavItem = {
+  name: string;
+  href: string;
+  path: string;
+};
+
+type NavbarProps = {
+  currentPage: 'home' | 'devforge' | 'mosaic' | 'bizpulse';
+};
+
+const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -26,14 +37,41 @@ const Navbar: React.FC = () => {
     }
     setIsMobileMenuOpen(false);
   };
+  const location = useLocation();
+  
+  const getNavItems = (): NavItem[] => {
+    const commonItems = [
+      { name: 'Home', href: '#home', path: 'home' },
+      { name: 'About', href: '#about', path: 'about' },
+    ];
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Tracks', href: '#tracks' },
-    { name: 'Speaker', href: '#speaker' },
-    { name: 'Contact', href: '#contact' }
-  ];
+    const pageSpecificItems = {
+      home: [
+        { name: 'Tracks', href: '#tracks', path: 'tracks' },
+        { name: 'Speaker', href: '#speaker', path: 'speaker' },
+      ],
+      devforge: [
+        { name: 'Who can Join', href: '#who-can-join', path: 'who-can-join' },
+        { name: 'Jury', href: '#jury', path: 'jury' },
+      ],
+      mosaic: [
+        //{ name: 'Jury', href: '#jury', path: 'jury' },
+      ],
+      bizpulse: [
+        //{ name: 'Who can Join', href: '#who-can-join', path: 'who-can-join' },
+        //{ name: 'Jury', href: '#jury', path: 'jury' },
+      ]
+    };
+
+    return [
+      ...commonItems,
+      ...(pageSpecificItems[currentPage] || []),
+      { name: 'Contact', href: '#contact', path: 'contact' }
+    ];
+  };
+
+  const navItems = getNavItems();
+  
 
   return (
     <>
@@ -60,18 +98,21 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Center - Desktop Navigation */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block mr-16">
               <div className="flex items-baseline gap-4 xl:gap-6 2xl:gap-8">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={`${location.pathname}${item.href}`}
                     onClick={(e) => scrollToSection(e, item.href)}
-                    className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent px-2 xl:px-3 py-2 text-sm xl:text-base font-medium transition-all duration-200 relative group whitespace-nowrap"
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                      location.hash === item.href 
+                        ? 'text-orange-400' 
+                        : 'text-white hover:text-gray-300'
+                    }`}
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#ff7200] to-[#ffae00] transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -79,7 +120,7 @@ const Navbar: React.FC = () => {
             {/* Right side - Register Button */}
             <div className="hidden md:block flex-shrink-0">
               <a 
-                href="https://unstop.com/o/SzV3A1F" 
+                href="https://linktr.ee/DevSpark25" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-2 rounded-lg text-sm lg:text-base font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 inline-block cursor-pointer whitespace-nowrap"
@@ -134,7 +175,7 @@ const Navbar: React.FC = () => {
                   
                   {/* Mobile Register Button */}
                   <a 
-                    href="https://unstop.com/o/SzV3A1F" 
+                    href="https://linktr.ee/DevSpark25" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-full mt-4 bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-6 py-3 rounded-lg font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 text-center"

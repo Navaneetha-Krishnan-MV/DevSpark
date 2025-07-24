@@ -1,9 +1,17 @@
 
-import React from 'react';
 import { ArrowRight, Code, Palette, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Tracks = () => {
   //  Add tracks
+  const navigate = useNavigate();
+
+  const handleTrackClick = (route: string) => {
+    navigate(route, { state: { from: 'track' } });
+    // Scroll to top after navigation
+    window.scrollTo(0, 0);
+  };
+
   const tracks = [
     {
       id: 'devforge',
@@ -59,7 +67,9 @@ const Tracks = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Select your path to excellence. Each track offers unique challenges and opportunities 
             to showcase your skills and achieve greatness.
-          </p>
+           </p>
+           <br />
+           <p className='font-bold bg-gradient-to-r text-2xl from-white to-[#ff7200] bg-clip-text text-transparent'>Participants can choose only one track</p>
         </div>
 
         {/* Tracks Grid */}
@@ -69,7 +79,8 @@ const Tracks = () => {
             return (
               <div
                 key={track.id}
-                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-transparent hover:border-[#ff7200]/50 transition-all duration-500 hover:scale-105"
+                onClick={() => handleTrackClick(track.route)}
+                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-transparent hover:border-[#ff7200]/50 transition-all duration-500 hover:scale-105 cursor-pointer"
               >
                 {/* Glowing Border Effect */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff7200]/20 via-transparent to-[#ff7200]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

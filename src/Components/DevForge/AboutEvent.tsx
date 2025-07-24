@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, Trophy, Clock, Hotel, Globe, Brain, IndianRupee, Shirt, Utensils } from 'lucide-react';
-import "../UI/AboutEvent.css"
+import { Users, Trophy, Clock, Globe, Brain, IndianRupee } from 'lucide-react';
 
 const AboutEvent: React.FC = () => {
   const [visibleStats, setVisibleStats] = useState<number[]>([]);
@@ -209,65 +208,6 @@ const AboutEvent: React.FC = () => {
             })}
           </div>
 
-          {/* Eligibility Section */}
-          <div className="mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent">
-              Information & Perks
-            </h3>
-            <div className="space-y-6 max-w-4xl mx-auto">
-              <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-[#ff7200] to-[#ffae00] rounded-full flex items-center justify-center animate-pulse">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p className="text-xl font-semibold text-white">
-                    Participants should either belong to B.E, B.Tech, M.E, M.Tech, MCA or MSc and should be studying in any stream and any semester/year
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                    <Shirt className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p className="text-xl font-semibold text-white">
-                    Complimentary t-shirts will be provided to all participants
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                    <Hotel className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p className="text-xl font-semibold text-white">
-                    Accommodation available upon request (Rs.250 per day)
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-center p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-[1.02]">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 mr-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                    <Utensils className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p className="text-xl font-semibold text-white">
-                    Free Food and refreshments will be provided during the event
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Call to Action */}
           <div className="text-center">

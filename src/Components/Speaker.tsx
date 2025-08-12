@@ -47,20 +47,34 @@ const juryMembers: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/kshitizjaiswal/",
     github: ""
    },
-//   {
-//     id: 3,
-//     name: "Hariharan Murugesan",
-//     title: "AI/ML Expert",
-//     handle: "hariharanmurugesan",
-//     company: "Velam AI",
-//     avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHnJFZ60ycsYQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725420529833?e=1757548800&v=beta&t=7j7hxHMN_yW24ZjQqirtdeyIcckIy_jqQ8sS2_i8o-A",
-//     contactText: "Schedule",
-//     bio: "Founder & CEO of Velam AI | Driven by an indomitable spirit and a passion for transforming bold ideas into impactful products with precision and craftsmanship.",
-//     email: "",
-//     website:"https://www.velam.ai/",
-//     linkedin: "https://www.linkedin.com/in/hari-murugan/",
-//     github: ""
-//   },
+  {
+    id: 3,
+    name: "Dinesh Kumar P",
+    title: "Community Builder for AI & Product Thinking",
+    handle: "dinesh",
+    company: "iamneo - An NIIT Venture",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHrsJzg86tjqQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1666202873387?e=1757548800&v=beta&t=zbJrAlbh3Uh2N_0z5gOy41jr0hQ4ktIlYP9sJk8qmy4",
+    contactText: "Schedule",
+    bio: "I bring learning as vibes — Microsoft MVP, TechXConf speaker, and community builder for AI & product thinking in Coimbatore. Formerly at Kissflow, Syncfusion, and TnqTech, now collaborating with The Product Folks to spark ideas and conversations.",
+    email: "",
+    website:"",
+    linkedin: "https://www.linkedin.com/in/dinesh-kumar-prabakaran",
+    github: ""
+  },
+  {
+    id: 4,
+    name: "Ramkumar Kuppuchamy",
+    title: "Delivery Director",
+    handle: "ramkumar",
+    company: "Presidio",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/C4D03AQFRY4Vnh8PMIw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1649774746312?e=1758153600&v=beta&t=K7WwfL2LfQpHfuYmaqW1fR0XC1BbgK-VwNMbyYUIRkA",
+    contactText: "Message",
+    bio: "I’m an engineer and a passionate community builder, driven by a love for technology and real-world problem solving. I build high-performance teams, mentor and coach people to unlock their potential, and thrive on connecting ideas, opportunities, and individuals. As a strategic thinker, motivator, and social activist with Team Vidiyal, I channel my energy into making meaningful impact through innovation and collaboration.",
+    email: "",
+    website:"",
+    linkedin: "https://www.linkedin.com/in/ramkumarkuppuchamy/",
+    github: ""
+   },
 ];
 
 const Jury: React.FC = () => {
@@ -261,7 +275,7 @@ const Jury: React.FC = () => {
 
       {/* Desktop Grid */}
       <div className="hidden lg:block">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 max-w-5xl mx-auto gap-y-12 gap-x-8">
           {juryMembers.map((member, index) => (
             <div
               key={member.id}
@@ -271,7 +285,7 @@ const Jury: React.FC = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div
-                className={`h-full w-full cursor-pointer transition duration-300 ${
+                className={`h-full w-full cursor-pointer transition duration-300 mb-8 ${
                   expandedCard === member.id ? "transform scale-105" : "hover:scale-[1.02]"
                 }`}
                 onClick={() => handleCardClick(member)}

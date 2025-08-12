@@ -13,6 +13,7 @@ import Tracks from "./Components/Track.tsx";
 import DevForgePage from './Components/DevForge/DevForgePage';
 import MosaicPage from './Components/Mosaic/MosaicPage';
 import BizPulsePage from './Components/BizPulse/BizPulsePage';
+import Sponsers from './Components/Sponsers.tsx';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -45,6 +46,7 @@ function App() {
         <About />
         <Tracks />
         <Speaker />
+        <Sponsers />
         <SponserSection />
       </>
     );

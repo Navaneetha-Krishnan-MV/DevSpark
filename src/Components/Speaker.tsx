@@ -21,7 +21,7 @@ interface Speaker {
 const juryMembers: Speaker[] = [
   {
     id: 1,
-    name: "Palak Awasthi",
+    name: "Ms. Palak Awasthi",
     title: "Software Engineer",
     handle: "palakawasthi",
     company: "Salesforce",
@@ -35,7 +35,7 @@ const juryMembers: Speaker[] = [
   },
   {
     id: 2,
-    name: "Kshitiz Jaiswal",
+    name: "Mr. Kshitiz Jaiswal",
     title: "Software Engineer",
     handle: "kshitizjaiswal",
     company: "Google",
@@ -49,7 +49,7 @@ const juryMembers: Speaker[] = [
    },
   {
     id: 3,
-    name: "Dinesh Kumar P",
+    name: "Mr. Dinesh Kumar P",
     title: "Community Builder for AI & Product Thinking",
     handle: "dinesh",
     company: "iamneo - An NIIT Venture",
@@ -63,7 +63,7 @@ const juryMembers: Speaker[] = [
   },
   {
     id: 4,
-    name: "Ramkumar Kuppuchamy",
+    name: "Mr. Ramkumar Kuppuchamy",
     title: "Delivery Director",
     handle: "ramkumar",
     company: "Presidio",
@@ -151,7 +151,7 @@ const Jury: React.FC = () => {
           Learn from the Best
         </h2>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-          Get inspired by our guest speakers. Hear their stories, learn industry insights, and discover what it takes to stand out in tech. Don't just compete — grow!.Tap or click to explore.
+          Get inspired by our guest speakers. Hear their stories, learn industry insights and discover what it takes to stand out in tech. Don't just compete — grow!.Tap or click to explore.
         </p>
         <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent mx-auto"></div>
       </div>

@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
             {/* Right side - Register Button */}
             <div className="hidden md:block flex-shrink-0">
               <a 
-                href="https://linktr.ee/DevSpark25" 
+                href="https://www.dev-spark.in/register" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-[#ff7200] to-[#ffae00] text-white px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-2 rounded-lg text-sm lg:text-base font-medium hover:from-[#ff7a0d] hover:to-[#ffb82e] transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 inline-block cursor-pointer whitespace-nowrap"

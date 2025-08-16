@@ -150,7 +150,7 @@ const About: React.FC = () => {
                 <h3 className="text-4xl md:text-5xl  font-bold bg-gradient-to-r from-[#ff7200] to-[#ffae00] bg-clip-text text-transparent mb-8 animate-fade-in">
                   WHY JOIN DEVSPARK?
                 </h3>
-
+ 
                 <div className="space-y-4">
                   {features.map((feature, index) => (
                     <div
@@ -221,7 +221,7 @@ const About: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Open to students from all streams and years
+                    Open to students, professionals, innovators from all streams and years
                   </p>
                 </div>
               </div>
@@ -233,7 +233,7 @@ const About: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xl font-semibold text-white">
-                    Complimentary t-shirts for all participants
+                    Complimentary T-shirts for all participants
                   </p>
                 </div>
               </div>

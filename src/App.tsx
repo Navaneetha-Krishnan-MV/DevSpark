@@ -14,6 +14,7 @@ import DevForgePage from './Components/DevForge/DevForgePage';
 import MosaicPage from './Components/Mosaic/MosaicPage';
 import BizPulsePage from './Components/BizPulse/BizPulsePage';
 import Sponsers from './Components/Sponsers.tsx';
+import Register from './Components/Register.tsx';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -58,6 +59,7 @@ function App() {
         <Navbar currentPage={currentPage} />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/devforge" element={
             <DevForgePage setCurrentPage={setCurrentPage} />
           } />

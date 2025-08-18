@@ -64,6 +64,11 @@ const sponsors = [
               ))}
             </div>
           </div>
+
+          <div className="flex justify-center mt-16  "> 
+            <img src="/01.png" alt="" onClick={() => window.open('https://devfolio.co/hackathons', '_blank')} />
+          </div>
+          
         </div>
       </section>
     );

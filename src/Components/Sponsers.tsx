@@ -1,11 +1,11 @@
 const sponsors = [
     {
-      name: 'Devfolio',
+      name: 'DEVFOLIO LOGO',
       logo: '/sponsors/devfolio.png',
       url: 'https://devfolio.co/discover',
     },
     {
-      name: 'ETH India',
+      name: 'ETHINDIA LOGO',
       logo: '/sponsors/ethindia.png',
       url: 'https://ethindia2024.devfolio.co/',
     },
@@ -51,7 +51,7 @@ const sponsors = [
                       <div className="flex-grow flex items-center justify-center">
                         <img
                           src={sponsor.logo}
-                          alt={`${sponsor.name} logo`}
+                          alt={`${sponsor.name}`}
                           className="max-h-40 max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>

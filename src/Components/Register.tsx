@@ -56,14 +56,14 @@ const Register = () => {
             DevSpark'25
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            DevSpark'25 is a national-level tech event hosted at<br />
-            KPRIET, Coimbatore, featuring a 24-hour hackathon,<br />
-            expert-led bootcamp, and a business & leadership forum
+            <span className="sm:block">DevSpark'25 is a national-level tech event hosted at</span>
+            <span className="sm:block">KPRIET, Coimbatore, featuring a 24-hour hackathon,</span>
+            <span className="sm:block">expert-led bootcamp, and a business & leadership forum</span>
           </p>
         </div>
 
         {/* Tracks Grid */}
-        <div className="flex flex-wrap gap-4  justify-center ">
+        <div className="flex flex-col gap-4 justify-center items-center ">
           {tracks.map((track) => (
             <a
               key={track.id}
@@ -71,7 +71,7 @@ const Register = () => {
                 e.preventDefault();
                 handleTrackClick(track.route);
               }}
-              className="block w-150 bg-gradient-to-r from-[#ff7200] to-[#ffae00] rounded-lg p-6 cursor-pointer hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-[1.02] group"
+              className="block w-100 sm:w-150 bg-gradient-to-r from-[#ff7200] to-[#ffae00] rounded-lg pt-6 pb-6 pl-12 pr-12  cursor-pointer hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-[1.02] group"
             >
                 <h2 className="text-white text-center font-medium text-lg">
                   {track.title}

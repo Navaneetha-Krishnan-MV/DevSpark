@@ -6,6 +6,7 @@ type NavItem = {
   name: string;
   href: string;
   path: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 type NavbarProps = {
@@ -39,9 +40,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
   };
   const location = useLocation();
   
+
+  
   const getNavItems = (): NavItem[] => {
     const commonItems = [
-      { name: 'Home', href: '#home', path: 'home' },
+      {
+        name: 'Home',
+        href: '#',
+        path: 'home',
+        onClick: (e: React.MouseEvent) => {
+          e.preventDefault();
+          window.location.replace('/');
+        }
+      },
       { name: 'About', href: '#about', path: 'about' },
     ];
 
@@ -63,6 +74,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
       ]
     };
 
+    if (location.pathname === '/register' || location.pathname === '/REGISTER') {
+      return [{
+        name: 'Home',
+        href: '#',
+        path: 'home',
+        onClick: (e: React.MouseEvent) => {
+          e.preventDefault();
+          window.location.replace('/');
+        }
+      },
+      {name:'Contact', href:'#contact', path:'contact'}];
+    }
+ 
     return [
       ...commonItems,
       ...(pageSpecificItems[currentPage] || []),
@@ -75,9 +99,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform ${
-        isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-black backdrop-blur-md'
-      }`}>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform ${
+          isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-black backdrop-blur-md'
+        }`}
+        aria-label="Main navigation"
+      >
         <div className="max-w-10xl mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Left side - Logo and Sponsor Logos */}
@@ -100,20 +127,40 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
             {/* Center - Desktop Navigation */}
             <div className="hidden lg:block mr-16">
               <div className="flex items-baseline gap-4 xl:gap-6 2xl:gap-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={`${location.pathname}${item.href}`}
-                    onClick={(e) => scrollToSection(e, item.href)}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                      location.hash === item.href 
-                        ? 'text-orange-400' 
-                        : 'text-white hover:text-gray-300'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    if (item.onClick) {
+                      item.onClick(e);
+                    } else {
+                      scrollToSection(e, item.href);
+                    }
+                  };
+                  
+                  return item.href === '#' ? (
+                    <a
+                      key={item.name}
+                      href="#"
+                      onClick={handleClick}
+                      className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-300 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={`${location.pathname}${item.href}`}
+                      onClick={handleClick}
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                        location.hash === item.href 
+                          ? 'text-orange-400' 
+                          : 'text-white hover:text-gray-300'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -159,19 +206,37 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
               <div className="px-4 pt-4 pb-6">
                 {/* Mobile Navigation Items */}
                 <div className="flex flex-col gap-3">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => {
+                  {navItems.map((item) => {
+                    const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                      e.preventDefault();
+                      if (item.onClick) {
+                        item.onClick(e);
+                      } else {
                         scrollToSection(e, item.href);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent block px-4 py-3 text-lg font-medium transition-all duration-200 rounded-lg hover:bg-gray-800/50"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
+                      }
+                      setIsMobileMenuOpen(false);
+                    };
+
+                    return item.href === '#' ? (
+                      <a
+                        key={item.name}
+                        href="#"
+                        onClick={handleMobileClick}
+                        className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent block px-4 py-3 text-lg font-medium transition-all duration-200 rounded-lg hover:bg-gray-800/50"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        onClick={handleMobileClick}
+                        className="text-gray-300 hover:bg-gradient-to-r hover:from-[#ff7200] hover:to-[#ffae00] hover:bg-clip-text hover:text-transparent block px-4 py-3 text-lg font-medium transition-all duration-200 rounded-lg hover:bg-gray-800/50"
+                      >
+                        {item.name}
+                      </a>
+                    );
+                  })}
                   
                   {/* Mobile Register Button */}
                   <a 

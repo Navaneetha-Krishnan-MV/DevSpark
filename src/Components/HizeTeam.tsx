@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProfileCard from "../UI/ProfileCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
+import Tamanna from "/images/Tamanna.png";
 
 interface Speaker {
   id: number;
@@ -18,66 +19,66 @@ interface Speaker {
   github: string;
 }
 
-const juryMembers: Speaker[] = [
+const hizeTeamMembers: Speaker[] = [
   {
     id: 1,
-    name: "Ms. Palak Awasthi",
-    title: "Software Engineer",
-    handle: "palakawasthi",
-    company: "Salesforce",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQFIGYxyfXm2eA/profile-displayphoto-shrink_400_400/B56ZSitCNiHQAg-/0/1737896504048?e=1757548800&v=beta&t=jVi1RL_uvEwOXMOP99lVK_wPTSxUjilUeru--ziFTL0",
+    name: "Mr. Abhinav Gambhir",
+    title: "Senior Manager",
+    handle: "abhinavgambhir",
+    company: "Oracle",
+    avatarUrl: "https://www.ieeecshize.com/images/speakers/Abhinav.jpg",
     contactText: "Connect",
-    bio: "Engineer at Salesforce | Women Techmakers Ambassador @ Google | A mentor, speaker, and hackathon judge with 100K+ LinkedIn followers, she shares insights on DSA, AI/ML, career growth, and hiring. Known for inspiring talks and real-world guidance, she's here to help you level up your journey in tech.",
+    bio: "He is a seasoned cloud professional with 17+ years of experience across Oracle, Microsoft, Red Hat, and HPE. Currently a Senior Manager at Oracle Cloud Infrastructure, he specializes in driving digital transformation with secure and high-performance cloud platforms. As part of the IEEE Leadership Team, he continues to inspire and contribute to the tech community.",
     email: "",
-    website: "https://www.youtube.com/@palakawasthi1",
-    linkedin: "https://www.linkedin.com/in/palakawasthi/",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/abhinavgambhir/",
     github: ""
   },
-  // {
-  //   id: 2,
-  //   name: "Mr. Kshitiz Jaiswal",
-  //   title: "Software Engineer",
-  //   handle: "kshitizjaiswal",
-  //   company: "Google",
-  //   avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQEJnkAqZ4S1zw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723048832371?e=1757548800&v=beta&t=at-dFfDzsJ6D8br_IVnIqDnNPHU277oWYO8HuqoC9IY",
-  //   contactText: "Message",
-  //   bio: "SWE at Google | Candidate Master on Codeforces | With experience at Amazon and Goldman Sachs, he blends deep algorithmic expertise with real-world software engineering. As a Codeforces Candidate Master, he’s passionate about competitive programming, system design, and mentoring. Get ready to gain practical strategies from someone who’s cracked the toughest tech challenges.",
-  //   email: "",
-  //   website: "",
-  //   linkedin: "https://www.linkedin.com/in/kshitizjaiswal/",
-  //   github: ""
-  //  },
   {
     id: 2,
-    name: "Mr. Dinesh Kumar P",
-    title: "Community Builder for AI & Product Thinking",
-    handle: "dinesh",
-    company: "iamneo - An NIIT Venture",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D5603AQHrsJzg86tjqQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1666202873387?e=1757548800&v=beta&t=zbJrAlbh3Uh2N_0z5gOy41jr0hQ4ktIlYP9sJk8qmy4",
-    contactText: "Schedule",
-    bio: "I bring learning as vibes — Microsoft MVP, TechXConf speaker, and community builder for AI & product thinking in Coimbatore. Formerly at Kissflow, Syncfusion, and TnqTech, now collaborating with The Product Folks to spark ideas and conversations.",
+    name: "Mrs. Tamanna Chhabra",
+    title: "Senior Psychologist",
+    handle: "tamannachhabra",
+    company: "Northwell Health",
+    avatarUrl: Tamanna,
+    contactText: "Connect",
+    bio: "Tamanna Chhabra is a Senior Psychologist at Northwell Health with extensive experience in behavioral therapy, clinical psychology, and mental health care. She has worked across leading institutions in the U.S. and India, supporting young adults through therapy, life transitions, and clinical supervision.",
     email: "",
-    website:"",
-    linkedin: "https://www.linkedin.com/in/dinesh-kumar-prabakaran",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/tamanna-chhabra-76709a29/",
     github: ""
   },
   {
     id: 3,
-    name: "Mr. Ramkumar Kuppuchamy",
-    title: "Delivery Director",
-    handle: "ramkumar",
-    company: "Presidio",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/C4D03AQFRY4Vnh8PMIw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1649774746312?e=1758153600&v=beta&t=K7WwfL2LfQpHfuYmaqW1fR0XC1BbgK-VwNMbyYUIRkA",
-    contactText: "Message",
-    bio: "I’m an engineer and a passionate community builder, driven by a love for technology and real-world problem solving. I build high-performance teams, mentor and coach people to unlock their potential, and thrive on connecting ideas, opportunities, and individuals. As a strategic thinker, motivator, and social activist with Team Vidiyal, I channel my energy into making meaningful impact through innovation and collaboration.",
+    name: "Mr. Atul Kumar Rao",
+    title: "Co Lead",
+    handle: "atulkumarrao",
+    company: "IEEE CS SYP HIZE",
+    avatarUrl: "https://www.ieeecshize.com/images/speakers/atul.png",
+    contactText: "Connect",
+    bio: "Currently serving as Chair of the IEEE JSSATEN Student Branch (2025–26), with active roles as Sectional Student Representative for IEEE RAS SAC, Co-Lead of IEEE CS SYP High Impact Zonal Events, and Co-Lead of the IEEE CS SYP Elevate Program. Also volunteering with IEEE R10 HTA, contributing to humanitarian technology projects while engaging thousands of students globally through impactful initiatives.",
     email: "",
-    website:"",
-    linkedin: "https://www.linkedin.com/in/ramkumarkuppuchamy/",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/atulkumarrao/",
     github: ""
-   },
+  },
+  {
+    id: 4,
+    name: "Mr. Shaurya Mishra",
+    title: "Co Lead",
+    handle: "shauryamishra",
+    company: "IEEE CS SYP HIZE",
+    avatarUrl: "https://www.ieeecshize.com/images/speakers/Mishra.jpg",
+    contactText: "Connect",
+    bio: "Pursuing B.Tech in CSE (Batch ’26) with hands-on experience as a Data Analyst Intern at Airports Authority of India and former IoT Intern at Honda Cars India. Currently serving as Chairperson of IEEE MSIT and President of eCell MSIT, leading initiatives that blend technology, leadership, and entrepreneurship. Passionate about innovation and community building, actively working on Coding Catalyst to inspire and empower fellow students in tech.",
+    email: "",
+    website: "",
+    linkedin: "https://www.linkedin.com/in/shauryamishra2504/",
+    github: ""
+  },
 ];
 
-const Jury: React.FC = () => {
+const HizeTeam: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -98,7 +99,7 @@ const Jury: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      juryMembers.forEach((_, index) => {
+    hizeTeamMembers.forEach((_, index) => {
         setTimeout(() => {
           setVisibleCards((prev) => [...prev, index]);
         }, index * 150);
@@ -127,13 +128,13 @@ const Jury: React.FC = () => {
 
   const nextCard = () => {
     setCurrentMobileIndex((prev) => 
-      prev >= juryMembers.length - 1 ? 0 : prev + 1
+      prev >= hizeTeamMembers.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevCard = () => {
     setCurrentMobileIndex((prev) => 
-      prev <= 0 ? juryMembers.length - 1 : prev - 1
+      prev <= 0 ? hizeTeamMembers.length - 1 : prev - 1
     );
   };
 
@@ -148,10 +149,10 @@ const Jury: React.FC = () => {
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-[#ffae00]">
-          Learn from the Best
+         Meet the Hize Team
         </h2>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-          Get inspired by our guest speakers. Hear their stories, learn industry insights and discover what it takes to stand out in tech. Don't just compete — grow!.Tap or click to explore.
+        The IEEE Hize Team brings their vision, dedication, and expertise to create an engaging platform where students can learn from industry leaders, gain real-world insights, and explore opportunities in tech.
         </p>
         <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#ff7200] to-transparent mx-auto"></div>
       </div>
@@ -162,7 +163,7 @@ const Jury: React.FC = () => {
         <div className="block md:hidden">
           <div className="relative max-w-sm mx-auto">
             <div className="relative h-96 mb-6">
-              {juryMembers.map((member, index) => (
+              {hizeTeamMembers.map((member, index) => (
                 <div
                   key={member.id}
                   className={`absolute inset-0 transition-all duration-500 transform ${
@@ -212,7 +213,7 @@ const Jury: React.FC = () => {
 
             {/* Dots Indicator */}
             <div className="flex justify-center gap-2 mt-4">
-              {juryMembers.map((_, index) => (
+              {hizeTeamMembers.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentMobileIndex(index)}
@@ -239,7 +240,7 @@ const Jury: React.FC = () => {
             scrollPaddingLeft: "1rem",
           }}
         >
-          {juryMembers.map((member, index) => (
+          {hizeTeamMembers.map((member, index) => (
             <div
               key={member.id}
               className={`flex-shrink-0 snap-start transition-all transform duration-700 ${
@@ -278,7 +279,7 @@ const Jury: React.FC = () => {
       {/* Desktop View - Three Cards */}
       <div className="hidden lg:block">
         <div className="flex flex-wrap justify-center gap-8 px-4 max-w-7xl mx-auto">
-          {juryMembers.map((member, index) => (
+          {hizeTeamMembers.map((member, index) => (
             <div 
               key={member.id} 
               className={`w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] transition-all duration-500 transform ${
@@ -306,4 +307,4 @@ const Jury: React.FC = () => {
   );
 };
 
-export default Jury;
+export default HizeTeam;

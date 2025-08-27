@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Landing from './Landing';
 import AboutEvent from './AboutEvent';
+import Speaker from './Speaker';
 
 type MosaicProps = {
   setCurrentPage: (page: 'home' | 'devforge' | 'mosaic' | 'bizpulse') => void;
@@ -31,7 +32,7 @@ const Mosaic = ({ setCurrentPage }: MosaicProps) => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Landing />
         <AboutEvent />
-        
+        <Speaker />
       </div>
     </div>
   );

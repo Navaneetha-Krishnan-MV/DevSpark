@@ -39,7 +39,7 @@ const juryMembers: JuryMember[] = [
     title: "Full Stack ML Dev | UI/UX Designer",
     handle: "nigunsanjai",
     company: "Autodesk",
-    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1756944000&v=beta&t=lEpvujZhcSFJh3H2Jqh3qDqQkvdHdgaFAjxdbT9rnnA",
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGCciZjB7G96g/profile-displayphoto-shrink_400_400/B4DZaouSBcHwAg-/0/1746587428791?e=1759968000&v=beta&t=n1hwkDyZwvsn2e08evvQEKMtEM1FRmipPJ_xGRO7L1s",
     contactText: "Message",
     bio: "A Software Development Engineer at Autodesk with hands-on experience in full-stack Java development and a strong foundation in scalable backend systems. As a passionate freelancer and competitive programmer, I bring a problem-solving mindset, deep technical expertise, and a keen interest in innovation. I enjoy mentoring budding developers and evaluating creative solutions",
     email: "radha.nigun@gmail.com",

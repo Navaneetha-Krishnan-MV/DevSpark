@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, Trophy, Brain, BookOpenCheck, Atom, Puzzle, Zap, UserCheck } from 'lucide-react';
+import { Users, Trophy, Brain, BookOpenCheck, Atom, Puzzle, UserCheck, Clock } from 'lucide-react';
 
 const AboutEvent: React.FC = () => {
   const [visibleStats, setVisibleStats] = useState<number[]>([]);
@@ -203,16 +203,16 @@ const AboutEvent: React.FC = () => {
                     </h3>
                     
                     <p className="text-gray-300 text-lg mb-8 max-w-2xl">
-                    Join Mosaic, South India's most dynamic AI bootcamp. Register today and start building the future of intelligent agents!
+                    Registration for Mosaic, South India's most dynamic AI bootcamp, has closed. Thank you for your interest!
                     </p>
                     
                     <div className="relative inline-block group cursor-pointer">
           <div className="absolute inset-0 bg-gradient-to-r from-[#ff7200] to-[#ffae00] opacity-75 group-hover:opacity-100 rounded-2xl blur-xl transition-all duration-300 animate-pulse" />
           
-          <div className="relative bg-gradient-to-r from-[#ff7200] via-[#ff8a00] to-[#ffae00] text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-[#ff7200]/50 hover:border-[#ff7200]/30">
+          <div className="relative bg-gray-800 text-gray-400 font-bold py-3 px-6 rounded-2xl text-lg border-2 border-[#ff7200]/30">
             <div className="flex items-center">
-              <Zap className="w-5 h-5 animate-pulse mr-3" />
-              <a href="https://forms.gle/CKmbE7ZaCZaz4XLy9" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
+              <Clock className="w-5 h-5 mr-3" />
+              <span>REGISTRATION CLOSED (Sep 10, 2025)</span>
             </div>
           </div>
         </div>

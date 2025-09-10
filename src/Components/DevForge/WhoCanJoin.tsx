@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, Zap, Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, CheckCircle, XCircle } from 'lucide-react';
+import { Users, Code, Shield, Layers, UserCheck, UserX, AlertTriangle, Laptop, Brain, CheckCircle, XCircle, Clock } from 'lucide-react';
 
 
 const WhoCanJoin: React.FC = () => {
@@ -145,7 +145,7 @@ const WhoCanJoin: React.FC = () => {
             <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-r from-[#ff7200] via-[#ff8a00] to-[#ffae00] p-1">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center animate-spin" style={{animationDuration: '8s'}}>
                 <div className="relative">
-                  <Zap className="w-16 h-16 text-[#ff7200] animate-pulse" />
+                  <CheckCircle className="w-16 h-16 text-[#ff7200] animate-pulse" />
                   <div className="absolute inset-0 w-16 h-16 bg-[#ff7200]/30 rounded-full blur-xl animate-pulse" />
                 </div>
               </div>
@@ -309,17 +309,17 @@ const WhoCanJoin: React.FC = () => {
             </h3>
             
             <p className="text-gray-300 text-lg mb-8 max-w-2xl">
-              Don't miss your chance to be part of South India's most exciting hackathon. 
-              Register now and let your creativity spark innovation!
+              Registration for South India's most exciting hackathon has closed.
+              Thank you for your interest in DevForge!
             </p>
             
             <div className="relative inline-block group cursor-pointer">
   <div className="absolute inset-0 bg-gradient-to-r from-[#ff7200] to-[#ffae00] opacity-75 group-hover:opacity-100 rounded-2xl blur-xl transition-all duration-300 animate-pulse" />
   
-  <div className="relative bg-gradient-to-r from-[#ff7200] via-[#ff8a00] to-[#ffae00] text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-[#ff7200]/50 hover:border-[#ff7200]/30">
+  <div className="relative bg-gray-800 text-gray-400 font-bold py-3 px-6 rounded-2xl text-lg border-2 border-[#ff7200]/30">
     <div className="flex items-center">
-      <Zap className="w-5 h-5 animate-pulse mr-3" />
-      <a href="https://forms.gle/RMwToJpPsgaAWtbG6" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
+      <Clock className="w-5 h-5 mr-3" />
+      <span>REGISTRATION CLOSED (Sep 10, 2025)</span>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mic2, Users, Lightbulb, TrendingUp, Handshake, Presentation, Zap, UserCheck } from 'lucide-react';
+import { Mic2, Users, Lightbulb, TrendingUp, Handshake, Presentation, UserCheck, Clock } from 'lucide-react';
 
 // Add CSS for the circulating border effect
 const circularBorderStyle = `
@@ -188,15 +188,15 @@ const AboutEvent: React.FC = () => {
             </h3>
 
             <p className="text-gray-300 text-lg mb-8 max-w-2xl">
-              Be part of South India's most impactful innovation pitch session. Register now and let your ideas echo where it matters.
+              Registration for South India's most impactful innovation pitch session has closed. Thank you for your interest.
             </p>
 
             <div className="relative inline-block group cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-400 opacity-75 group-hover:opacity-100 rounded-2xl blur-xl transition-all duration-300 animate-pulse" />
-              <div className="relative bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-600 text-white font-bold py-3 px-6 rounded-2xl text-lg hover:scale-105 transition-all duration-300 border-2 border-yellow-400/50 hover:border-yellow-400/30">
+              <div className="relative bg-gray-800 text-gray-400 font-bold py-3 px-6 rounded-2xl text-lg border-2 border-yellow-400/30">
                 <div className="flex items-center">
-                  <Zap className="w-5 h-5 animate-pulse mr-3" />
-                  <a href="https://forms.gle/XEbBrRLzsVTsEY7z7" target="_blank" rel="noopener noreferrer">🔗 REGISTER NOW</a>
+                  <Clock className="w-5 h-5 mr-3" />
+                  <span>REGISTRATION CLOSED (Sep 10, 2025)</span>
                 </div>
               </div>
             </div>

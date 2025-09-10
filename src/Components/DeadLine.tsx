@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
+import { isRegistrationClosed } from "../lib/registration";
 
 export default function DeadLine() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const registrationClosed = isRegistrationClosed();
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []); 
-  const seconds = currentTime.getSeconds();
-  const minutes = currentTime.getMinutes();
-  const hours = currentTime.getHours();
-  const day = currentTime.getDay();
-  const month = currentTime.getMonth();
-  const year = currentTime.getFullYear();
+    if (!registrationClosed) {
+      const timer = setInterval(() => {
+        setCurrentTime(new Date());
+      }, 1000);
+      
+      return () => clearInterval(timer);
+    }
+  }, [registrationClosed]); 
+  const deadlineTime = registrationClosed ? new Date(2025, 8, 10, 23, 59, 59) : currentTime;
+  
+  const seconds = deadlineTime.getSeconds();
+  const minutes = deadlineTime.getMinutes();
+  const hours = deadlineTime.getHours();
+  const day = deadlineTime.getDay();
+  const month = deadlineTime.getMonth();
+  const year = deadlineTime.getFullYear();
 
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -34,9 +40,11 @@ export default function DeadLine() {
   ) => {
     const totalItems = items.length;
     const degreesPerItem = 360 / totalItems;
-    const targetAngle = 180; // Bottom center position
+    const targetAngle = 180;
     const currentItemAngle = currentIndex * degreesPerItem;
     const rotation = targetAngle - currentItemAngle;
+
+    const transitionStyle = registrationClosed ? "none" : `transform ${transitionDuration} ease-out`;
 
     return (
       <g>
@@ -72,7 +80,7 @@ export default function DeadLine() {
           style={{
             transform: `rotate(${rotation}deg)`,
             transformOrigin: "400px 200px",
-            transition: `transform ${transitionDuration} ease-out`,
+            transition: transitionStyle,
           }}
         >
           {items.map((item, index) => {
@@ -237,12 +245,21 @@ export default function DeadLine() {
             textShadow: "0 0 40px rgba(255,255,255,0.5)",
           }}
         >
-          {currentTime.toLocaleTimeString("en-US", {
+          {deadlineTime.toLocaleTimeString("en-US", {
             hour12: false,
             hour: "2-digit",
             minute: "2-digit",
             second: "2-digit"
           })}
+        </div>
+        
+        <div className="mt-4 mb-8 animate-pulse" style={{ animationDuration: '3s' }}>
+          <div className="text-xl md:text-2xl font-bold text-[#ff7200] mb-2">
+            REGISTRATION CLOSED
+          </div>
+          <div className="text-gray-400">
+            Thank you for your interest in DevSpark'25
+          </div>
         </div>
       </div>
     </div>
